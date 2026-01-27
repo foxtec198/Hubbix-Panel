@@ -14,7 +14,11 @@ document.getElementById('serviceSelect').addEventListener('change', function (e)
 });
 
 const video = document.getElementById('videoEstrada')
-video ? video.play() : null
+video.addEventListener('click', function(){
+    console.log("Play");
+    this.play();
+    
+})
 
 // Criação do Recaptcha
 window.onload = function () {
