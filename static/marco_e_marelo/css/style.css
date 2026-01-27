@@ -1,0 +1,63 @@
+html, body{
+    height: 100%;
+    width: 100%;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Buttons */
+.btn-azul {
+    background-color: #001f3f;
+    border: 2px solid #fff;
+    color: #fff;
+}
+.btn-azul:hover {
+    border: 2px solid #fff;
+}
+.btn-amarelo {
+    background-color: #FFD700;
+}
+.btn-amarelo:hover {
+    background-color: #FFD700;
+    opacity: .8;
+}
+
+/* Backs */
+.bg-azul {
+    background-color: #001f3f;
+    color: #fff;
+}
+.bg-amarelo {
+    background-color: #FFD700;
+}
+.text-preto {
+    color: #000;
+}
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+}
+.hero { /*TEXTO*/
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    height: 60%;
+}
+.hero::before{ /*IMAGEM*/
+    content: '';
+    background-image: url('/src/img/banner.png');
+    background-position: center;
+    background-size: cover;
+    opacity: .85;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    filter: url(#bluescale);
+}
+.servico-img {
+    max-height: 150px;
+    object-fit: cover;
+}

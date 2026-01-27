@@ -1,0 +1,112 @@
+body, html{
+    width: 100%;
+    height: 100%;
+    background-color: #f4f9ff; 
+    font-family: 'Segoe UI', sans-serif; 
+}
+
+.hero{ 
+    /* background: linear-gradient(to right, #007BBD, #00B4DB);  */
+    background: url('/img/water_bg2.png');
+    color: white; 
+    padding: 100px 0; 
+    text-align: center; 
+}
+
+.hero h1{ 
+    font-size: 3rem; 
+}
+
+.section-title{ 
+    color: #007BBD; 
+    font-weight: 700; 
+    margin-bottom: 1rem; 
+}
+
+.section-title-white{ 
+    color: #fff; 
+    font-weight: 700; 
+    margin-bottom: 1rem; 
+}
+
+.btn-primary{ 
+    background-color: #007BBD; 
+    border-color: #007BBD; 
+}
+
+.logo{ 
+    max-width: 120px; 
+}
+
+.mascote{ 
+    max-width: 150px; 
+}
+
+.prods_cont img{
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+}
+
+marquee{
+    width: 100%;
+    padding: .6rem;
+}
+marquee img{
+    max-width: 150px;
+}
+
+footer{ 
+    background-color: #003d66; 
+    color: white; 
+    padding: 30px 0; 
+}
+
+
+.marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      width: 100%;
+      background: none;
+}
+
+.marquee-content {
+    display: inline-block;
+    gap: 20px;
+    padding-left: 100%; /* começa fora da tela */
+    animation: marquee 15s linear infinite;
+}
+
+.marquee-content img{
+    max-width: 20vh;
+    object-fit: contain;
+}
+
+@keyframes marquee {
+    from {
+    transform: translateX(0%);
+    }
+    to {
+    transform: translateX(-220%);
+    }
+}
+
+/* Duplique o conteúdo para criar o loop contínuo */
+.marquee-content span {
+    display: inline-block;
+    padding-right: 100%; /* espaço entre os dois blocos duplicados */
+}
+
+
+.patt_cat  {
+  width: 100%;
+  height: 100%;
+  --color: rgba(114, 114, 114, 0.3);
+  background-color: #e6ebeb;
+  background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
+      linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+  background-size: 55px 55px;
+}
+

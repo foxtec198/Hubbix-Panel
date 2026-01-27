@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Orbitron:wght@400..900&display=swap');
+
+body, html{
+    /* --primary: #193076;
+    --sencondary: #e61a30; */
+    --primary: #cba36c;
+    --sencondary: #cba36c;
+    --gray: #292623;
+    --whitef: #ebe5dc;
+
+}
+
+.btn_pm{
+    background-color: var(--primary);
+    color: var(--whitef);
+}
+
+.orbitron{
+    font-family: "Orbitron", serif;
+}
+
+.kanit-extrabold {
+    font-family: "Kanit", serif;
+    font-weight: 800;
+    font-style: normal;
+}
+.kanit-regular {
+    font-family: "Kanit", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.title1{
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: var(--sencondary) 4px 4px 15px;
+    
+}
+.bg-blue{
+    background: var(--primary);
+    color: white;
+}
+.bi-star-fill{
+    font-size: 30px;
+}
+.bi-star-fill:hover{
+    color: #ffc300;
+    transform: rotate(10deg);
+}
+.btn:hover{
+    transform: scale(1.05);
+}
+.title2{
+    font-size: 6vh;
+    font-weight: 700;
+    color: var(--sencondary);
+}
+
+.title3{
+    font-size: 6vh;
+    font-weight: 700; 
+    color: var(--primary);
+}
+
+.sub1{
+    text-decoration: underline 10px var(--primary);
+    font-weight: 700;
+}
+
+.sub2{
+    text-decoration: underline 10px var(--sencondary);
+    font-weight: 700;
+}
+
+.hc1, .hc2{
+    filter: grayscale(1);
+}
+
+.hc1:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    filter: grayscale(0);
+}
+
+.hc2:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+    filter: grayscale(0);
+}
+
+.banner{
+    padding: 10%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner::before    {
+    content: '';
+    position: absolute;
+    color: #fff;
+    z-index: -1;
+    /* background: url('https://placehold.co/1080x480'); */
+    background: url('../img/pexels-tdcat-70912.jpg');
+    background-color: #000;
+    background-position: center;
+    background-size: cover;
+    inset: 0;
+    filter: blur(4px);
+    /* opacity: 50%; */
+}
+.containerPt2 {
+    width: 100%;
+    height: 100%;
+    --color: rgba(114, 114, 114, 0.3);
+    background-color: #191a1a;
+    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
+    linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+    background-size: 55px 55px;
+}
+
+/* From Uiverse.io by SouravBandyopadhyay */ 
+.notification {
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+    position: relative;
+    max-width: 25rem;
+    min-height: 8rem;
+    background: #29292c;
+    border-radius: 1rem;
+    overflow: hidden;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    --gradient: linear-gradient(to bottom, #2eadff, #3d83ff, #7e61ff);
+    --color: #fff
+}
+  
+.notification:before {
+    position: absolute;
+    content: "";
+    inset: 0.0625rem;
+    border-radius: 0.9375rem;
+    background: #333;
+    z-index: 2
+}
+  
+.notification:after {
+    position: absolute;
+    content: "";
+    width: 0.25rem;
+    inset: 0.65rem auto 0.65rem 0.5rem;
+    border-radius: 0.125rem;
+    background: var(--primary);
+    transition: transform 300ms ease;
+    z-index: 4;
+}
+
+.notification:hover:after {
+    transform: translateX(0.15rem)
+}
+  
+.notititle {
+    color: var(--color);
+    padding: 0.65rem 0.25rem 0.4rem 1.25rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: transform 300ms ease;
+    z-index: 5;
+}
+  
+.notification:hover .notititle {
+    transform: translateX(0.15rem)
+}
+  
+.notibody {
+    color: #99999d;
+    padding: 0 1.25rem;
+    transition: transform 300ms ease;
+    z-index: 5;
+}
+  
+.notification:hover .notibody {
+    transform: translateX(0.25rem)
+}
+  
+.notiglow, .notiborderglow {
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle closest-side at center, white, transparent);
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+  
+.notiglow {
+    z-index: 3;
+}
+  
+.notiborderglow {
+    z-index: 1;
+}
+  
+.notification:hover .notiglow {
+    opacity: 0.1
+}
+  
+.notification:hover .notiborderglow {
+    opacity: 0.1
+}
+  
+@media only screen and (max-width: 500px) {
+    .mobile-hide{ display: none !important; }
+}
+
+@media only screen and (max-width: 500px) {
+    .mobile{ display: inline !important; }
+}
+
+@media only screen and (min-width: 500px) {
+    .mobile{ display: none !important; }
+}
+
+
+/* From Uiverse.io by ammarsaa */ 
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    background-color: #1a1a1a;
+    color: #fff;
+    border: 1px solid #333;
+}
+  
+.title {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    color: var(--sencondary);
+}
+  
+.title::before {
+    width: 18px;
+    height: 18px;
+}
+  
+.title::after {
+    width: 18px;
+    height: 18px;
+    animation: pulse 1s linear infinite;
+}
+  
+.title::before,
+.title::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 0px;
+    background-color: var(--sencondary);
+}
+  
+.message, 
+.signin {
+    font-size: 14.5px;
+    color: rgba(255, 255, 255, 0.7);
+}
+  
+.signin {
+    text-align: center;
+}
+  
+.signin a:hover {
+    text-decoration: underline royalblue;
+}
+  
+.signin a {
+    color: #00bfff;
+}
+  
+.flex {
+    display: flex;
+    width: 100%;
+    gap: 6px;
+}
+  
+.form label {
+    position: relative;
+}
+  
+.form label .input {
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    padding: 20px 05px 05px 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+}
+  
+.form label .input + span {
+    color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+}
+  
+.form label .input:placeholder-shown + span {
+    top: 12.5px;
+    font-size: 0.9em;
+}
+  
+.form label .input:focus + span,
+.form label .input:valid + span {
+    color: #00bfff;
+    top: 0px;
+    font-size: 0.7em;
+    font-weight: 600;
+}
+  
+.input {
+    font-size: medium;
+}
+  
+.submit {
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transform: .3s ease;
+    background-color: var(--sencondary);
+}
+  
+.submit:hover {
+    background-color: #780000;
+}
+  
+@keyframes pulse {
+    from {
+      transform: scale(0.9);
+      opacity: 1;
+    }
+  
+    to {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+}
+
+.neon {
+    animation: piscando 5s infinite;
+}
+  
+@keyframes piscando {
+    0% {
+      border-color: transparent;
+      opacity: 0.1;
+    }
+    
+    2% {
+      border-color: #6CE8EB;
+      opacity: 1;
+    }
+    
+    4% {
+      border-color: transparent;
+      opacity: 0.5;
+    }
+    
+    8% {
+      border-color: #6CE8EB;
+      opacity: 1;
+    }
+    
+    28% {
+      border-color: #6CE8EB;
+      opacity: 1;
+    }
+    
+    30% {
+      border-color: transparent;
+      opacity: 0.5;
+    }
+    
+    36% {
+      border-color: #6CE8EB;
+      opacity: 1;
+    }
+    
+    100% {
+      border-color: #6CE8EB;
+      opacity: 1;
+    }
+}

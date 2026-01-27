@@ -1,0 +1,52 @@
+
+.bg-primary {
+    background: var(--primary) !important;
+    color: #fff !important;
+}
+
+.btn-insta{
+    background: var(--insta);
+    border: none;
+    color: #fff;
+    font-weight: 400;
+}
+
+.btn-insta:hover{
+    color: #999;
+}
+
+.bg-secondary {
+    background: var(--secondary) !important;
+    color: #fff !important;
+}
+.bg-secondary-2{
+    background: linear-gradient(#bbbec7, var(--secondary), #bbbec7);
+}
+
+.btn-primary{
+    background-color: var(--primary) !important;
+    border: none;
+    color: var(--secondary) !important;
+}
+
+.btn-primary:hover{
+    background-color: var(--blue) !important;
+    border: none;
+    color: var(--secondary) !important;
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.sub1 {
+    text-decoration: underline 10px var(--primary);
+}
+
+.sub2 {
+    text-decoration: underline 10px var(--secondary);
+}
+
+.flex-basis-200{
+    flex-basis: 200px;
+}
