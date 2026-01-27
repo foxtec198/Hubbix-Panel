@@ -19,10 +19,13 @@ body {
     width: 100%;
     font-family: "Albert Sans", sans-serif;
     letter-spacing: -1px;
+    overflow-x: hidden;
 }
 
 .hero{
-    height: 60dvh;
+    height: 80dvh;
+    width: 100dvw;
+    overflow-x: hidden;
 }
 
 
@@ -119,6 +122,7 @@ nav{
 
 #capacite{
     background: url("../img/bn-middle1.png") no-repeat center;
+    background-size: cover;
     color: #fff;
 }
 
