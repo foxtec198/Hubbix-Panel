@@ -2,14 +2,16 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.m
 
 const canvas = document.getElementById("candles");
 const ctx = canvas.getContext("2d");
+const adjust_width = 20;
+const adjust_height = 0.8;
 
-canvas.width = window.innerWidth - 20;
-canvas.height = window.innerHeight - 350;
+canvas.width = window.visualViewport.width;
+canvas.height = window.visualViewport.height * adjust_height;
 
 const config = {
     candleCount: 60,      // número de velas por onda
     candleWidth: 12,      // largura das velas
-    pauseTime: 100,      // pausa entre uma leva e outra (ms)
+    pauseTime: 10,      // pausa entre uma leva e outra (ms)
     speedMin: 0.4,        // velocidade mínima de subida
     speedMax: 1.0         // velocidade máxima de subida
 };
@@ -85,7 +87,8 @@ function animate() {
 startWave();
 animate();
 
-window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+window.addEventListener("resize", function(){
+    canvas.width = window.visualViewport.width;
+    canvas.height = window.visualViewport.height * adjust_height;
+    candles = [];
 });
