@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,18 +9,21 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="{{url_for('static', filename='estrada_consultoria/css/font.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='estrada_consultoria/css/fonts.css')}}">
   <link rel="stylesheet" href="{{url_for('static', filename='estrada_consultoria/css/style.css')}}">
   <link rel="stylesheet" href="{{url_for('static', filename='estrada_consultoria/css/utils.css')}}">
   <!-- END CSS -->
+  <!-- TAG AREA -->
+  
+  <!-- END TAG AREA -->
 </head>
 
 <body>
-  <!-- WhatsApp flutuante -->
-  <a class="btn btn-success btn-lg whatsapp-btn" href="https://wa.me/5544991050013" target="_blank" rel="noopener"
-    title="Chamar no WhatsApp">
+  <!-- FLOAT WHATSAPP -->
+  <a class="btn btn-success btn-lg whatsapp-btn" href="https://wa.me/5544991050013" target="_blank" rel="noopener" title="Chamar no WhatsApp">
     <i class="bi bi-whatsapp"></i>
   </a>
+  <!-- END FLOAT WHATSAPP -->
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-light bg-white shadow-sm overflow-x-hidden navbar-expand-lg">
@@ -54,8 +56,9 @@
       <a class="btn btn-lg btn-primary mt-5" href="#contato">MUDE ISSO JÁ!</a>
     </div>
   </div>
+  <!-- END HERO -->
 
-  <!-- QUEM SOMOS -->
+  <!-- ABOUT US -->
   <section id="quem" class="py-5">
     <div class="container">
       <div class="d-flex flex-wrap justify-content-center align-items-center">
@@ -98,8 +101,9 @@
       </div>
     </div>
   </section>
+  <!-- END ABOUT US -->
 
-  <!-- NOSSA EQUIPE -->
+  <!-- OUR TEAM -->
   <span class="icon-up-div iud-dark-green"><i class="bi bi-arrow-down"></i></span>
   <section class="py-5 bg-dark-green">
     <div class="container">
@@ -132,8 +136,9 @@
       </div>
     </div>
   </section>
+  <!-- END OUR TEAM -->
 
-  <!-- SERVIÇOS -->
+  <!-- SERVICES -->
   <section id="servicos" class="py-5 bg-light">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-4 p-2">
@@ -210,10 +215,11 @@
       </div>
     </div>
   </section>
+  <!-- END SERVICES -->
 
-  <!-- CAPACITAR E CTA -->
-  <section class="py-5" id="capacite" style="height: 50dvh;">
-    <div class="container">
+  <!-- EMPOWER -->
+  <section class="p-5" id="capacite">
+    <div class="container p-5">
       <div class="d-inline flex-column">
         <h3 class="display-5 fw-bold">Terceirize seu financeiro.</h3>
         <p class="fs-4" style="max-width: 600px;">Ganhe tempo, reduza custos e foque no que realmente importa.</p>
@@ -222,8 +228,9 @@
       </div>
     </div>
   </section>
+  <!-- END EMPOWER -->
 
-  <!-- BENEFICIOS / LISTA -->
+  <!-- EXPERIENCE -->
   <section id="beneficios" class="py-5 bg-light">
     <div class="container">
       <h2 class="text-secondary fw-bold">Experiência <span class="text-primary">Especializada.</span></h2>
@@ -270,8 +277,9 @@
       </div>
     </div>
   </section>
+  <!-- END EXPERIENCE -->
 
-  <!-- FLUXO -->
+  <!-- FLOW -->
   <section id="fluxo" class="py-5">
     <div class="container text-center d-flex justify-content-center flex-column align-items-center">
       <div class="d-flex flex-column align-items-center mb-4">
@@ -285,10 +293,11 @@
       </div>
     </div>
   </section>
+  <!-- END FLOW -->
 
-  <!-- TESTEMUNHOS -->
+  <!-- TESTIMONIALS -->
   <section class="py-5 bg-gscale">
-    <div class="container">
+    <div class="container overflow-x-hidden">
       <h2 class="fw-bold text-secondary mb-5">Depoimento dos <span class="text-primary">Clientes.</span></h2>
 
       <div class="carousel-wrapper position-relative d-flex justify-content-center">
@@ -362,25 +371,26 @@
         </div>
 
         <!-- Botões FORA do carrossel -->
-        <button class="carousel-control-prev outside" type="button" data-bs-target="#carouselExampleAutoplaying"
+        <button class="carousel-control-prev outside mobile-hide" type="button" data-bs-target="#carouselExampleAutoplaying"
           data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         </button>
-        <button class="carousel-control-next outside" type="button" data-bs-target="#carouselExampleAutoplaying"
+        <button class="carousel-control-next outside mobile-hide" type="button" data-bs-target="#carouselExampleAutoplaying"
           data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </button>
       </div>
     </div>
   </section>
+  <!-- END TESTMONIALS -->
 
-  <!-- REGIOES ATENDIDAS -->
+  <!-- SERVED REGIONS -->
   <section class="py-5">
     <div class="container">
       <h2 class="text-secondary fw-bold">Atendemos todo o <span class="text-primary">Brasil.</span></h2>
       <p class="text-dark">Você pode ser o próximo! Confira abaixo as regiões em que já estamos presentes.</p>
       <div class="row mt-3">
-        <div class="col-md-6 d-flex justify-content-around gap-2 p-1" data-aos="fade-right">
+        <div class="col-md-6 d-flex justify-content-around gap-2 p-1" data-aos="fade-down">
           <div>
             <h6 class="text-primary fs-5 fw-bold">Paraná</h6>
             <ul d-list="">
@@ -442,8 +452,8 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6" data-aos="fade-left">
-          <img src="img/mapa.jpeg" alt="Mapa" class="maps-img mobile-hide">
+        <div class="col-md-6" data-aos="fade-up">
+          <img src="{{url_for('static', filename='estrada_consultoria/img/mapa.jpeg')}}" alt="Mapa" class="maps-img mobile-hide">
         </div>
       </div>
     </div>
@@ -522,8 +532,9 @@
       </div>
     </div>
   </section>
+  <!-- END SERVED REGIONS -->
 
-  <!-- CTA contato -->
+  <!-- CTA -->
   <section id="contato" class="py-5 bg-light">
     <div class="container d-flex justify-content-center flex-wrap gap-5">
       <div class="d-flex flex-column flex-grow-1" style="flex-basis: 400px;">
@@ -574,13 +585,14 @@
       </div>
     </div>
   </section>
+  <!-- END CTA -->
 
   <!-- FOOTER -->
   <footer class="footer bg-dark-green">
-    <div class="container d-flex gap-4 justify-content-center align-items-start flex-wrap">
+    <div class="container d-flex gap-4 justify-content-between align-items-center flex-wrap">
       <!-- Logo -->
       <div class="d-flex justify-content-center align-items-center  flex-grow-1" style="flex-basis: 300px;">
-        <img src="img/logo_2.svg" alt="">
+        <img src="{{url_for('static', filename='estrada_consultoria/img/logo_2.svg')}}" alt="">
       </div>
       <!-- Contato -->
       <div class="d-flex flex-column justify-content-center align-items-center flex-grow-1" style="flex-basis: 300px;">
@@ -608,11 +620,21 @@
         <div class="fs-6">CNPJ 28.144.427/0001-82</div>
       </div>
     </div>
-    <div class="text-center mt-5">
-      <a href="https://tecnobreve.onrender.com" class="text-decoration-none text-light" target="_blank">Desenvolvido por
-        <img src="img/tecnobreve.png" class="img-fluid" width="200vh" alt=""></a>
-    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="d-flex flex-wrap justify-content-center text-center text-truncate align-items-center gap-2 py-5">
+          <a href="https://tecnobreve.onrender.com" target="_blank" class="d-flex text-decoration-none text-light justify-content-center align-items-center gap-2">
+              <span>&copy; Desenvolvido por </span>
+              <img src="{{url_for('static', filename='tecnobreve/img/tecnobreve.png')}}" height="70vh">
+          </a>
+          <a href="https://instagram.com/mekadigital_/" target="_blank" class="d-flex text-decoration-none text-light justify-content-center align-items-center gap-2">
+              <span>em parceria com </span>
+              <img src="{{url_for('static', filename='meka/img/meka.png')}}" class="mb-2" height="40vwh">
+          </a>
+      </div>
+      <!-- END COPYRIGHT -->
   </footer>
+  <!-- END FOOTER -->
 
   <!-- SCRIPTS -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -620,8 +642,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>AOS.init({ duration: 700, once: true });</script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.min.js"></script>
-  <script src="js/candle_2d.js" type="module"></script>
-  <script src="js/main.js"></script>
+  <script src="{{url_for('static', filename='estrada_consultoria/js/candle_2d.js')}}" type="module"></script>
+  <script src="{{url_for('static', filename='estrada_consultoria/js/main.js')}}"></script>
   <!-- END SCRIPTS -->
 </body>
 
