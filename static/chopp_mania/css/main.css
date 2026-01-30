@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background: #333;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.info{
+    background-color: #000;
+    flex: 3;
+    background: url('../img/bg2choppmania.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    padding: 20px;
+    min-width: 200px;
+    min-height: 400px;
+}
+.info img{
+    height: 10rem;
+}
+/* ------------------------------------------- */
+.form{
+    min-width: 400px;
+    padding: 20px;
+    background-color: white;
+    color: #000;
+    flex: 1;
+}
+.form form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

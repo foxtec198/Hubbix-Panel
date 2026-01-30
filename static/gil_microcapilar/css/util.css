@@ -1,0 +1,67 @@
+/* 
+    Aqui ficarão os utilizaveis, textos, backgrounds, btns e etc.
+*/
+
+/* Backgrounds */
+.bg-light-custom {
+    background: linear-gradient(#bfb4b4, #fff, ghostwhite) !important;
+    color: #0a0908;
+}
+.bg-dark-custom{
+    background: linear-gradient(#000, #0b090a, #0a0908) !important
+}
+
+.bg-gray{
+    background: #333 !important;
+}
+
+/* Texts */
+.text-insta{
+    color: #E1306C !important;
+}
+
+.text-dark-gray{
+    color: #333 !important;
+}
+
+.text-gray{
+    color: #555 !important;
+}
+
+.text-gray-light{
+    color: #999 !important;
+}
+
+.text-gray-sub{
+    color: #fff !important;
+    background: #555 !important;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+
+@media only screen and (max-width: 500px){
+    .mobile-hide{
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .mobile{
+        display: '' !important;
+    }
+}
+
+@media only screen and (min-width: 501px){
+    .mobile{
+        display: none !important;
+    }
+}
+
+.flex-basis{
+    flex-basis: 400px;
+}
+
+.flex-basis-2{
+    flex-basis: 200px;
+}

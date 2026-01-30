@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Garage DS15 | Auto Center Londrina</title>
+    <!-- METAS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- END METAS -->
+
+    <!-- CSS/LINKS -->
+    <link rel="shortcut icon" href="{{url_for('static', filename='garage_ds15/img/newID/ds15.png')}}"
+        type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='garage_ds15/css/main.css')}}">
+    <!-- END CSS/LINKS -->
+
+    <!-- TAG AREA -->
+
+    <!-- END TAG AREA -->
+</head>
+
+<body data-bs-theme="dark" class="containerPt2">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="{{url_for('static', filename='garage_ds15/img/newID/LOGO-DERICK.png')}}"
+                    class="img-fluid object-fit-cover" alt="logo" style="height: 50px; width: 150px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicos">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contatos">Contatos</a>
+                    </li>
+                </ul>
+                <a class="btn btn-outline-light rounded-pill" href="https://wa.me/?phone=4333723884" target="_blank"> Entre em
+                    Contato</a>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVBAR -->
+
+    <!-- HERO -->
+    <div class="banner text-center">
+        <p class="title1 neon orbitron">Oficina Mecânica</p>
+        <p class="fs-5 kanit-regular">"Cuide do seu carro com quem entende! Agende sua visita em nossa oficina."</p>
+        <div class="mb-5">
+            <a href="https://wa.me/?phone=4333723884" target="_blank" class="btn fw-bold" style="background: #cba36c; color: #fff;">
+                Agende Agora!</a>
+        </div>
+        <p class="fs-6 kanit-regular">A oficina mais bem avaliada de Londrina!</p>
+        <div class="d-flex gap-2 stars align-self-center">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+        </div>
+    </div>
+    <!-- END HERO -->
+
+    <!-- SERVICES -->
+    <div class="d-flex flex-column p-4 mb-5" id="servicos">
+        <p class="title2 text-end mobile-hide orbitron">Nosso Serviços</p>
+        <p class="fs-5 w-50 align-self-end mobile-hide text-end kanit-regular">Apresentamos nossos serviços para seu
+            veículo, realizado por profissionais para te oferecer <span class="sub2">segurança</span> e <span
+                class="sub2">qualidade</span>!</p>
+        <p class="title2 text-center mobile orbitron" style="font-size: 6vh;">Nosso Serviços</p>
+        <p class="fs-5 text-center mobile kanit-regular">Apresentamos nossos serviços para seu veículo, realizado por
+            profissionais para te oferecer <span class="sub2">segurança</span> e <span class="sub2">qualidade</span>!
+        </p>
+        <br>
+        <div class="d-flex flex-column">
+            <div class="d-flex flex-wrap justify-content-center gap-4" style="flex-grow: 1;">
+                <div class="card text-bg-dark hc2" style="flex-basis: 400px;">
+                    <img src="{{url_for('static', filename='garage_ds15/img')}}/newID/1.jpeg" class="card-img img-fluid"
+                        alt="...">
+                    <div class="card-img-overlay">
+                        <a href="https://wa.me/?phone=4333723884"
+                            class="btn btn-lg btn-light rounded-pill fw-bold">Solicitar Orçamento</a>
+                    </div>
+                </div>
+
+                <div class="card text-bg-dark hc1" style="flex-basis: 400px;">
+                    <img src="{{url_for('static', filename='garage_ds15/img/newID/2.jpeg')}}" class="card-img img-fluid"
+                        alt="...">
+                    <div class="card-img-overlay">
+                        <a href="https://wa.me/?phone=4333723884"
+                            class="btn btn-lg btn-light rounded-pill fw-bold">Solicitar Orçamento</a>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="d-flex flex-wrap justify-content-center gap-4" style="flex-grow: 1;">
+                <div class="card text-bg-dark hc2" style="flex-basis: 400px;">
+                    <img src="{{url_for('static', filename='garage_ds15/img/newID/3.jpeg')}}" class="card-img img-fluid"
+                        alt="...">
+                    <div class="card-img-overlay">
+                        <a href="https://wa.me/?phone=4333723884"
+                            class="btn btn-lg btn-light rounded-pill fw-bold">Solicitar Orçamento</a>
+                    </div>
+                </div>
+
+                <div class="card text-bg-dark hc1" style="flex-basis: 400px;">
+                    <img src="{{url_for('static', filename='garage_ds15/img/newID/4.jpeg')}}" class="card-img img-fluid"
+                        alt="...">
+                    <div class="card-img-overlay">
+                        <a href="https://wa.me/?phone=4333723884"
+                            class="btn btn-lg btn-light rounded-pill fw-bold">Solicitar Orçamento</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END SERVICES -->
+
+    <!-- ABOUT US -->
+    <div class="d-flex flex-column text-bg-light" id="sobre" style="border-radius: 20px;">
+        <p class="title3 p-4 orbitron">Sobre Nós</p>
+
+        <div class="d-flex justify-content-between text-bg-dark gap-2 align-items-center flex-wrap mb-3"
+            style="flex-grow: 1; flex-basis: 400px;">
+            <img src="{{url_for('static', filename='garage_ds15/img/newID/banner.jpeg')}}" class="img-fluid w-100"
+                style="max-width: 800px;">
+
+            <div class="d-flex align-items-center flex-column" style="max-width: 500px;">
+                <p class="fs-5 text-start p-2 kanit-regular">
+                    A Garage DS15 é uma oficina automotiva especializada em oferecer soluções completas para manutenção
+                    e reparos de veículos de diversas marcas e modelos. Com uma equipe de profissionais altamente
+                    capacitados e apaixonados por carros, garantimos um atendimento de qualidade, eficiente e confiável.
+                </p>
+                <div class="align-self-end p-4">
+                    <a href="https://wa.me/?phone=4333723884" class="btn btn-lg orbitron"
+                        style="background: #cba36c; color: #fff;">Entre em Contato</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <p class="title3 p-4 orbitron">Nossa Localização!</p>
+        <div class="d-flex w-100 container-fluid mb-5">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.7810929475695!2d-51.11113252467703!3d-23.323699978963912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eb43044fd2185b%3A0xe94321dfc8298883!2sOficina%20Mec%C3%A2nica%20Garage%20DM43!5e0!3m2!1spt-BR!2sbr!4v1734113175491!5m2!1spt-BR!2sbr"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    <!-- END ABOUT US -->
+
+    <!-- CONTACTS -->
+    <div class="d-flex flex-column mb-5 p-4" id="contatos">
+        <p class="title2 p-4 orbitron">Contato</p>
+        <div class="d-flex justify-content-center flex-wrap gap-4">
+            <div class="d-flex flex-column gap-2 justify-content-center">
+                <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle kanit-regular"><i class="bi bi-people-fill"></i> Profissionais Qualificados e
+                        Experientes</div>
+                    <div class="notibody kanit-regular">Contamos com uma equipe de mecânicos altamente treinados e
+                        experientes, garantindo um serviço de qualidade e segurança para o seu veículo.</div>
+                </div>
+                <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle kanit-regular"><i class="bi bi-trophy-fill"></i> Atendimento Personalizado
+                    </div>
+                    <div class="notibody kanit-regular">Cada cliente é tratado de forma única, com atenção aos detalhes
+                        e soluções adaptadas às necessidades específicas do seu carro.</div>
+                </div>
+                <div class="notification">
+                    <div class="notiglow"></div>
+                    <div class="notiborderglow"></div>
+                    <div class="notititle kanit-regular"><i class="bi bi-pc-display"></i> Equipamentos de Última Geração
+                    </div>
+                    <div class="notibody kanit-regular">Utilizamos tecnologia de ponta e ferramentas modernas para
+                        realizar diagnósticos e reparos, proporcionando maior precisão e eficiência.</div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <form class="form">
+                    <p class="title orbitron">Entre em Contato!</p>
+                    <a href="https://api.whatsapp.com/send/?phone=4333723884" class="btn fw-bold"
+                        style="background: #cba36c; color: #fff;">
+                        <i class="bi bi-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="https://www.instagram.com/garagedm43/" class="btn fw-bold"
+                        style="background: #cba36c; color: #fff;">
+                        <i class="bi bi-instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61568564459855" class="btn fw-bold"
+                        style="background: #cba36c; color: #fff;">
+                        <i class="bi bi-facebook"></i> Facebook
+                    </a>
+                    <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJfrLKCwBjkWtfpbbptWgfKTPQSXSwJtjlBWjBkPZXqNPSjJdVQjPQDTgPSdsxTknTpDlFg"
+                        class="btn fw-bold" style="background: #cba36c; color: #fff;">
+                        <i class="bi bi-envelope-at-fill"></i> Email
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- END CONTACTS -->
+
+    <!-- FOOTER -->
+    <footer class="d-flex flex-column p-4 justify-content-center align-items-center">
+        <div class="container text-center mt-5 mb-2 py-5 d-flex gap-2 align-items-center justify-content-center flex-wrap"
+            data-aos="fade-down">
+            <a href="https://tecnobreve.onrender.com " class="text-decoration-none text-light" target="_blank">
+                &copy; 2025, Desenvolvido por
+                <img src="{{url_for('static', filename='tecnobreve/img/tecnobreve.png')}}" width="200vh">
+                <img>
+            </a>
+            <a href="https://www.instagram.com/mekadigital_/"
+                class="text-decoration-none text-light d-flex align-items-center gap-2" target="_blank">
+                Em parceria com
+                <img src="{{url_for('static', filename='meka/img/meka.png')}}" width="150vh">
+            </a>
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+
+    <!-- SCRIPTS -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16939987532">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-16939987532');
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- END SCRIPTS -->
+</body>
+
+</html>

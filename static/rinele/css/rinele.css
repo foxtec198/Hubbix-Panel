@@ -1,0 +1,111 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+@font-face{
+    font-family: 'Afrah';
+    src: url('../fonts/AfrahDemo.woff') format('woff');
+}
+@font-face{
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat.ttf') format('ttf');
+}
+
+body{
+    background: url('../img/rinele/bg.jpg');
+    /* background: url('../src/img/bg.png'); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    --bgc: #13293d;
+    --fg1: #fff;
+    --fg2: #413c36;
+    --fg3: #000;
+    --color2: #006494;
+    --color3: #547084;
+    --color4: #345e7d;
+}
+body h1, h2{
+    font-family: 'Afrah';
+}
+body p{
+    font-family: 'Montserrat';
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #13293d;
+    height: 650px;
+    opacity: 60%;
+}
+.title h1{
+    font-size: 65px;
+}
+.title h2{
+    font-size: 25px;
+}
+.title p{
+    font-size: 20px;
+}
+
+
+.infos h1, h2, p{
+    color: var(--fg1);
+    font-size: 25px;
+}
+.infos p{
+    font-size: 20px;
+    margin: auto;
+}
+.txtA{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.infos{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bgc);
+    color: var(--fg3);
+    gap: 20px;
+    padding: 20px;
+}
+.formInfos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lg{
+    position: absolute;
+    top: 10px;
+    left: 15px;
+}
+.redesSociais{
+    font-size: 35px;
+    color: #fff;
+}
+.dvRd{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 25px;
+}
+.copy{
+    font-style: italic;
+    color: gray;
+    font-family: sans-serif;
+}
+.copy a{
+    color: gray;
+}

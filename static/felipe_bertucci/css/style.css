@@ -1,0 +1,154 @@
+:root {
+    --primary: #3f5475;
+    --secondary: #cccfd6;
+    --blue: #1c3864;
+    --insta: linear-gradient(150deg, #e56969, #8a49a1);
+}
+
+body, html{
+    font-family: "Poppins", serif;
+    height: 100%;
+    width: 100%;
+}
+
+.banner{
+    height: 80dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner::before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    background-size: cover;
+    inset: 0;
+}
+
+.img-about{
+    height: 100%;
+    flex-basis: 300px;
+}
+
+.texts{
+    flex-basis: 300px;
+}
+
+.profile-photo{
+    content: '';
+    background: url('../img/insta/profile.png') no-repeat center;
+    background-size: cover;
+    border: 2px  solid #e56969;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+
+.posts{
+    flex-grow: 1;
+    object-fit: cover;
+    object-position: top;
+    flex-basis: 8vh;
+    max-height: 25vh;
+    box-shadow: 10px #22223b;
+}
+
+.posts:hover{
+    transform: scale(1.05);
+}
+.posts:first-child{
+    border-top-left-radius: 10px;
+}
+
+.posts:nth-child(3){
+    border-top-right-radius: 10px;
+}
+
+.posts:nth-child(4){
+    border-bottom-left-radius: 10px;
+}
+
+.posts:last-child{
+    border-bottom-right-radius: 10px;
+}
+
+.post-body{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pattern {
+    color: var(--secondary);
+    background: var(--primary);
+    --gap: 5em;
+    --line: 1px;
+    --color: rgba(255, 255, 255, 0.2);
+
+    background-image: linear-gradient(-90deg,
+            transparent calc(var(--gap) - var(--line)),
+            var(--color) calc(var(--gap) - var(--line) + 1px),
+            var(--color) var(--gap)),
+        linear-gradient(0deg,
+            transparent calc(var(--gap) - var(--line)),
+            var(--color) calc(var(--gap) - var(--line) + 1px),
+            var(--color) var(--gap));
+    background-size: var(--gap) var(--gap);
+}
+
+.insta {
+    background: #e56969;
+    padding: 20px;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.insta:hover {
+    background-color: #8a49a1;
+    translate: 30deg;
+}
+
+.insta a,
+.link a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.link {
+    background: var(--blue);
+    padding: 20px;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link:hover {
+    background: #22223b;
+    border: 2px solid var(--primary);
+}
+
+@media only screen and (max-width: 500px) {
+    .mobile-hide {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .mobile {
+        display: flex !important;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .mobile {
+        display: none !important;
+    }
+}

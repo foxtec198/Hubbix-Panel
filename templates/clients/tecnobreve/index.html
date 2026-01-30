@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tecnobreve - Soluções em Informática</title>
+
+  <!-- Css Local -->
+  <link rel="stylesheet" href="../src/style/tecnobreve.css">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- AOS (Animações ao rolar a página) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- Favicon  -->
+  <link rel="shortcut icon" href="../src/img/tecnobreve/favicon.png" type="image/x-icon">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body data-bs-theme="dark">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg" style="background: #000d0a;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="../src/img/tecnobreve/logoWHTfit.png" class="logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#empCont">Empresas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skillsCont">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projs">Projetos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#parcerias">Parcerias</a>
+          </li>
+          <li class="nav-item">
+          </li>
+          <a class="nav-link" href="#sobre">Sobre Nós</a>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero section -->
+  <section class="d-flex flex-column justify-content-center">
+    <div class="banner">
+      <video class="videoIn" src="../src/video/tecnobreve.mp4" autoplay muted loop></video>
+      <div class="d-flex flex-column p-4 textDiv">
+        <p data-aos="fade-in" class="fs-3 text-center lh-sm">
+          “Uma <span>máquina</span> consegue fazer o trabalho de 50 homens ordinários.
+          Nenhuma máquina consegue fazer o trabalho de um homem <b>extraordinário</b>”.
+        </p>
+        <p class="fs-6 text-end" data-aos="fade-up">
+          - Elbert Hubbard
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info Section -->
+  <section class="infos p-5">
+    <div class="d-flex gap-1 py-5 flex-wrap">
+      <div class="item" data-aos="fade-right">
+        <h1 class="fs-4">A Empresa:</h1>
+        <p class="fs-6">Estamos no mercado a 5 anos, Somos referência quando se trata de
+          Desenvolvimento de Apps, Sites, Relatórios e Idêntidades Visuais!</p>
+      </div>
+      <div class="item" data-aos="fade-left">
+        <h1 class="fs-4">O Negócio:</h1>
+        <p class="fs-6">Utilizamos em nossas aplicações Python, HTML5, CSS3, Javascript, Bootstrap, Figma, PowerBI e
+          Muito mais!</p>
+        <div class="bdgs">
+          <span class="badge bdg">
+            <img src="src/icons/python.png" width="20" height="20"> Python
+          </span>
+          <span class="badge bdg">
+            <img src="src/icons/html.png" width="20" height="20"> HTML
+          </span>
+          <span class="badge bdg">
+            <img src="src/icons/css.png" width="20" height="20"> CSS
+          </span>
+          <span class="badge bdg">
+            <img src="src/icons/js.png" width="20" height="20"> Javascript
+          </span>
+          <span class="badge bdg">
+            <i class="bi bi-bootstrap-fill"></i> Bootstrap
+          </span>
+          <span class="badge bdg">
+            <img src="src/icons/figma.png" width="20" height="20"> Figma
+          </span>
+          <span class="badge bdg">
+            <img src="src/icons/powerbi.png" width="20" height="20"> PowerBI
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Builds Section -->
+  <section class="empCont" id="empCont">
+    <div class="separator align-self-start p-4">
+      <p class="fs-2 text-left">Nossas Empresas</p>
+      <div class="separator-p">
+        <div class="liner" data-aos="fade-right"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+      </div>
+    </div>
+
+    <p class="fs-5 text-center" data-aos="fade-down">Atendemos grandes empresas como:</p>
+    <marquee direction="left" class="w-100" loop="0">
+      <div class="d-flex flex-row gap-5 p-4">
+        <a href="" data-bs-target="#carEmpresas" data-bs-slide-to="0"><img src="src/img/odc/logoODC.png" class="empresas"></a>
+        <a href="" data-bs-target="#carEmpresas" data-bs-slide-to="1"><img src="src/img/rinele/LG.png" class="empresas"></a>
+        <a href="" data-bs-target="#carEmpresas" data-bs-slide-to="2"><img src="src/img/4quattro/logo_quattroP.png" class="empresas"></a>
+        <a href="" data-bs-target="#carEmpresas" data-bs-slide-to="3"><img src="src/img/hubbix/logo-cmp.png" class="empresas"></a>
+        <a href="" data-bs-target="#carEmpresas" data-bs-slide-to="4"><img src="src/img/choppmania/logoB.png" class="empresas"></a>
+      </div>
+    </marquee>
+    <div class="divCarr" data-aos="fade-down">
+      <div id="carEmpresas" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../src/img/tecnobreve/odc.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="../src/img/tecnobreve/rinele.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="../src/img/tecnobreve/Captura de tela 2024-09-19 104844.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="../src/img/tecnobreve/Captura de tela 2024-09-19 105712.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="../src/img/tecnobreve/Captura de tela 2024-09-19 110157.png" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carEmpresas" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carEmpresas" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    
+  </section>
+  
+  <!-- Skill Section -->
+  <section class="skillsCont p-4 mt-5" id="skillsCont">
+    <div class="separator">
+      <p class="fs-2 text-start">Nossas Skills</p>
+      <div class="separator-p">
+        <div class="liner" data-aos="fade-right"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+      </div>
+    </div>
+    <span class="fs-5 fw-bold text-center m-5">Algumas de nossas skills e linguagens que trabalhamos, atendemos uma ampla gama de serviços, mas nosso foco são nas skills abaixo!</span>
+
+
+    <div class="divSkils">
+      <div class="skillCard" data-aos="fade-down">
+        <p>Python - Full Stack</p>
+        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar pgBG" style="width: 90%; background: #FF914D;">90%</div>
+        </div>    
+      </div>
+      <div class="skillCard" data-aos="fade-up">
+        <p>Sites, Landingpages, WebApps e Pixels</p>
+        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 60%; background: #FF914D;">60%</div>
+        </div>    
+      </div>
+    </div>
+    <div class="divSkils mb-5">
+      <div class="skillCard" data-aos="fade-up">
+        <p>Idêntidade Visual</p>
+        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 75%; background: #FF914D;">75%</div>
+        </div>    
+      </div>
+      <div class="skillCard" data-aos="fade-down">
+        <p>Analise de Dados</p>
+        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 40%; background: #FF914D;">40%</div>
+        </div>    
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Section -->
+  <section class="d-flex flex-column align-items-center p-4 projs" id="projs">
+    <div class="separator">
+      <p class="fs-2 text-left" data-aos="fade-up">Nossos Projetos</p>
+      <div class="separator-p">
+        <div class="liner" data-aos="fade-right"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+        <div class="rounded-liner" data-aos="fade-left"></div>
+      </div>
+    </div>
+    <span class="fs-5 fw-bold text-center m-5">Abaixo alguns de nossos projetos e trabalhos já realizados!!!</span>
+
+
+    <div class="container text-center gap-2 mb-5 flex-column">
+      <!-- Web -->
+      <div class="d-flex flex-column mt-5 gap-2">
+        <span class="fs-4 fw-bold text-start">Desenvolvimento WEB:</span>
+        <div class="d-flex gap-4 p-4 flex-row overflow-x-auto">
+          <!-- Garage -->
+          <div class="card" style="min-width: 250px;">
+            <div class="card-header fs-4 fw-bold">
+              Garage DS15
+            </div>
+            <div class="card-body d-flex flex-column gap-2">
+              <img class="img-fluid rounded object-fit-cover" src="src/img/garage/image.png">
+              <span class="fs-5">Site criado com intuito de captar clientes.</span>
+              <div class="d-flex flex-row flex-wrap gap-1 justify-content-center">
+                <span class="badge bg-orange"><i class="bi bi-filetype-html"></i> HTML5</span>
+                <span class="badge bg-primary"><i class="bi bi-filetype-css"></i> CSS3</span>
+                <span class="badge bg-warning" style="color: #000;"><i class="bi bi-filetype-js"></i> JavaScript</span> 
+              </div>
+            </div>
+            <div class="card-footer btn-group">
+              <a target="_" href="https://github.com/foxtec198/AuthWA" class="btn btn-outline-light"><i class="bi bi-github"></i> GitHub</a>
+              <a target="_" href="https://foxtec198.github.io/Garage-DS15/" class="btn btn-light">Ver Site <i class="bi bi-view-list"></i></a>
+            </div>
+          </div>
+          
+          <!-- Rinele -->
+          <div class="card" style="min-width: 250px;">
+            <div class="card-header fs-4 fw-bold">
+              Rinele Mazaquatro
+            </div>
+            <div class="card-body d-flex flex-column gap-2">
+              <img class="img-fluid rounded object-fit-cover" src="src/img/tecnobreve/rinele.png">
+              <span class="fs-5">Landingpage</span>
+              <div class="d-flex flex-row flex-wrap gap-1 justify-content-center">
+                <span class="badge bg-orange"><i class="bi bi-filetype-html"></i> HTML5</span>
+                <span class="badge bg-primary"><i class="bi bi-filetype-css"></i> CSS3</span>
+                <span class="badge bg-warning" style="color: #000;"><i class="bi bi-filetype-js"></i> JavaScript</span> 
+              </div>
+            </div>
+            <div class="card-footer btn-group">
+              <a target="_" href="https://github.com/foxtec198" class="btn btn-outline-light"><i class="bi bi-github"></i> GitHub</a>
+              <a target="_" href="pages/rinele.html" class="btn btn-light">Ver Site <i class="bi bi-view-list"></i></a>
+            </div>
+          </div>
+
+          <!-- Oticas Atual -->
+          <div class="card" style="min-width: 250px;">
+            <div class="card-header fs-4 fw-bold">
+              Óticas Atual
+            </div>
+            <div class="card-body d-flex flex-column gap-2">
+              <img class="img-fluid rounded object-fit-cover" src="src/img/tecnobreve/otica_atual.png">
+              <span class="fs-5">Site criado com intuito de captar clientes.</span>
+              <div class="d-flex flex-row flex-wrap gap-1 justify-content-center">
+                <span class="badge bg-orange"><i class="bi bi-filetype-html"></i> HTML5</span>
+                <span class="badge bg-primary"><i class="bi bi-filetype-css"></i> CSS3</span>
+                <span class="badge bg-warning" style="color: #000;"><i class="bi bi-filetype-js"></i> JavaScript</span> 
+              </div>
+            </div>
+            <div class="card-footer btn-group">
+              <a target="_" href="https://github.com/foxtec198" class="btn btn-outline-light"><i class="bi bi-github"></i> GitHub</a>
+              <a target="_" href="https://otica-atual.onrender.com/" class="btn btn-light">Ver Site <i class="bi bi-view-list"></i></a>
+            </div>
+          </div>
+
+          <!-- 4Projetta -->
+          <div class="card" style="min-width: 250px;">
+            <div class="card-header fs-4 fw-bold">
+              4 Projetta
+            </div>
+            <div class="card-body d-flex flex-column gap-2">
+              <img class="img-fluid rounded object-fit-cover" src="src/img/tecnobreve/quattro.png">
+              <span class="fs-5">Site criado com intuito de captar clientes.</span>
+              <div class="d-flex flex-row flex-wrap gap-1 justify-content-center">
+                <span class="badge bg-orange"><i class="bi bi-filetype-html"></i> HTML5</span>
+                <span class="badge bg-primary"><i class="bi bi-filetype-css"></i> CSS3</span>
+                <span class="badge bg-warning" style="color: #000;"><i class="bi bi-filetype-js"></i> JavaScript</span> 
+              </div>
+            </div>
+            <div class="card-footer btn-group">
+              <a target="_" href="https://github.com/foxtec198" class="btn btn-outline-light"><i class="bi bi-github"></i> GitHub</a>
+              <a target="_" href="pages/imob.html" class="btn btn-light">Ver Site <i class="bi bi-view-list"></i></a>
+            </div>
+          </div>
+
+          <!-- Choppmania -->
+          <div class="card" style="min-width: 250px;">
+            <div class="card-header fs-4 fw-bold">
+              ChoppMania
+            </div>
+            <div class="card-body d-flex flex-column gap-2">
+              <img class="img-fluid rounded object-fit-cover" src="src/img/tecnobreve/choppmania.png">
+              <span class="fs-5">Landingpage com intuito de captar pedidos e clientes.</span>
+              <div class="d-flex flex-row flex-wrap gap-1 justify-content-center">
+                <span class="badge bg-orange"><i class="bi bi-filetype-html"></i> HTML5</span>
+                <span class="badge bg-primary"><i class="bi bi-filetype-css"></i> CSS3</span>
+                <span class="badge bg-warning" style="color: #000;"><i class="bi bi-filetype-js"></i> JavaScript</span> 
+                <span class="badge bg-primary"><i class="bi bi-filetype-py"></i> Python3</span>
+
+              </div>
+            </div>
+            <div class="card-footer btn-group">
+              <a target="_" href="https://github.com/foxtec198" class="btn btn-outline-light"><i class="bi bi-github"></i> GitHub</a>
+              <a target="_" href="pages/choppmania.html" class="btn btn-light">Ver Site <i class="bi bi-view-list"></i></a>
+            </div>
+          </div>
+
+          <!-- Oficina do Celular -->
+          <div class="card" style="min-width: 250px;">
+            <div class="card-header fs-4 fw-bold">
+              Oficina do Celular
+            </div>
+            <div class="card-body d-flex flex-column gap-2">
+              <img class="img-fluid rounded object-fit-cover" src="src/img/tecnobreve/odc.png">
+              <span class="fs-5">Pixel com intuito de captar clientes.</span>
+              <div class="d-flex flex-row flex-wrap gap-1 justify-content-center">
+                <span class="badge bg-orange"><i class="bi bi-filetype-html"></i> HTML5</span>
+                <span class="badge bg-primary"><i class="bi bi-filetype-css"></i> CSS3</span>
+                <span class="badge bg-warning" style="color: #000;"><i class="bi bi-filetype-js"></i> JavaScript</span> 
+                <span class="badge bg-primary"><i class="bi bi-filetype-py"></i> Python3</span>
+              </div>
+            </div>
+            <div class="card-footer btn-group">
+              <a target="_" href="https://github.com/foxtec198" class="btn btn-outline-light"><i class="bi bi-github"></i> GitHub</a>
+              <a target="_" href="pages/oficinadocelular.html" class="btn btn-light">Ver Site <i class="bi bi-view-list"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Apps -->
+      <div class="d-flex flex-column mt-5 gap-2">
+        <span class="fs-4 text-start fw-bold">Desenvolvimento de Apps:</span>
+        <div class="d-flex gap-4 p-4 flex-row overflow-x-auto">
+          <!-- Hubbix -->
+          <div class="card" style="min-width: 250px; min-height: 350px;">
+            <div class="card-header fs-4 fw-bold">
+              Hubbix
+            </div>
+            <div class="card-body align-items-center d-flex flex-column gap-2">
+              <img class="img-fluid object-fit-cover" src="src/img/tecnobreve/hbx.png">
+              <span class="fs-5">Sistema de Gestão</span>
+              <div class="align-self-start d-flex flex-row flex-wrap gap-1 justify-content-center">
+                <span class="badge bg-primary"><i class="bi bi-filetype-py"></i> Python3</span>
+                <span class="badge bg-secondary"><i class="bi bi-table"></i> Dataframe</span>
+                <span class="badge bg-secondary"><i class="bi bi-browser-safari"></i> Selenium</span>
+                <span class="badge bg-danger"><i class="bi bi-database"></i> SQL Server</span>
+                <span class="badge bg-primary"><i class="bi bi-telegram"></i> Telegram</span>
+              </div>
+            </div>
+            <div class="card-footer btn-group">
+              <a target="_" href="https://github.com/foxtec198" class="btn btn-outline-light"><i class="bi bi-github"></i> GitHub</a>
+              <a target="_" href="https://hubbix.com.br" class="btn btn-light">Testar <i class="bi bi-view-list"></i></a>
+            </div>
+          </div>
+
+          <!-- AuthWA -->
+          <div class="card" style="min-width: 250px; min-height: 350px;">
+            <div class="card-header fs-4 fw-bold">
+              AuthWA
+            </div>
+            <div class="card-body align-items-center d-flex flex-column gap-2">
+              <img class="img-fluid object-fit-cover" src="src/img/tecnobreve/authwa.png">
+              <span class="fs-5">RPA de Envio de Mensagem</span>
+              <div class="d-flex flex-row flex-wrap gap-1 justify-content-center">
+                <span class="badge bg-primary"><i class="bi bi-filetype-py"></i> Python3</span>
+                <span class="badge bg-secondary"><i class="bi bi-table"></i> Dataframe</span>
+              </div>
+            </div>
+            <div class="card-footer btn-group">
+              <a target="_" href="https://github.com/foxtec198" class="btn btn-outline-light"><i class="bi bi-github"></i> GitHub</a>
+              <a target="_" href="https://authwa.readthedocs.io/pt/latest/" class="btn btn-light">Testar <i class="bi bi-view-list"></i></a>
+            </div>
+          </div>
+
+          <!-- CNS Bot -->
+          <div class="card" style="min-width: 250px; min-height: 350px;">
+            <div class="card-header fs-4 fw-bold">
+              CNS Bot
+            </div>
+            <div class="card-body align-items-center d-flex flex-column gap-2">
+              <img class="img-fluid object-fit-cover" src="src/img/tecnobreve/cns3.png">
+              <span class="fs-5">Bot de acompanhamento</span>
+              <div class="align-self-start">
+                <span class="badge bg-primary"><i class="bi bi-filetype-py"></i> Python3</span>
+                <span class="badge bg-secondary"><i class="bi bi-table"></i> Dataframe</span>
+                <span class="badge bg-secondary"><i class="bi bi-browser-safari"></i> Selenium</span>
+                <span class="badge bg-danger"><i class="bi bi-database"></i> SQL Server</span>
+                <span class="badge bg-primary"><i class="bi bi-telegram"></i> Telegram</span>
+              </div>
+            </div>
+            <div class="card-footer btn-group">
+              <a target="_" href="https://github.com/foxtec198" class="btn btn-outline-light"><i class="bi bi-github"></i> GitHub</a>
+              <a target="_" href="https://web.telegram.org/k/#@gps_cns_bot" class="btn btn-light">Testar <i class="bi bi-view-list"></i></a>
+            </div>
+          </div>
+
+          <!-- Vista View -->
+          <div class="card" style="min-width: 250px; min-height: 350px;">
+            <div class="card-header fs-4 fw-bold">
+              Vista View
+            </div>
+            <div class="card-body align-items-center d-flex flex-column gap-2">
+              <img class="img-fluid object-fit-cover" src="src/img/tecnobreve/vista_view.png">
+              <span class="fs-5">Sistema de acompanhamento.</span>
+              <div class="align-self-start">
+                <span class="badge bg-primary"><i class="bi bi-filetype-py"></i> Python3</span>
+                <span class="badge bg-secondary"><i class="bi bi-table"></i> Dataframe</span>
+                <span class="badge bg-secondary"><i class="bi bi-browser-safari"></i> Selenium</span>
+                <span class="badge bg-danger"><i class="bi bi-database"></i> SQL Server</span>
+                <span class="badge bg-primary"><i class="bi bi-telegram"></i> Telegram</span>
+              </div>
+            </div>
+            <div class="card-footer btn-group">
+              <a target="_" href="https://github.com/foxtec198" class="btn btn-outline-light"><i class="bi bi-github"></i> GitHub</a>
+              <a target="_" href="https://vista-view-model.onrender.com/" class="btn btn-light">Testar <i class="bi bi-view-list"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parcerias -->
+  <section class="d-flex p-4 flex-column align-items-center" style="background: #000d0a;" id="parcerias">
+    <div class="separator">
+      <p class="fs-2 text-left">Parcerias</p>
+      <div class="separator-p">
+        <div class="liner"></div>
+        <div class="rounded-liner"></div>
+        <div class="rounded-liner"></div>
+        <div class="rounded-liner"></div>
+      </div>
+    </div>
+    <div class="d-flex flex-column p-4 justify-content-center" style="margin-top: 5%;">
+      <p>Em parceira com a marca <b class="ORG">HUBBIX</b>, nós da Tecnobreve desenvolvemos 2 apps para a mesma!</p>
+      <p>Temos orgulho de vos apresentar:</p>
+      <p class="fs-2"> Hubbix Gourmet</p>
+      <p>Uma ferramenta de gestão para bares, restaurantes, pubs e chopperias, com controle de estoque, vendas, fluxo e app do Garçom!</p>
+
+      <div class="carDivv">
+        <div id="carouselExampleDark" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+              <img src="../src/img/hubbix/Captura de tela 2024-09-19 143356.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block" style="color: white;">
+                <h5>Pedidos</h5>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+              <img src="../src/img/hubbix/Captura de tela 2024-09-19 143409.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block" style="color: white;">
+                <h5>Comandas</h5>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+              <img src="../src/img/hubbix/Captura de tela 2024-09-19 143421.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block" style="color: white;">
+                <h5>Vendas</h5>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+              <img src="../src/img/hubbix/Captura de tela 2024-09-19 143430.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block" style="color: white;">
+                <h5>Estoque</h5>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+              <img src="../src/img/hubbix/Captura de tela 2024-09-19 143439.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block" style="color: white;">
+                <h5>Relatórios</h5>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+              <img src="../src/img/hubbix/Captura de tela 2024-09-19 143457.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block" style="color: white;">
+                <h5>Configurações</h5>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <hr>
+      <p class="fs-2"> Hubbix Manager</p>
+      <p>Uma ferramenta de gestão para lojas de celulares, comércio entre outras, com controle de estoque, vendas, fluxo e ordem de serviço!</p>
+      <div class="carDivv">
+        <div id="carManager" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carManager" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carManager" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carManager" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carManager" data-bs-slide-to="3" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carManager" data-bs-slide-to="4" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carManager" data-bs-slide-to="5" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+              <img src="../src/img/hubbix/Captura de tela 2024-09-19 150011.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block" style="color: white;">
+                <h5>Vendas</h5>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+              <img src="../src/img/hubbix/Captura de tela 2024-09-19 150029.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block" style="color: white;">
+                <h5>Caixa</h5>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+              <img src="../src/img/hubbix/Captura de tela 2024-09-19 150043.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block" style="color: white;">
+                <h5>Ordem de Serviços</h5>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+              <img src="../src/img/hubbix/Captura de tela 2024-09-19 150051.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block" style="color: white;">
+                <h5>Clientes</h5>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+              <img src="../src/img/hubbix/Captura de tela 2024-09-19 150101.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block" style="color: white;">
+                <h5>Estoque</h5>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+              <img src="../src/img/hubbix/Captura de tela 2024-09-19 150131.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block" style="color: white;">
+                <h5>Relatórios</h5>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carManager" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carManager" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <br>
+      <hr>
+      <p>Sistemas com intuitos diferentes, porém com o mesmo significado, <b class="ORG">unir a tecnologia ao nosso dia a dia e nos proporcionar melhorias e faclidades!</b></p>
+      <p>Por isso a Tecnobreve e o Hubbix são parceiros! E temos orgulho de proporcionar a vocês a melhor qualidade e entrega de serviço!</p>
+      <p>Para mais informações, acesse nosso site e saiba mais!</p>
+      <div class="d-flex justify-content-end">
+        <a href="https://hubbix.onrender.com/" class="btn btn-success btn-lg"> Saiba Mais </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="sobre" id="sobre">
+    <div class="separato align-self-start p-4">
+      <p class="fs-2 text-left">Sobre Nós</p>
+      <div class="separator-p">
+        <div class="liner"></div>
+        <div class="rounded-liner"></div>
+        <div class="rounded-liner"></div>
+        <div class="rounded-liner"></div>
+      </div>
+    </div>
+    <div class="aboutME">
+      <div class="imgDivAbout">
+        <!-- <img src="https://avatars.githubusercontent.com/u/64221923?v=4" class="imgSobre"> -->
+        <img src="../src/img/tecnobreve/guilherme.jpg" class="imgSobre">
+      </div>
+      <div class="textDivAbout">
+        <p class="fs-3"><b class="ORG">Guilherme Breve</b> - Criador e Desenvolvedor</p>
+        <p class="paragraphAbout">Tenho 22 anos, conheci a tecnologia com meus 8 para 9 anos, comecei a programar com 10, pouco antes de completar meus 18 anos resolvi abrir minha própria empresa. Desde então me encontro neste ramo com excelência, por mais que ainda seja "novo" meu conhecimento prático e técnico me propôe varias oportunidades e conquistas!</p>
+      </div>
+    </div>
+    <br>
+    <div class="aboutME">
+      <div class="imgDivAbout">
+        <img src="../src/img/tecnobreve/ingrid.png" class="imgSobre">
+      </div>
+      <div class="textDivAbout">
+        <p class="fs-3"><b class="ORG">Ingrid Oliveira</b> - CEO e Diretora Financeira</p>
+        <p class="paragraphAbout">
+        Com uma carreira destacada no setor de tecnologia, Ingrid combina uma visão estratégica com uma sólida experiência em gestão financeira.
+        Sob sua liderança, a Tecnobreve tem se destacado pela inovação e pelo crescimento sustentável. Ingrid é conhecida por sua habilidade em alinhar objetivos financeiros com as metas de negócios, 
+        garantindo que a empresa não apenas prospere, mas também se adapte rapidamente às mudanças do mercado.
+
+        </p>
+      </div>
+    </div>
+    <div class="d-flex flex-column p-4">
+      <p class="fs-2"><b class="ORG2">Planejamento</b></p>
+      <p class="paragraphAbout">
+      Hoje a Tecnobreve se compõe por 1 desenvolvdor, 1 marketing e 1 financeiro!
+      Atuamos com mais de 70 clientes fixos, e já passamos por mais de 120 empresas ao decorrer destes 5 anos, a bagagem é imensa, e o aprendizado também!
+      Atualmente temos um prazo de entrega rápido e eficaz, trabalhamos em conversa com o cliente desde a prospecção até a entrega final do produto.
+      Nosso papel é fazer com que todos os processos de nossa empresa fique claro!
+      Passando da prospecção, até o branding, depois passamos pelo metodo <b class="ORG">PDCA(Plan, Do, Check, Act)</b> entramos em um deadline, fechamos a prévia de contrato.
+      Após estipulado o prazo e com a entrega da prévia, fazemos uma nova reunião para enteder o feedback e para passarmos para a fase final!
+      </p>
+      <hr>
+      <p class="fs-2"><b class="ORG2">Fase Final</b></p>
+      <p class="paragraphAbout">
+        A entrega de desenvolvimento de sistemas é uma etapa crucial no ciclo de vida de um projeto de software. Essa fase envolve a apresentação de funcionalidades implementadas aos stakeholders, garantindo que os requisitos iniciais foram atendidos. Durante as entregas, é essencial realizar testes rigorosos para validar a qualidade e a performance do sistema. Além disso, a documentação clara e acessível é fundamental para facilitar a manutenção e o entendimento do sistema por toda a equipe. Uma boa prática é coletar feedback dos usuários, o que pode levar a melhorias contínuas e a um produto final mais alinhado às necessidades do cliente. O sucesso das entregas também depende da comunicação efetiva entre as partes envolvidas, assegurando que todos estejam alinhados em relação ao progresso e aos próximos passos do projeto.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer Info -->
+  <footer>
+    <hr>
+    <div class="d-flex justify-content-around">
+      <p>©️ Tecnobreve 2024</p>
+      <div class="d-flex">
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href=""><i class="bi bi-instagram"></i></a>
+        <a href=""><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap Js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- AOS Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>AOS.init()</script>
+</body>
+</html>

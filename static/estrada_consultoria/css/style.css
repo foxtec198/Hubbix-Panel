@@ -1,0 +1,179 @@
+:root {
+    --muted: #b9c8d5;
+
+    --primary: #547d67; 
+    --primary-hover: #559774; 
+
+    --secondary: #eaaf7f;
+    --secondary-hover: #f0c8aa;
+
+    
+    --dark-green: #06402b;
+    --gscale: #fff8ec; 
+
+    --hero: url('../img/banner.jpeg')
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    font-family: "Albert Sans", sans-serif;
+    letter-spacing: -1px;
+    overflow-x: hidden;
+}
+
+.hero{
+    height: 80dvh;
+    width: 100dvw;
+    overflow-x: hidden;
+}
+
+
+nav{
+    z-index: 1000;
+    background-color: #fff !important;
+    overflow-x: hidden !important;
+}
+
+
+.nav-item:hover{
+    text-decoration: underline var(--primary) 5px;
+}
+
+.badge-cat {
+    background: #f8f9fa;
+    border-radius: .5rem;
+    padding: .25rem .6rem;
+    font-weight: 600
+}
+
+.service-card {
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1.25rem;
+    height: 100%
+}
+
+.maps-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px
+}
+
+.cta {
+    background: linear-gradient(90deg, var(--brand), #4b7cff);
+    color: #fff;
+    padding: 2.5rem;
+    border-radius: 12px
+}
+
+.candleDiv{
+    position: absolute;
+    top: 30px;
+}
+
+.candleContent{
+    position: relative;
+    top: auto;
+}
+
+.candleContent span{
+    background: ghostwhite;
+    border-radius: 20px;
+}
+
+.icon-up-div{
+    position: relative;
+    left: 50%;
+}
+
+.iud-dark-green{
+    background-color: var(--dark-green);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: .5rem 1rem;
+    color: #fff;
+}
+
+.about-team{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* Imagem de Apresentação Pessoal */
+.person{
+    width: 250px;
+    height: 250px;
+    flex-basis: 250px;
+    object-fit: cover;
+}
+
+.paragraphAbout{
+    columns: 300px 2;
+    column-gap: 20px;
+}
+
+.whatsapp-btn {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 1060
+}
+
+#capacite{
+    background: url("../img/bn-middle1.png") no-repeat center;
+    background-size: cover;
+    color: #fff;
+}
+
+#contato{
+    background: url("../img/bn-contact1.png") no-repeat center;
+    background-size: cover;
+    color: #fff;
+}
+
+.footer {
+    background: #0b1220;
+    color: #fff;
+    padding: 2rem 0
+}
+
+.carousel-wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.carousel-control-prev.outside,
+.carousel-control-next.outside {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-30%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.carousel-control-prev.outside:hover,
+.carousel-control-next.outside:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.carousel-control-prev.outside {
+  left: -60px; /* distância lateral */
+}
+
+.carousel-control-next.outside {
+  right: -60px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+}

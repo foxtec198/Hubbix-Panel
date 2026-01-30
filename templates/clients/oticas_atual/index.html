@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/img/fav.png" type="image/x-icon">
+    <title>Óticas Atual - By Vinicius Leme</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Ícones do Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- AOS (Animações ao rolar a página) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Css Local -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbar">
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg mb-5 navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <img alt="logo oticas atual" src="assets/img/logo_full_white.png" class="navbar-brand mb-o img-fluid"
+                width="80vw">
+            <button aria-label="navbar button" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" onclick="alter_active(this)" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="alter_active(this)" href="#contato">Contato</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" onclick="alter_active(this)"
+                            href="#depoimentos">Avaliações</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="alter_active(this)"
+                            href="#instagram">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero"></section>
+
+    <!-- Contato -->
+    <section id="contato" class="container py-5 text-center">
+        <h2 class="mb-4 subtitle" data-aos="fade-down">Fale Conosco</h2>
+        <p class="lead" data-aos="fade-up">Faça seu orçamento agora mesmo!</p>
+        <div class="d-flex p-4 fs-4 justify-content-center align-items-center gap-4 flex-wrap">
+            <div class="d-flex flex-column flex-grow-1" style="flex-basis: 400px;">
+                <iframe data-aos="fade-up"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.914164675792!2d-51.157783099999996!3d-23.3188729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eb436a54041f4d%3A0x97f1267e864812e8!2s%C3%93tica%20Atual!5e0!3m2!1spt-BR!2sbr!4v1741030093889!5m2!1spt-BR!2sbr"
+                    height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <a id="btnAnl" href="https://wa.me/554396593397" class="btn btn-primary btn-lg">
+                    <i class="bi bi-whatsapp"></i> Londrina - Souza Naves 726
+                </a>
+            </div>
+            <div class="d-flex flex-column flex-grow-1" style="flex-basis: 400px;">
+                <iframe data-aos="fade-up"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.974259948648!2d-51.16036852467741!3d-23.316692678968614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eb43674e49770f%3A0x8c7bd46e3b7b9483!2sR.%20Sen.%20Souza%20Naves%2C%20484%20-%203%20-%20Centro%2C%20Londrina%20-%20PR%2C%2086010-160!5e0!3m2!1spt-BR!2sbr!4v1748539641988!5m2!1spt-BR!2sbr"
+                    height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <a id="btnAnl" href="https://wa.me/554330391309" class="btn btn-primary btn-lg">
+                    <i class="bi bi-whatsapp"></i> Londrina - Souza Naves 484
+                </a>
+            </div>
+            <div class="d-flex flex-column flex-grow-1" style="flex-basis: 400px;">
+                <iframe data-aos="fade-up"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.7235372052187!2d-51.163830824676864!3d-23.325787478962457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eb43d07ee01fd7%3A0x45ea0df5536ac1ea!2s%C3%93ticas%20Atual!5e0!3m2!1spt-BR!2sbr!4v1763735511705!5m2!1spt-BR!2sbr"
+                    height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <a id="btnAnl" href="https://wa.me/43998248686" class="btn btn-primary btn-lg">
+                    <i class="bi bi-whatsapp"></i> Londrina - Av. Bandeirantes
+                </a>
+            </div>
+            <div class="d-flex flex-column flex-grow-1" style="flex-basis: 400px;">
+                <iframe data-aos="fade-up"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7330.0555202180685!2d-51.27814!3d-23.278441!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eb59cb1b64e12f%3A0x4bdffd77a9a09f8f!2s%C3%93tica%20Atual%20em%20Camb%C3%A9!5e0!3m2!1spt-BR!2sbr!4v1763736006260!5m2!1spt-BR!2sbr"
+                    height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <a id="btnAnl" href="https://wa.me/message/QVZHK4ZYHXQQC1" class="btn btn-primary btn-lg">
+                    <i class="bi bi-whatsapp"></i> Cambé
+                </a>
+            </div>
+            <div class="d-flex flex-column flex-grow-1" style="flex-basis: 400px;">
+                <iframe data-aos="fade-up"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3665.2791231757496!2d-51.050247925433894!3d-23.269305450926108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eb47a2ca48fa6f%3A0xc17f716b4cda99b9!2s%C3%93tica%20Atual!5e0!3m2!1spt-BR!2sbr!4v1741030410394!5m2!1spt-BR!2sbr"
+                    height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <a id="btnAnl" href="https://wa.me/554331589273" class="btn btn-primary btn-lg">
+                    <i class="bi bi-whatsapp"></i> Ibiporã
+                </a>
+            </div>
+            <div class="d-flex flex-column flex-grow-1" style="flex-basis: 400px;">
+                <iframe data-aos="fade-up"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.646755579204!2d-50.6483734!3d-23.1830893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eadfcd021dcaff%3A0xb0f8455d13666004!2s%C3%93tica%20Atual%20Prime!5e0!3m2!1spt-BR!2sbr!4v1741030701598!5m2!1spt-BR!2sbr"
+                    height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <a id="btnAnl" href="https://wa.me/554334021039" class="btn btn-primary btn-lg">
+                    <i class="bi bi-whatsapp"></i> Cornelio
+                </a>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            <img src="assets/img/girl_animation.png" width="500" style="transform: translateY(80px);"
+                alt="Oticas Atual Masc." data-aos="fade-down">
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="text-bg-dark py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-down">A Ótica mais bem <strong
+                    class="subtitle">AVALIADA</strong> do Google de
+                Londrina e Região.</h2>
+            <div class="row row-gap-4">
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="p-4 shadow bg-white text-dark rounded">
+                        <p class="fst-italic">Escolhi a ótica atual para fazer meu óculos por indicação da minha sogra e
+                            pude comprovar o atendimento incrível que eles oferecem!
+                            Fui atendida pelo Victor, muito simpático e paciente. Já começa que somos recebidos com um
+                            capuccino maravilhoso rsrs.
+                            A loja tem infinitas opções de armações e óculos de sol então é praticamente impossível não
+                            encontrar um do nosso gosto.
+                            Atendimento nota 10 👏👏👏</p>
+                        <p class="fw-bold">- Amanda Torres</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="p-4 shadow bg-white text-dark rounded">
+                        <p class="fst-italic">"Fomos atendidos pela Celina!!
+                            O atendimento foi excelente desde que chegamos e fomos recebidos com um delicioso
+                            cappuccino! Eles têm um sistema de visagismo que é ótimo!!
+                            Ela teve paciência para esperar minha esposa escolher! Nos ofereceu formas de pagamento
+                            muito boas!
+                            Enfim!! Excelente!!!"</p>
+                        <p class="fw-bold">- Lucas Emmanuel</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="p-4 shadow bg-white text-dark rounded">
+                        <p class="fst-italic">"Mandei fazer meu óculos de grau e o da minha esposa, com o desconto o
+                            preço final ficou bom.quero agradecer o ótimo atendimento da Karina e também da Thalita
+                            ,esta loja eu recomendo conhecer..."</p>
+                        <p class="fw-bold">- Jorge Gomes de Oliveira</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="p-4 shadow bg-white text-dark rounded">
+                        <p class="fst-italic">"Gostei bastante, atendente bem atenciosa, me deixou confortável pra
+                            decidir e isso é um diferencial...Celina muito obrigada"</p>
+                        <p class="fw-bold">- Ana Paula da Cruz Paulino</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- instagram -->
+    <section id="instagram" class="container mt-5 p-2">
+        <div class="d-flex flex-row justify-content-around flex-wrap align-items-center gap-4 p-2">
+            <div class="d-flex border rounded-4 p-4 gap-4 flex-column justify-content-center align-items-center flex-grow-1 flex-basis"
+                data-aos="fade-up">
+                <!-- Informações -->
+                <div class="d-flex flex-row justify-content-center align-items-center gap-4 flex-wrap mt-2">
+                    <div class="d-flex flex-row gap-4 align-items-center">
+                        <img src="assets/img/logo_white_and_yellow.png"
+                            class="rounded-circle object-fit-contain bg-dark p-2" width="50vh" height="50vh">
+                        <div class="d-flex flex-column" style="line-height: 15px;">
+                            <span class="fs-5 fw-bold">Óticas Atual.</span>
+                            <span class="fst-italic text-secondary">@oticasatual</span>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column gap-2">
+                        <span class="fw-bold fs-6 text-center">Acesso o instagram das nossas lojas:</span>
+                        <div class="btn-group">
+                            <a href="https://www.instagram.com/oticaatuallondrina/" target="_blank"
+                                class="btn btn-primary btn-sm"><i class="bi bi-instagram"></i> Londrina</a>
+                            <a href="https://www.instagram.com/oticaatualcambe/" target="_blank"
+                                class="btn btn-primary btn-sm">Ibiporã</a>
+                            <a href="https://www.instagram.com/oticaatualibipora/" disabled target="_blank"
+                                class="btn btn-primary btn-sm">Cambé</a>
+                            <a href="https://www.instagram.com/oticasatualprime/" target="_blank"
+                                class="btn btn-primary btn-sm">Corn. Procópio</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pub -->
+                <div class="d-flex w-100 border-none justify-content-center" data-aos="fade-down">
+                    <script async src="//www.instagram.com/embed.js"></script>
+                    <blockquote class="instagram-media"
+                        data-instgrm-permalink="https://www.instagram.com/reel/DRA8d5aDEU6/?utm_source=ig_embed&amp;utm_campaign=loading"
+                        data-instgrm-version="14"
+                        style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                        <div style="padding:16px;"> <a
+                                href="https://www.instagram.com/reel/DRA8d5aDEU6/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
+                                target="_blank">
+                                <div style=" display: flex; flex-direction: row; align-items: center;">
+                                    <div
+                                        style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
+                                    </div>
+                                    <div
+                                        style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+                                        <div
+                                            style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+                                        </div>
+                                        <div
+                                            style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="padding: 19% 0;"></div>
+                                <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg
+                                        width="50px" height="50px" viewBox="0 0 60 60" version="1.1"
+                                        xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g transform="translate(-511.000000, -20.000000)" fill="#000000">
+                                                <g>
+                                                    <path
+                                                        d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg></div>
+                                <div style="padding-top: 8px;">
+                                    <div
+                                        style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+                                        Ver essa foto no Instagram</div>
+                                </div>
+                                <div style="padding: 12.5% 0;"></div>
+                                <div
+                                    style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+                                    <div>
+                                        <div
+                                            style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+                                        </div>
+                                        <div
+                                            style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+                                        </div>
+                                        <div
+                                            style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+                                        </div>
+                                    </div>
+                                    <div style="margin-left: 8px;">
+                                        <div
+                                            style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
+                                        </div>
+                                        <div
+                                            style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
+                                        </div>
+                                    </div>
+                                    <div style="margin-left: auto;">
+                                        <div
+                                            style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
+                                        </div>
+                                        <div
+                                            style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
+                                        </div>
+                                        <div
+                                            style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+                                    <div
+                                        style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
+                                    </div>
+                                    <div
+                                        style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+                                    </div>
+                                </div>
+                            </a>
+                            <p
+                                style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+                                <a href="https://www.instagram.com/reel/DRA8d5aDEU6/?utm_source=ig_embed&amp;utm_campaign=loading"
+                                    style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
+                                    target="_blank">Uma publicação compartilhada por Vinicius Leme | Visagista Óptico
+                                    (@byviniciusleme)</a>
+                            </p>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="d-flex flex-column flex-grow-1 justify-content-center gap-4 p-2 align-items-center flex-basis">
+                <span class="fs-4 fw-bold text-center" data-aos="fade-left">Oie! Só passando pra te <span
+                        class="subtitle">lembrar</span>,
+                    que se você usar o nosso cupom. Você ganha <span class="text-primary fs-3">R$200</span> de desconto
+                    em Óculos completo ou Solar!</span>
+                <span class="fs-4 fw-bold text-primary text-end w-100 funnels"
+                    data-aos="fade-right">#CashbackdeR$200</span>
+                <div class="d-flex justify-content-end flex-grow-1 align-items-end mt-5" data-aos="fade-down">
+                    <img src="assets/img/girl_idle.png" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Section -->
+    <section class="container mt-5 rounded-top-4 py-5 text-bg-dark">
+        <div class="d-flex flex-row justify-content-around py-4 flex-wrap gap-2">
+            <img src="assets/img/logo_full_white.png" class="img-fluid object-fit-contain" width="150vh"
+                data-aos="zoom-in">
+            <div class="d-flex flex-column gap-1" data-aos="fade-down">
+                <p class="mb-2"><i class="bi bi-buildings-fill"></i> Nossos endereços</p>
+                <span>- R. Sen. Souza Naves, 726 - Centro, Londrina</span>
+                <span>- R. Sen. Souza Naves, 484 Loja 3 - Centro, Londrina</span>
+                <span>- Av. Canadá, 84 - Centro, Cambé</span>
+                <span>- Av. Santos Dumont, 43 - Centro, Ibiporã</span>
+                <span>- Av. XV de Novembro, 533 - Centro, Corn. Procópio</span>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <i>© Desenvolvido por <a href="https://tecnobreve.onrender.com" target="_blank"><img
+                        src="assets/img/tecnobreve.png" width="150"></a>, 2025</i>
+        </div>
+    </section>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="#contato" class="whatsapp-float"><i class="bi bi-whatsapp"></i></a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16570610461"></script>
+
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Inicializa animações AOS -->
+    <script>AOS.init();</script>
+    <script async src="//www.instagram.com/embed.js"></script>
+
+    <script src="assets/js/gtag.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/analytics.js"></script>
+</body>
+
+</html>
