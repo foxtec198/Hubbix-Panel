@@ -1,6 +1,5 @@
 from models.client import Client, db
 from flask import request, jsonify
-from services.server_name_service import Server
 
 class ClientService:
     def normalize_host(self, host: str) -> str:
@@ -16,14 +15,12 @@ class ClientService:
 
         # domínio customizado do cliente (Caso haja)
         client = Client.query.filter_by(custom_domain=host).first()
-        if client: 
-            return client # Retorna o cliente caso encontre
+        if client: return client # Retorna o cliente caso encontre
 
         # subdomínio padrão: cliente.lp.hubbix.com.br ou cliente.localhost(Modo dev apenas)
         if host.endswith('.lp.hubbix.com.br') or host.endswith(".localhost"):
             sub = host.replace('.lp.hubbix.com.br', '').replace(".localhost", "")
             client = Client.query.filter_by(subdomain=sub).first()
-            Server().config_domain(client)
             return client
 
         return None # Retorna None caso não encontre nenhum cliente
