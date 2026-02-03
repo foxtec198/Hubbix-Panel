@@ -2,8 +2,8 @@
 from flask import Flask, render_template, abort, request as rq
 from models.client import db
 from services.clients_service import ClientService
+from services.nginx_server import NginxServer
 from routes.clients_routes import clients_routes
-from routes.custom_domain_routes import custom_domain_bp
 from flask_cors import CORS
 
 """============================================================================
@@ -23,13 +23,13 @@ with app.app_context(): db.metadata.create_all(bind=db.engine)
 
 # Registra os blueprints necessários
 app.register_blueprint(clients_routes, url_prefix="/clientes") 
-app.register_blueprint(custom_domain_bp, url_prefix="/dominios") 
 
 # Seta a rota principal para fazer o redirecionamento do Wildcard 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve_lp(path) -> render_template:
     client = ClientService().resolve_client() # Resolve o cliente com base no dominio(wildcard)
+    NginxServer().config(client) # 
     if not client or not client.active: return render_template("404.html") # Confere se o cliente existe ese está ativo (Caso contrario retorna 404)
     return render_template(f'clients/{client.template}/index.html') # Retorna o template correto do cliente
 
