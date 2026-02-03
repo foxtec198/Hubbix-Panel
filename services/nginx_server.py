@@ -17,7 +17,6 @@ class NginxServer():
         with open(self.location, "a") as new_file: new_file.write("\n" + new_txt) # Escreve no arquivo atual
         return "Dominio configurado com sucesso"
         
-
 if __name__ == '_main__':
     new_client = Client(name="Felipe Bertucci", custom_domain="drfelipebertucci.com.br")
     cd = NginxServer(new_client)
