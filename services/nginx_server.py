@@ -3,7 +3,7 @@ from os import path, getcwd
 
 class NginxServer():
     model_filename = path.join(getcwd(), "models", "nginx_model.conf")
-    location = path.join("etc", "nginx", "sites-avaible", "panel.conf")
+    location = path.join("etc", "nginx", "sites-available", "panel.conf")
 
     def __init__(self, client:Client):
         self.client = client
@@ -15,6 +15,7 @@ class NginxServer():
         ).replace("[SERVER_NAME]", f"{self.domain} www.{self.domain}" # Altera o server name
         ).replace("[CUSTOM_DOMAIN]", self.domain) # Altera o custom domain
         with open(self.location, "a") as new_file: new_file.write("\n" + new_txt) # Escreve no arquivo atual
+        return "Dominio configurado com sucesso"
         
 
 if __name__ == '_main__':
