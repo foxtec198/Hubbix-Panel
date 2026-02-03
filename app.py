@@ -3,6 +3,7 @@ from flask import Flask, render_template, abort, request as rq
 from models.client import db
 from services.clients_service import ClientService
 from routes.clients_routes import clients_routes
+from routes.custom_domain_routes import custom_domain_bp
 from flask_cors import CORS
 
 """============================================================================
@@ -22,6 +23,7 @@ with app.app_context(): db.metadata.create_all(bind=db.engine)
 
 # Registra os blueprints necessários
 app.register_blueprint(clients_routes, url_prefix="/clientes") 
+app.register_blueprint(custom_domain_bp, url_prefix="/dominios") 
 
 # Seta a rota principal para fazer o redirecionamento do Wildcard 
 @app.route('/', defaults={'path': ''})
