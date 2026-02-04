@@ -28,7 +28,8 @@ db.init_app(app) # Inicializa a sessão do banco de dados (Utilizando o app)
 with app.app_context(): db.metadata.create_all(bind=db.engine) # Cria os bancos de dados (Caso não existam)
 
 # Registra os blueprints necessários
-for name, bp in bps: app.register_blueprint(bp, url_prefix=name)
+for bp in bps:
+    app.register_blueprint(bps[bp], url_prefix=bp)
 
 # Faz a conferencia de GTAG e PIXEL CODES
 @app.context_processor
