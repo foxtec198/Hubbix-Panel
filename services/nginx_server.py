@@ -4,7 +4,8 @@ from subprocess import call
 
 class NginxServer():
     model_filename = path.join(getcwd(), "models", "nginx_model.conf")
-    location = path.join("//etc", "nginx", "sites-available", "panel.conf")
+    # location = path.join("//etc", "nginx", "sites-available", "panel.conf")
+    location = "/etc/nginx/sites-available/panel.conf"
 
     def config(self, client:Client) -> None: # Configura o arquivo do nginx
         if client.custom_domain and path.exists(self.location): # Confirma se existe a configuração do PAINEL no NGINX e se o cliente tem um custom domain
