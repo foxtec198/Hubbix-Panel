@@ -1,4 +1,4 @@
-from models.client import Client, db
+from models.clients import Client, db
 from flask import request, jsonify
 
 class ClientService:

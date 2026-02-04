@@ -1,10 +1,14 @@
-# IMPORTS
-from flask import Flask, render_template, abort, request as rq
-from models.client import db
+# IMPORTS UTILS
+from flask import Flask, render_template, request as rq
+from utils.db import db
+from flask_cors import CORS
+# IMPORTS SERVICES
 from services.clients_service import ClientService
 from services.nginx_server import NginxServer
-from routes.clients_routes import clients_routes
-from flask_cors import CORS
+from services.analytics import get_analytics_code
+# IMPORTS ROUTES
+from routes.clients_routes import clients_bp
+from routes.members_routes import member_bp
 
 """============================================================================
 ===============================================================================
@@ -14,22 +18,30 @@ from flask_cors import CORS
 ============================================================================"""
 
 app = Flask(__name__) # Cria o app Flask
+client_service = ClientService()
 CORS(app) # Flask CORS Config
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///clients.db" # Configuração do BANCO DE DADOS via SQLITE (Não achei necessário o uso do POSTGRES para o painel)
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///dados.db" # Configuração do BANCO DE DADOS via SQLITE (Não achei necessário o uso do POSTGRES para o painel)
 db.init_app(app) # Inicializa a sessão do banco de dados (Utilizando o app)
 
 # Cria os bancos de dados (Caso não existam)
 with app.app_context(): db.metadata.create_all(bind=db.engine)
 
 # Registra os blueprints necessários
-app.register_blueprint(clients_routes, url_prefix="/clientes") 
+app.register_blueprint(clients_bp, url_prefix="/clientes") 
+app.register_blueprint(member_bp, url_prefix="/membros") 
+
+@app.context_processor
+def inject_analytics():
+    client = client_service.resolve_client() # Resolve o cliente com base no dominio(wildcard)
+    return {"analytics": get_analytics_code(client)}
 
 # Seta a rota principal para fazer o redirecionamento do Wildcard 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve_lp(path) -> render_template:
-    client = ClientService().resolve_client() # Resolve o cliente com base no dominio(wildcard)
-    NginxServer().config(client) # 
+    global client
+    client = client_service.resolve_client() # Resolve o cliente com base no dominio(wildcard)
+    NginxServer().config(client) # Cria os arquivos do NGINX 
     if not client or not client.active: return render_template("404.html") # Confere se o cliente existe ese está ativo (Caso contrario retorna 404)
     return render_template(f'clients/{client.template}/index.html') # Retorna o template correto do cliente
 

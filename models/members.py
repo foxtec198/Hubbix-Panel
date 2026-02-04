@@ -1,6 +1,8 @@
 from models.base_model import BaseModel, db
 
 class Member(BaseModel):
+    __tablename__ = "members"
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     email = db.Column(db.String, unique=True, nullable=False)
