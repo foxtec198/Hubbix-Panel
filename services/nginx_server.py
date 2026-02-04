@@ -4,7 +4,6 @@ from subprocess import call
 
 class NginxServer():
     model_filename = path.join(getcwd(), "models", "nginx_model.conf")
-    # location = path.join("//etc", "nginx", "sites-available", "panel.conf")
     location = "/etc/nginx/sites-available/panel.conf"
 
     def config(self, client:Client) -> None: # Configura o arquivo do nginx

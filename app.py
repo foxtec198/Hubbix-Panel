@@ -30,10 +30,10 @@ with app.app_context(): db.metadata.create_all(bind=db.engine)
 app.register_blueprint(clients_bp, url_prefix="/clientes") 
 app.register_blueprint(member_bp, url_prefix="/membros") 
 
-@app.context_processor
-def inject_analytics():
-    client = client_service.resolve_client() # Resolve o cliente com base no dominio(wildcard)
-    return {"analytics": get_analytics_code(client)}
+# @app.context_processor
+# def inject_analytics():
+#     client = client_service.resolve_client() # Resolve o cliente com base no dominio(wildcard)
+#     return {"analytics": get_analytics_code(client)}
 
 # Seta a rota principal para fazer o redirecionamento do Wildcard 
 @app.route('/', defaults={'path': ''})
@@ -41,7 +41,7 @@ def inject_analytics():
 def serve_lp(path) -> render_template:
     global client
     client = client_service.resolve_client() # Resolve o cliente com base no dominio(wildcard)
-    NginxServer().config(client) # Cria os arquivos do NGINX 
+    # NginxServer().config(client) # Cria os arquivos do NGINX 
     if not client or not client.active: return render_template("404.html") # Confere se o cliente existe ese está ativo (Caso contrario retorna 404)
     return render_template(f'clients/{client.template}/index.html') # Retorna o template correto do cliente
 
