@@ -1,0 +1,26 @@
+/* Estilos customizados para a landing page */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.hero-section {
+    background-color: #f8f9fa; /* Placeholder para fundo */
+    padding: 100px 0;
+}
+
+#beneficios .col-md-4 {
+    margin-bottom: 30px;
+}
+
+#como-funciona .col-md-4 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#contato {
+    background-color: #007bff; /* Placeholder para cor primária */
+}
+
+footer {
+    background-color: #343a40;
+}

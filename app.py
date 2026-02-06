@@ -28,8 +28,7 @@ db.init_app(app) # Inicializa a sessão do banco de dados (Utilizando o app)
 with app.app_context(): db.metadata.create_all(bind=db.engine) # Cria os bancos de dados (Caso não existam)
 
 # Registra os blueprints necessários
-for bp in bps:
-    app.register_blueprint(bps[bp], url_prefix=bp)
+for bp in bps: app.register_blueprint(bps[bp], url_prefix=bp)
 
 # Faz a conferencia de GTAG e PIXEL CODES
 @app.context_processor
@@ -41,10 +40,11 @@ def inject_analytics():
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve_lp(path) -> render_template:
-    global client
     client = client_service.resolve_client() # Resolve o cliente com base no dominio(wildcard)
-    nginx_server.config(client) # Cria os arquivos do NGINX 
+    print(client)
+    if client == "panel": return render_template("panel/index.html") # COnfirma se é o painel
     if not client or not client.active: return render_template("404.html") # Confere se o cliente existe ese está ativo (Caso contrario retorna 404)
+    nginx_server.config(client) # Cria os arquivos do NGINX 
     return render_template(f'clients/{client.template}/index.html') # Retorna o template correto do cliente
 
 if __name__ == "__main__": app.run(debug=True) # Roda em modo debug (Desennvolvimento8)

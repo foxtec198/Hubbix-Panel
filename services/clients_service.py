@@ -13,6 +13,7 @@ class ClientService:
         """ Resolve o cliente com base no dominio da requisição e retorna o Client caso encontre"""
         host = self.normalize_host(request.host) # Normaliza o host da req.
 
+
         # domínio customizado do cliente (Caso haja)
         client = Client.query.filter_by(custom_domain=host).first()
         if client: return client # Retorna o cliente caso encontre
@@ -20,6 +21,7 @@ class ClientService:
         # subdomínio padrão: cliente.lp.hubbix.com.br ou cliente.localhost(Modo dev apenas)
         if host.endswith('.lp.hubbix.com.br') or host.endswith(".localhost"):
             sub = host.replace('.lp.hubbix.com.br', '').replace(".localhost", "")
+            if sub == "panel": return "panel"
             client = Client.query.filter_by(subdomain=sub).first()
             return client
 
