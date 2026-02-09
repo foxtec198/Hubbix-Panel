@@ -12,6 +12,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        
       - name: Deploy
         run: |
           ssh gh@${{ secrets.SERVER_IP }} << 'EOF'
