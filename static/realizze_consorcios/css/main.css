@@ -1,0 +1,58 @@
+/* Estilos customizados para a landing page */
+
+:root{
+    --primary: #17233bff;
+    --secondary: #dab662ff;
+    --white: #fefcffff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.bg-primary{
+    background-color: var(--primary) !important;
+}
+
+.text-blue {
+    color: var(--primary);
+}
+
+.text-gold {
+    color: var(--secondary);
+}   
+
+.btn-primary{
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+.btn-secondary{
+    background-color: var(--secondary) !important;
+    border-color: var(--secondary) !important;
+}
+
+.hero-section {
+    padding: 100px 0;
+    background: url('../img/familly_banner_2.png') no-repeat; /* Placeholder para fundo */
+    background-position: right bottom;
+    background-size: cover;
+    height: 95dvh;
+}
+
+#beneficios .col-md-4 {
+    margin-bottom: 30px;
+}
+
+#como-funciona .col-md-4 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#contato {
+    background-color: #007bff; /* Placeholder para cor primária */
+}
+
+footer {
+    background-color: #343a40;
+}

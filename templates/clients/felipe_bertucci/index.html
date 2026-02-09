@@ -20,9 +20,7 @@
     <!-- END CSS -->
 
     <!-- TAG AREA -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-386811028"></script>
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHZJNDF3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <script src="{{url_for('static', filename='felipe_bertucci/js/gtag.js')}}"></script>
+    {% if analytics %}{{ analytics|safe }}{% endif %}
     <!-- END TAG AREA -->
 </head>
 
