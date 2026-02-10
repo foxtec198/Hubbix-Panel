@@ -1,23 +1,33 @@
-name: Deploy into server
+name: Deploy into Server
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+
+  pull_request:
+    types: [ closed ]
+    branches: [ "main" ]
 
 jobs:
   deploy:
+    if: |
+      github.event_name == 'push' ||
+      (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
-        
-      - name: Deploy
-        run: |
-          ssh gh@${{ secrets.SERVER_IP }} << 'EOF'
-            cd /home/guibs/panel/
+
+      - name: SSH Deploy
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd ${{ secrets.DEPLOY_PATH }}
             sudo git pull origin main
-            /home/guibs/panel/venv/bin/pip install -r requirements.txt
-            sudo systemctl restart panel
-          EOF
+            sudo systemctl restart panel 
