@@ -1,14 +1,21 @@
-name: Deploy into Server
+name: Deploy into Server # This is a title
+on: # Call event
+  push: # This is a PUSH event listener
+    branches: [ "main" ] # Is a main branch
+  
+  pull_request: # This is a PRs event listiner
+    types: [ closed ] # Is a condition - CLOSED!
+    branches: [ "main" ] # Is a main branch
 
-on:
-  push:
-    branches: [ "main" ]
+jobs: # Jobs will run
+  deploy: # This a deploy 
+    if: | # Its a condition for CLOSE, PUSH and MERGED (Is obrigatory)
+      github.event_name == 'push' ||
+      (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    
+    runs-on: ubuntu-latest # This is a RUN on Ubuntu (LINUX)
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
+    steps: # And this is steps for Deploy!
       - name: Checkout code
         uses: actions/checkout@v4
 
