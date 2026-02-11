@@ -87,9 +87,7 @@
                     <p><i class="bi bi-person"></i> Edenilson Fernandes - Comercial</p>
                         
                 </div>
-                <div class="col-md-6">
-                    <img src="placeholder-image.jpg" alt="Imagem ilustrativa" class="img-fluid">
-                </div>
+                <img src="{{url_for('static', filename='realizze_consorcios/img/about_us.jpeg')}}" alt="Imagem ilustrativa" class="col-md-6 img-fluid object-fit-contain" style="max-height: 40dvh; border-radius: 20px;">
             </div>
         </div>
     </section>
@@ -97,18 +95,22 @@
     <!-- Benefits Section -->
     <section id="beneficios" class="bg-light py-5">
         <div class="container">
-            <h2 class="text-center mb-4">Por que Escolher o Consórcio Realizze?</h2>
+            <h2 class="text-center mb-4 text-gold fw-bold">Por que Escolher o Consórcio Realizze?</h2>
+            <hr>
             <div class="row">
                 <div class="col-md-4 text-center">
-                    <h4>Sem Juros</h4>
+                    <img src="{{ url_for('static', filename='realizze_consorcios/img/fees.svg') }}" width="150">
+                    <h4 class="fw-bold">Sem Juros</h4>
                     <p>Parcelas fixas e sem taxas de juros abusivas.</p>
                 </div>
                 <div class="col-md-4 text-center">
-                    <h4>Flexibilidade</h4>
+                    <img src="{{ url_for('static', filename='realizze_consorcios/img/flexibility.svg') }}" width="150">
+                    <h4 class="fw-bold">Flexibilidade</h4>
                     <p>Adapte o plano às suas necessidades.</p>
                 </div>
                 <div class="col-md-4 text-center">
-                    <h4>Segurança</h4>
+                    <img src="{{ url_for('static', filename='realizze_consorcios/img/security.svg') }}" width="150">
+                    <h4 class="fw-bold">Segurança</h4>
                     <p>Regulado pela legislação brasileira.</p>
                 </div>
             </div>
@@ -121,16 +123,34 @@
             <h2 class="text-center mb-4">Como Funciona?</h2>
             <div class="row">
                 <div class="col-md-4">
-                    <h5>1. Escolha o Plano</h5>
-                    <p>Selecione o valor e o prazo que cabem no seu bolso.</p>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>1. Escolha o Plano <i class="bi bi-award"></i></h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Selecione o valor e o prazo que cabem no seu bolso.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <h5>2. Pague as Parcelas</h5>
-                    <p>Contribua mensalmente com o grupo.</p>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>2. Pague as Parcelas <i class="bi bi-collection"></i></h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Contribua mensalmente com o grupo.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <h5>3. Receba a Carta</h5>
-                    <p>Seja contemplado e realize seu sonho.</p>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>3. Receba a Carta <i class="bi bi-mailbox-flag"></i></h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Seja contemplado e realize seu sonho.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -158,10 +178,19 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="bg-dark text-white text-center py-3">
-        <div class="container">
-            <p>&copy; 2023 Consórcio Realizze. Todos os direitos reservados.</p>
+    <footer class="bg-dark d-flex flex-column gap-4 text-white text-center py-3">
+        <div class="container text-center mt-5 mb-2 py-5 d-flex gap-2 align-items-center justify-content-center flex-wrap" data-aos="fade-down">
+            <a href="https://tecnobreve.onrender.com " class="text-decoration-none text-light" target="_blank">
+                &copy; 2026, Desenvolvido por
+                <img src="{{url_for('static', filename='tecnobreve/img/tecnobreve.png')}}" width="200vh">
+                <img>
+            </a>
+            <a href="https://www.instagram.com/mekadigital_/" class="text-decoration-none text-light d-flex align-items-center gap-2" target="_blank"> 
+                Em parceria com 
+                <img src="{{url_for('static', filename='meka/img/meka.png')}}" width="150vh">
+            </a>
         </div>
+        <p>&copy; 2023 Consórcio Realizze. Todos os direitos reservados.</p>
     </footer>
 
     <!-- Scripst -->
