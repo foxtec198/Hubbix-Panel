@@ -19,8 +19,8 @@ from routes.members_routes import member_bp
 ============================================================================"""
 
 app = Flask(__name__) # Cria o app Flask
-client_service = ClientService()
-nginx_server = NginxServer()
+client_service = ClientService() # Cria o service do Cliente - Utilizado no app pq é necessário para selecionar o cliente (Caso haja um)
+nginx_server = NginxServer() # Cria o service do NGINX, responsavel pela estruturação de custom domain dentro do arquivo do NGINX - /etc/nginx/sites-avaible/panel.conf
 CORS(app) # Flask CORS Config
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///dados.db" # Configuração do BANCO DE DADOS via SQLITE (Não achei necessário o uso do POSTGRES para o painel)
 db.init_app(app) # Inicializa a sessão do banco de dados (Utilizando o app)
