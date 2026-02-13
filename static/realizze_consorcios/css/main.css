@@ -41,7 +41,7 @@ body {
     background: url('../img/familly_banner_3.png') no-repeat; /* Placeholder para fundo */
     background-position: right bottom;
     background-size: cover;
-    height: 95dvh;
+    height: 100dvh;
 }
 
 #beneficios .col-md-4 {
@@ -53,12 +53,53 @@ body {
     margin-bottom: 30px;
 }
 
-#contato {
-    background-color: #007bff; /* Placeholder para cor primária */
-}
-
 footer {
     background-color: #343a40;
+}
+
+.btn-whatsapp {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.image-box {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.image-box img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Overlay */
+.image-box::before {
+  content: "Selecionar";
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  
+  /* background: rgba(0, 0, 0, 0.6); */
+  background: rgb(23, 35, 59, 0.7);
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  border-radius: 8px; /* opcional */
+}
+
+/* Hover ativa overlay */
+.image-box:hover::before {
+  opacity: 1;
 }
 
 @media only screen and (max-width: 500px) {

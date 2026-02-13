@@ -31,9 +31,12 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#marcas">Marcas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#beneficios">Benefícios</a></li>
                     <li class="nav-item"><a class="nav-link" href="#como-funciona">Como Funciona</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#planos">Planos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#perguntas">Perguntas frequentes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#hero">Contato</a></li>
                 </ul>
             </div>
         </div>
@@ -108,34 +111,39 @@
     </section>
 
     <!-- Accept Brands -->
-    <section class="py-5 bg-secondary">
+    <section id="marcas" class="py-5 bg-dark">
         <div class="container text-center">
-            <h2 class="text-center mb-4 text-light fw-bold">Marcas atutorizadas.</h2>
+            <h2 class="text-center mb-4 text-light fw-bold">Marcas autorizadas.</h2>
             <div class="row justify-content-md-center m-5">
                 <div class="col-md-2 text-center">
                     <img src="/static/{{client.template}}/img/itau.png" class="img-fluid object-fit-contain" width="150"
                         alt="Itau logo">
+                    <p class="fs-5 fw-bold" style="color: #1a5493;">Itaú</p>
                 </div>
                 <div class="col-md-2 text-center">
                     <img src="/static/{{client.template}}/img/bb.png" class="img-fluid object-fit-contain" width="150"
                         alt="BB logo">
+                    <p class="fs-5 fw-bold" style="color: #33348e;">Banco do Brasil</p>
                 </div>
                 <div class="col-md-2 text-center">
                     <img src="/static/{{client.template}}/img/santander.png" class="img-fluid object-fit-contain"
                         width="150" alt="Santander logo">
+                    <p class="fs-5 fw-bold" style="color: #ea1c24;">Santander</p>
                 </div>
                 <div class="col-md-2 text-center">
                     <img src="/static/{{client.template}}/img/volks.png" class="img-fluid object-fit-contain"
                         width="150" alt="Volkswagen logo">
+                    <p class="fs-5 fw-bold" style="color: #fff;">Volkswagen</p>
                 </div>
                 <div class="col-md-2 text-center">
                     <img src="/static/{{client.template}}/img/ancora.png" class="img-fluid object-fit-contain"
                         width="150" alt="Âncora Consórcios logo">
+                    <p class="fs-5 fw-bold" style="color: #00a69b;">Âncora</p>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Benefits Section -->
     <section id="beneficios" class="bg-light py-5">
         <div class="container">
@@ -155,6 +163,72 @@
                     <img src="{{ url_for('static', filename='realizze_consorcios/img/security.svg') }}" width="150">
                     <h4 class="fw-bold">Segurança</h4>
                     <p>Regulado pela legislação brasileira.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works Section -->
+    <section id="como-funciona" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4 text-gold fw-bold">Como Funciona?</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>1. Escolha o Plano <i class="bi bi-award"></i></h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Selecione o valor e o prazo que cabem no seu bolso.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>2. Pague as Parcelas <i class="bi bi-collection"></i></h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Contribua mensalmente com o grupo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>3. Receba a Carta <i class="bi bi-mailbox-flag"></i></h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Seja contemplado e realize seu sonho.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans -->
+    <section id="planos" class="bg-dark py-5" data-bs-theme="dark">
+        <div class="container">
+            <h2 class="text-center mb-4 text-gold mb-5 fw-bold">Selecione seu plano!</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <p class="fs-4 fw-bold text-light"> Caminhões </p>
+                    <a href="https://wa.me?phone={{client.tel}}&&text=Olá, Selecionei meu consórcio de caminhão, podemos dar continuidade?" target="_blank" class="image-box">
+                        <img class="img-fluid object-fit-cover rounded-4 img-plan" height="250" src="/static/{{client.template}}/img/truck.png" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-4">
+                    <p class="fs-4 fw-bold text-light"> Automóveis </p>
+                    <a href="https://wa.me?phone={{client.tel}}&&text=Olá, Selecionei meu consórcio de automóvel, podemos dar continuidade?" target="_blank" class="image-box">
+                        <img class="img-fluid object-fit-cover rounded-4 img-plan" height="250" src="/static/{{client.template}}/img/car.png" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-4">
+                    <p class="fs-4 fw-bold text-light"> Imóveis </p>
+                    <a href="https://wa.me?phone={{client.tel}}&&text=Olá, Selecionei meu consórcio de imóvel, podemos dar continuidade?" target="_blank" class="image-box">
+                        <img class="img-fluid object-fit-cover rounded-4 img-plan" height="250" src="/static/{{client.template}}/img/house.png" alt="">
+                    </a>
                 </div>
             </div>
         </div>
@@ -220,68 +294,8 @@
         </div>
     </section>
 
-    <!-- How it works Section -->
-    <section id="como-funciona" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4 text-gold fw-bold">Como Funciona?</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>1. Escolha o Plano <i class="bi bi-award"></i></h5>
-                        </div>
-                        <div class="card-body">
-                            <p>Selecione o valor e o prazo que cabem no seu bolso.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>2. Pague as Parcelas <i class="bi bi-collection"></i></h5>
-                        </div>
-                        <div class="card-body">
-                            <p>Contribua mensalmente com o grupo.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>3. Receba a Carta <i class="bi bi-mailbox-flag"></i></h5>
-                        </div>
-                        <div class="card-body">
-                            <p>Seja contemplado e realize seu sonho.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contato" class="bg-primary text-white py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Fale Conosco</h2>
-            <form id="contactForm">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <input type="text" class="form-control" placeholder="Nome" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <input type="email" class="form-control" placeholder="E-mail" required>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <textarea class="form-control" rows="4" placeholder="Mensagem" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-light">Enviar</button>
-            </form>
-        </div>
-    </section>
-
     <!-- Footer Section -->
-    <footer class="bg-dark d-flex flex-column gap-4 text-white text-center py-3">
+    <footer class="bg-primary d-flex flex-column gap-4 text-white text-center py-3">
         <div class="container text-center mt-5 mb-2 py-5 d-flex gap-2 align-items-center justify-content-center flex-wrap"
             data-aos="fade-down">
             <a href="https://tecnobreve.onrender.com " class="text-decoration-none text-light" target="_blank">
@@ -299,8 +313,7 @@
     </footer>
 
     <!-- Button Whatsapp Flutuante - Get whatsapp number of database -->
-    <div class="btn-whtasapp"><a href="https://wa.me?phone={% if client.tel %}{{ client.tel|safe }}{% endif %}"
-            target="_blank"></a></div>
+    <a class="btn-whatsapp" href="https://wa.me?phone={{client.tel}}&&text=Olá, gostaria de saber mais informações sobre o consórcio!" target="_blank"><img src="/static/{{client.template}}/img/whatsapp.svg" alt=""></a>
 
     <!-- Scripst -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
