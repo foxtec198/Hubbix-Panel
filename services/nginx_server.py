@@ -15,6 +15,5 @@ class NginxServer():
                 ).replace("[SERVER_NAME]", f"{client.custom_domain} www.{client.custom_domain}" # Altera o server name
                 ).replace("[CUSTOM_DOMAIN]", client.custom_domain) # Altera o custom domain
                 with open(self.location, "a") as new_file: new_file.write("\n" + new_txt) # Escreve no arquivo atual
-                print(f"/home/guibs/panel/venv/bin/certbot certonly --manual -d {client.custom_domain} -d www.{client.custom_domain} -y")
-                call(f"/home/guibs/panel/venv/bin/certbot certonly --manual -d {client.custom_domain} -d www.{client.custom_domain} -y") # Gera o certificado do site
-                call("systemctl restart nginx") # Reinicia o serviidor
+                call(f"/home/guibs/panel/venv/bin/certbot certonly --dns-cloudflare --dns-cloudflare-credentials ~/.secrets/certbot/cloudflare.ini -d {client.custom_domain} -d www.{client.custom_domain}") # Gera o certificado do site
+                call("sudo systemctl restart nginx") # Reinicia o serviidor
