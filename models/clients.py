@@ -12,3 +12,8 @@ class Client(BaseModel):
     partnership_id = db.Column(db.Integer, default=1)
     gtag = db.Column(db.String)
     pixel = db.Column(db.String)
+    tel = db.Column(db.String)
+
+    @classmethod
+    def _search_by_id(cls, id):
+        return cls.query.filter(cls.id == id).first()
