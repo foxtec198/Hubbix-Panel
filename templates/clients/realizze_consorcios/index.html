@@ -7,8 +7,9 @@
     <title>{{client.name}}{% if client.slogan %}{{ - client.slogan|safe}}{% endif %}</title>
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{url_for('static', filename='realizze_consorcios/css/main.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='realizze_consorcios/css/main.css')}}">
     <link rel="shortcut icon" href="/static/{{client.template}}/img/fav.png" type="image/x-icon">
     <!-- END CSS -->
 
@@ -23,7 +24,7 @@
         <div class="container">
             <a class="navbar-brand" href="/">
                 <img src="{{url_for('static', filename='realizze_consorcios/img/white_brand.svg')}}"
-                    class="img-fluid navbar-brand object-fit-cover" style="width: 20vh;">
+                    class="img-fluid navbar-brand object-fit-cover" style="width: 25vh;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -48,8 +49,8 @@
             <div class="d-flex flex-grow-1 justify-content-center align-items-center bg-danger opacity-0 mobile-hide"
                 style="flex-basis: 50dvh;">.</div>
             <div class="d-flex flex-grow-1 flex-column" style="flex-basis: 50dvh;">
-                <h1 class="display-6 fw-bold text-light">Conquiste seu bem com planejamento inteligente.</h1>
-                <div class="card">
+                <h1 class="display-6 fw-bold text-light" data-aos="fade-down">Conquiste seu bem com planejamento inteligente.</h1>
+                <div class="card" data-aos="fade-left">
                     <div class="card-body">
                         <span class="lead">Receba uma simulação personalizada!</span>
                         <form class="d-flex mt-4 flex-column gap-2">
@@ -77,6 +78,16 @@
                         </form>
                     </div>
                 </div>
+                <div class="d-flex flex-row gap-4 justify-content-center align-items-center mt-5 mobile-hide" data-aos="fade-up">
+                    <img src="/static/{{client.template}}/img/itau.png" class="img-fluid object-fit-contain" width="80"
+                        alt="Itau Logo">
+                    <img src="/static/{{client.template}}/img/bb.png" class="img-fluid object-fit-contain" width="80"
+                        alt="BB logo">
+                    <img src="/static/{{client.template}}/img/santander.png" class="img-fluid object-fit-contain"
+                        width="80" alt="Santander logo">
+                    <img src="/static/{{client.template}}/img/volks.png" class="img-fluid object-fit-contain" width="80"
+                        alt="Volkswagen logo">
+                </div>
             </div>
         </div>
     </section>
@@ -85,8 +96,8 @@
     <section id="sobre" class="py-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h2 class="fw-bold text-gold">Quem somos:</h2>
+                <div class="col-md-6" data-aos="fade-down">
+                    <h2 class="fw-bold text-gold">Quem somos, desde 2017</h2>
                     <p>
                         A Realizze Consórcios é uma empresa familiar, que atua com soluções completas em consórcios
                         contemplados e não contemplados,
@@ -99,13 +110,14 @@
                         clareza nas informações e economia a longo prazo.
                     </p>
                     <hr>
-                    <p><i class="bi bi-person"></i> Fernanda de Oliveira Fernandes - Administrativo </p>
                     <p><i class="bi bi-person"></i> Edenilson Fernandes - Comercial</p>
+                    <p><i class="bi bi-person"></i> Fernanda de Oliveira Fernandes - Administrativo </p>
 
                 </div>
                 <img src="/static/{{client.template}}/img/about_us.jpeg" alt="Imagem ilustrativa"
                     class="col-md-6 img-fluid object-fit-cover rounded-5"
-                    style="max-height: 50dvh; object-position: center 30%">
+                    style="max-height: 50dvh; object-position: center 30%"
+                    data-aos="fade-up">
             </div>
         </div>
     </section>
@@ -113,8 +125,8 @@
     <!-- Accept Brands -->
     <section id="marcas" class="py-5 bg-dark">
         <div class="container text-center">
-            <h2 class="text-center mb-4 text-light fw-bold">Marcas autorizadas.</h2>
-            <div class="row justify-content-md-center m-5">
+            <h2 class="text-center mb-4 text-light fw-bold" data-aos="fade-down">Representantes Autorizadas.</h2>
+            <div class="row justify-content-md-center m-5" data-aos="flip-down">
                 <div class="col-md-2 text-center">
                     <img src="/static/{{client.template}}/img/itau.png" class="img-fluid object-fit-contain" width="150"
                         alt="Itau logo">
@@ -135,19 +147,14 @@
                         width="150" alt="Volkswagen logo">
                     <p class="fs-5 fw-bold" style="color: #fff;">Volkswagen</p>
                 </div>
-                <div class="col-md-2 text-center">
-                    <img src="/static/{{client.template}}/img/ancora.png" class="img-fluid object-fit-contain"
-                        width="150" alt="Âncora Consórcios logo">
-                    <p class="fs-5 fw-bold" style="color: #00a69b;">Âncora</p>
-                </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Benefits Section -->
-    <section id="beneficios" class="bg-light py-5">
+    <section id="beneficios" class="bg-light py-5" data-aos="fade-down">
         <div class="container">
-            <h2 class="text-center mb-4 text-gold fw-bold">Por que escolher o consórcio Realizze?</h2>
+            <h2 class="text-center mb-4 text-gold fw-bold">Por que escolher a Realizze Consórcios?</h2>
             <div class="row">
                 <div class="col-md-4 text-center">
                     <img src="{{ url_for('static', filename='realizze_consorcios/img/fees.svg') }}" width="150">
@@ -169,7 +176,7 @@
     </section>
 
     <!-- How it works Section -->
-    <section id="como-funciona" class="py-5">
+    <section id="como-funciona" class="py-5" data-aos="fade-up">
         <div class="container">
             <h2 class="text-center mb-4 text-gold fw-bold">Como Funciona?</h2>
             <div class="row">
@@ -210,24 +217,30 @@
     <!-- Plans -->
     <section id="planos" class="bg-dark py-5" data-bs-theme="dark">
         <div class="container">
-            <h2 class="text-center mb-4 text-gold mb-5 fw-bold">Selecione seu plano!</h2>
-            <div class="row">
+            <h2 class="text-center mb-4 text-gold mb-5 fw-bold" data-aos="flip-left">Selecione seu plano!</h2>
+            <div class="row" data-aos="fade-up">
                 <div class="col-lg-4">
                     <p class="fs-4 fw-bold text-light"> Caminhões </p>
-                    <a href="https://wa.me?phone={{client.tel}}&&text=Olá, Selecionei meu consórcio de caminhão, podemos dar continuidade?" target="_blank" class="image-box">
-                        <img class="img-fluid object-fit-cover rounded-4 img-plan" height="250" src="/static/{{client.template}}/img/truck.png" alt="">
+                    <a href="https://wa.me?phone={{client.tel}}&&text=Olá, Selecionei meu consórcio de caminhão, podemos dar continuidade?"
+                        target="_blank" class="image-box">
+                        <img class="img-fluid object-fit-cover rounded-4 img-plan" height="250"
+                            src="/static/{{client.template}}/img/scania.png" alt="">
                     </a>
                 </div>
                 <div class="col-lg-4">
                     <p class="fs-4 fw-bold text-light"> Automóveis </p>
-                    <a href="https://wa.me?phone={{client.tel}}&&text=Olá, Selecionei meu consórcio de automóvel, podemos dar continuidade?" target="_blank" class="image-box">
-                        <img class="img-fluid object-fit-cover rounded-4 img-plan" height="250" src="/static/{{client.template}}/img/car.png" alt="">
+                    <a href="https://wa.me?phone={{client.tel}}&&text=Olá, Selecionei meu consórcio de automóvel, podemos dar continuidade?"
+                        target="_blank" class="image-box">
+                        <img class="img-fluid object-fit-cover rounded-4 img-plan" height="250"
+                            src="/static/{{client.template}}/img/s10.png" alt="">
                     </a>
                 </div>
                 <div class="col-lg-4">
                     <p class="fs-4 fw-bold text-light"> Imóveis </p>
-                    <a href="https://wa.me?phone={{client.tel}}&&text=Olá, Selecionei meu consórcio de imóvel, podemos dar continuidade?" target="_blank" class="image-box">
-                        <img class="img-fluid object-fit-cover rounded-4 img-plan" height="250" src="/static/{{client.template}}/img/house.png" alt="">
+                    <a href="https://wa.me?phone={{client.tel}}&&text=Olá, Selecionei meu consórcio de imóvel, podemos dar continuidade?"
+                        target="_blank" class="image-box">
+                        <img class="img-fluid rounded-4 img-plan object-fit-cover" height="250"
+                            src="/static/{{client.template}}/img/sobrado.png" alt="">
                     </a>
                 </div>
             </div>
@@ -295,11 +308,46 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="bg-primary d-flex flex-column gap-4 text-white text-center py-3">
-        <div class="container text-center mt-5 mb-2 py-5 d-flex gap-2 align-items-center justify-content-center flex-wrap"
+    <footer class="bg-primary d-flex flex-column gap-4 text-white py-3">
+        <hr> <!-- Divide pages -->
+        <div class="container d-flex gap-4 flex-row justify-content-between flex-wrap">
+            <div class="d-flex flex-column gap-2 flex-grow-1 flex-basis">
+                <h1 class="fs-4 fw-bold"><i class="bi bi-geo-alt"></i> Endereço</h1>
+                <p>R. Sen. Souza Naves, 990 - Centro, Londrina - PR, 86010-160</p>
+            </div>
+            <div class="d-flex flex-column gap-2 flex-grow-1 flex-basis">
+                <h1 class="fs-4 fw-bold"><i class="bi bi-chat-square-dots"></i> Representantes</h1>
+                <div class="d-flex flex-row gap-4 justify-content-start">
+                    <img src="/static/{{client.template}}/img/itau.png" class="img-fluid object-fit-contain" width="50"
+                        alt="Itau Logo">
+                    <img src="/static/{{client.template}}/img/bb.png"
+                        class="img-fluid object-fit-contain bg-light rounded" width="50" alt="BB logo">
+                    <img src="/static/{{client.template}}/img/santander.png" class="img-fluid object-fit-contain"
+                        width="50" alt="Santander logo">
+                    <img src="/static/{{client.template}}/img/volks.png" class="img-fluid object-fit-contain" width="50"
+                        alt="Volkswagen logo">
+                </div>
+            </div>
+            <div class="d-flex flex-column gap-2 flex-grow-1 flex-basis">
+                <h1 class="fs-4 fw-bold"><i class="bi bi-person-lines-fill"></i> Contatos</h1>
+                <p><a target="_blank" class="text-decoration-none text-light"
+                        href="https://wa.me?phone={{client.tel}}&&text=Olá, gostaria de saber mais informações sobre o consórcio!"><i
+                            class="bi bi-whatsapp"></i> (43) 98872-0579</a></p>
+                <p><a target="_blank" class="text-decoration-none text-light"
+                        href="https://www.instagram.com/realizze.consorcios/"><i class="bi bi-instagram"></i>
+                        realizze.consorcios</a></p>
+            </div>
+            <div class="d-flex flex-column gap-2 flex-grow-1 flex-basis">
+                <h1 class="fs-4 fw-bold"><i class="bi bi-list-nested"></i> Tipos de Consórcios</h1>
+                <p>Caminhões</p>
+                <p>Automóveis</p>
+                <p>Imóveis</p>
+            </div>
+        </div>
+        <div class="text-center mt-5 mb-2 py-5 d-flex gap-2 align-items-center justify-content-center flex-wrap"
             data-aos="fade-down">
             <a href="https://tecnobreve.onrender.com " class="text-decoration-none text-light" target="_blank">
-                &copy; 2026, Desenvolvido por
+                &copy; Desenvolvido por
                 <img src="{{url_for('static', filename='tecnobreve/img/tecnobreve.png')}}" width="200vh">
                 <img>
             </a>
@@ -309,14 +357,18 @@
                 <img src="{{url_for('static', filename='meka/img/meka.png')}}" width="150vh">
             </a>
         </div>
-        <p>&copy; 2023 Consórcio Realizze. Todos os direitos reservados.</p>
+        <p class="text-center">&copy; 2023 Consórcio Realizze. Todos os direitos reservados.</p>
     </footer>
 
     <!-- Button Whatsapp Flutuante - Get whatsapp number of database -->
-    <a class="btn-whatsapp" href="https://wa.me?phone={{client.tel}}&&text=Olá, gostaria de saber mais informações sobre o consórcio!" target="_blank"><img src="/static/{{client.template}}/img/whatsapp.svg" alt=""></a>
+    <a class="btn-whatsapp"
+        href="https://wa.me?phone={{client.tel}}&&text=Olá, gostaria de saber mais informações sobre o consórcio!"
+        target="_blank"><img src="/static/{{client.template}}/img/whatsapp.svg" width="75" alt=""></a>
 
     <!-- Scripst -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script> AOS.init({ duration: 1500 }) </script>
     <script src="{{url_for('static', filename='realizze_consorcios/js/main.js')}}"></script>
 </body>
 

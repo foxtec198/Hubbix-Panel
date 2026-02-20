@@ -10,6 +10,10 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.flex-basis {
+    flex-basis: 200px !important; 
+}
+
 .bg-primary{
     background-color: var(--primary) !important;
 }
@@ -67,12 +71,13 @@ footer {
   position: relative;
   display: inline-block;
   cursor: pointer;
+  height: 100%;
 }
 
 .image-box img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 /* Overlay */
