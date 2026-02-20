@@ -45,7 +45,7 @@ body {
     background: url('../img/familly_banner_3.png') no-repeat; /* Placeholder para fundo */
     background-position: right bottom;
     background-size: cover;
-    height: 100dvh;
+    min-height: 100dvh;
 }
 
 #beneficios .col-md-4 {

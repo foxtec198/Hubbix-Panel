@@ -46,9 +46,22 @@
     <!-- Hero Section -->
     <section id="hero" class="hero-section text-center py-5">
         <div class="container d-flex h-100 justify-content-center gap-4 align-items-center flex-wrap">
-            <div class="d-flex flex-grow-1 justify-content-center align-items-center bg-danger opacity-0 mobile-hide"
-                style="flex-basis: 50dvh;">.</div>
+            <div class="d-flex flex-grow-1 justify-content-center align-items-center bg-danger opacity-0 mobile-hide" style="flex-basis: 50dvh;">.</div>
             <div class="d-flex flex-grow-1 flex-column" style="flex-basis: 50dvh;">
+                <!-- Mobile Brands -->
+                <div class="d-flex flex-row gap-4 align-items-center mt-5 mobile" data-aos="fade-up">
+                    <img src="/static/{{client.template}}/img/itau.png" class="img-fluid object-fit-contain" width="50"
+                        alt="Itau Logo">
+                    <img src="/static/{{client.template}}/img/bb.png" class="img-fluid object-fit-contain" width="50"
+                        alt="BB logo">
+                    <img src="/static/{{client.template}}/img/santander.png" class="img-fluid object-fit-contain"
+                        width="50" alt="Santander logo">
+                    <img src="/static/{{client.template}}/img/volks.png" class="img-fluid object-fit-contain" width="50"
+                        alt="Volkswagen logo">
+                </div>
+                <!-- End Mobile Brands -->
+
+                <!-- Contact Form-->
                 <h1 class="display-6 fw-bold text-light" data-aos="fade-down">Conquiste seu bem com planejamento inteligente.</h1>
                 <div class="card" data-aos="fade-down">
                     <div class="card-body">
@@ -78,16 +91,20 @@
                         </form>
                     </div>
                 </div>
-                <div class="d-flex flex-row gap-4 justify-content-center align-items-center mt-5 mobile-hide" data-aos="fade-up">
+                <!-- End Contact Form -->
+
+                <!-- Desktop Brands -->
+                <div class="d-flex flex-row gap-4 justify-content-center align-items-start mt-5 mobile-hide" data-aos="fade-up">
                     <img src="/static/{{client.template}}/img/itau.png" class="img-fluid object-fit-contain" width="80"
                         alt="Itau Logo">
-                    <img src="/static/{{client.template}}/img/bb.png" class="img-fluid object-fit-contain" width="80"
+                    <img src="/static/{{client.template}}/img/bb.png" class="img-fluid object-fit-contain bg-light rounded-2" width="80"
                         alt="BB logo">
                     <img src="/static/{{client.template}}/img/santander.png" class="img-fluid object-fit-contain"
                         width="80" alt="Santander logo">
                     <img src="/static/{{client.template}}/img/volks.png" class="img-fluid object-fit-contain" width="80"
                         alt="Volkswagen logo">
                 </div>
+                <!-- End Desktop Brands -->
             </div>
         </div>
     </section>
