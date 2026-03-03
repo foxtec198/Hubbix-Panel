@@ -7,6 +7,7 @@ from utils.blueprints import bps
 from services.clients_service import ClientService
 from services.nginx_server import NginxServer
 from services.analytics import get_analytics_code
+from dotenv import load_dotenv
 # IMPORTS ROUTES
 from routes.clients_routes import clients_bp
 from routes.members_routes import member_bp
@@ -19,6 +20,7 @@ from routes.members_routes import member_bp
 ============================================================================"""
 
 app = Flask(__name__) # Cria o app Flask
+load_dotenv() # Carrega as variaveis de ambiente do .env
 client_service = ClientService() # Cria o service do Cliente - Utilizado no app pq é necessário para selecionar o cliente (Caso haja um)
 nginx_server = NginxServer() # Cria o service do NGINX, responsavel pela estruturação de custom domain dentro do arquivo do NGINX - /etc/nginx/sites-avaible/panel.conf
 CORS(app) # Flask CORS Config
@@ -41,7 +43,6 @@ def inject_analytics():
 @app.route('/<path:path>')
 def serve_lp(path) -> render_template:
     client = client_service.resolve_client() # Resolve o cliente com base no dominio(wildcard)
-    print(client)
     if client == "panel": return render_template("panel/index.html") # COnfirma se é o painel
     if not client or not client.active: return render_template("404.html") # Confere se o cliente existe ese está ativo (Caso contrario retorna 404)
     nginx_server.config(client) # Cria os arquivos do NGINX 
