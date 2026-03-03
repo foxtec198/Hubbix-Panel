@@ -3,6 +3,7 @@ from utils.db import db
 from flask import jsonify, request as rq
 from datetime import datetime as dt
 from functools import cache
+from utils.check_field import safe_route
 
 class ServiceMember:
     """
@@ -22,6 +23,7 @@ class ServiceMember:
     """
 
     @cache
+    @safe_route
     def create(self) -> tuple:
         """
         ### Criação de Membros para o Painel
@@ -48,6 +50,7 @@ class ServiceMember:
         return jsonify("Dados obrigatórios faltando!"), 400 # Retorna BAD REQUEST, 400
 
     @cache
+    @safe_route
     def read(self) -> tuple:
         """
         ### Obter membros do Painel
@@ -66,6 +69,7 @@ class ServiceMember:
         return jsonify(members_list), 200 # Retorna a lista de membros SUCCESS, 200
     
     @cache
+    @safe_route
     def update(self) -> tuple:
         """
         ### Atualização de Membros do Painel
@@ -96,6 +100,7 @@ class ServiceMember:
         return jsonify("Membro não encontrado!"), 404 # Retorna NOT FOUND, 404
 
     @cache
+    @safe_route
     def delete(self) -> tuple:
         """
         ### Remoção de Membro do Painel por id

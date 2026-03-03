@@ -1,6 +1,8 @@
 from models.clients import Client, db
 from flask import request as rq, jsonify
 from os import path, getcwd, mkdir
+from utils.check_field import safe_route
+from functools import cache
 
 class ClientService:
     def normalize_host(self, host: str) -> str:
@@ -28,6 +30,8 @@ class ClientService:
 
         return None # Retorna None caso não encontre nenhum cliente
 
+    @cache
+    @safe_route
     def create_client(self) -> tuple:
         """
         Cria um novo cliente no BD de forma simples.
@@ -120,6 +124,8 @@ class ClientService:
             
         return jsonify("Dados obrigatórios faltando"), 400 # Retorna BAD rq (400)
 
+    @cache
+    @safe_route
     def update_client(self) -> tuple:
         data = rq.get_json()
         id = data.get("id")
@@ -137,6 +143,8 @@ class ClientService:
             return jsonify("Cliente não encontrado"), 404
         return jsonify("ID obrigatório"), 404
 
+    @cache
+    @safe_route
     def remove_client(self) -> tuple: # Remove um cliente por ID
         """
         Remove um cliente do banco de dados com base no ID fornecido como parâmetro na query string.
