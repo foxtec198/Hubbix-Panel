@@ -2,3 +2,6 @@ gunicorn
 flask
 flask_sqlalchemy
 flask_cors
+pyjwt
+dateutils
+dotenv
