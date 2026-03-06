@@ -3,14 +3,13 @@ from flask import Flask, render_template, request as rq
 from utils.db import db
 from flask_cors import CORS
 from utils.blueprints import bps
+from dotenv import load_dotenv
+from os import getenv
+from utils.check_field import safe_route
 # IMPORTS SERVICES
 from services.clients_service import ClientService
 from services.nginx_server import NginxServer
 from services.analytics import get_analytics_code
-from dotenv import load_dotenv
-# IMPORTS ROUTES
-from routes.clients_routes import clients_bp
-from routes.members_routes import member_bp
 
 """============================================================================
 ===============================================================================
@@ -25,6 +24,7 @@ client_service = ClientService() # Cria o service do Cliente - Utilizado no app 
 nginx_server = NginxServer() # Cria o service do NGINX, responsavel pela estruturação de custom domain dentro do arquivo do NGINX - /etc/nginx/sites-avaible/panel.conf
 CORS(app) # Flask CORS Config
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///dados.db" # Configuração do BANCO DE DADOS via SQLITE (Não achei necessário o uso do POSTGRES para o painel)
+app.config["SECRET_KEY"] = getenv("SECRET")
 db.init_app(app) # Inicializa a sessão do banco de dados (Utilizando o app)
 
 with app.app_context(): db.metadata.create_all(bind=db.engine) # Cria os bancos de dados (Caso não existam)
@@ -47,5 +47,13 @@ def serve_lp(path) -> render_template:
     if not client or not client.active: return render_template("404.html") # Confere se o cliente existe ese está ativo (Caso contrario retorna 404)
     nginx_server.config(client) # Cria os arquivos do NGINX 
     return render_template(f'clients/{client.template}/index.html', client=client) # Retorna o template correto do cliente
+
+@app.route("/home")
+@safe_route
+def redirect_home_panel(token_data):
+    client = client_service.resolve_client() # Resolve o cliente com base no dominio(wildcard)
+    if not client == "panel": return render_template("404.html") # COnfirma se é o painel
+    return render_template("panel/home.html") # Rota para oç painel (Home)
+
 
 if __name__ == "__main__": app.run(debug=True) # Roda em modo debug (Desennvolvimento8)

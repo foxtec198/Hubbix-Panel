@@ -1,0 +1,168 @@
+:root {
+    /* Pallete */
+    --primary: rgb(94, 139, 96);
+    --secondary: rgb(58, 90, 64);
+    --tertiary: rgb(43, 48, 53);
+    --primary-foreground: rgb(255, 255, 255);
+
+    /* Cinza */
+    --cinza_escuro: rgb(40, 39, 41);
+    --cinza_claro: rgb(43, 48, 53);
+    
+    /* Azul */
+    --blue: rgb(2, 48, 71);
+
+    /* Roxo */
+    --violet: rgb(131, 56, 236);
+
+    /* Laranja */
+    --orange: rgb(251, 133, 0);
+
+    /* Marrom */
+    --brow: rgb(188, 108, 37);
+
+    /* Vermelho */
+    --red: rgb(193, 18, 31);
+    --red2: rgb(202, 49, 60);
+}
+
+.flex-basis {
+    flex-basis: 100px;
+}
+
+.flex-basis-200 {
+    flex-basis: 200px;
+}
+
+.flex-basis-300 {
+    flex-basis: 300px;
+}
+
+.flex-basis-400 {
+    flex-basis: 400px;
+}
+
+.flex-basis-500 {
+    flex-basis: 500px;
+}
+
+.flex-basis-600 {
+    flex-basis: 600px;
+}
+
+.flex-basis-700 {
+    flex-basis: 700px;
+}
+
+/* BACKGROUNDS */
+.bg-dark {
+    background: linear-gradient(#000, #2B3035) !important;
+    color: #fff !important;
+}
+
+.bg-gray{
+    background: var(--cinza_claro) !important;
+    color: var(--primary-foreground) !important;
+}
+
+.bg-dark-gray{
+    background: var(--cinza_escuro) !important;
+    color: var(--primary-foreground) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary) !important;
+    color: #fff;
+}
+
+.bg-outline-primary {
+    background: none !important;
+    border: 3px solid var(--primary) !important;
+    color: var(--primary) !important;
+}
+
+.bg-blue {
+    background: var(--blue) !important;
+}
+
+.bg-violet {
+    background: var(--violet) !important;
+}
+
+.bg-red {
+    background: var(--red) !important;
+    color: #fff !important;
+}
+
+.bg-outline-red {
+    background: none !important;
+    border: 3px solid var(--red) !important;
+    color: var(--red) !important;
+}
+
+/* BUTTONS */
+.btn-primary {
+    background-color: var(--primary) !important;
+    border: none !important;
+    border-radius: 30px;
+    color: #fff !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary) !important;
+}
+
+.btn-outline-primary {
+    border: 3px solid var(--primary) !important;
+    border-radius: 30px;
+    color: var(--green) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--secondary) !important;
+}
+
+.btn-red {
+    background-color: var(--red) !important;
+    border: none !important;
+    border-radius: 30px;
+    color: #fff !important;
+}
+
+.btn-red:hover {
+    background-color: var(--red) !important;
+}
+
+.btn-outline-red {
+    background-color: none;
+    border: 3px solid var(--red) !important;
+    border-radius: 30px;
+    color: var(--red) !important;
+}
+
+.btn-outline-red:hover {
+    background-color: var(--red2) !important;
+    color: #fff !important;
+}
+
+/* TAMANHOS */
+.min-widht-300 {
+    min-width: 300px;
+}
+
+.min-widht-500 {
+    min-width: 500px;
+}
+
+.min-widht-800 {
+    min-width: 800px;
+}
+
+/* TEXTOS */
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.text-red {
+    color: var(--red) !important;
+}

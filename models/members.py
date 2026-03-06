@@ -9,8 +9,9 @@ class Member(BaseModel):
     join_date = db.Column(db.DateTime, nullable=False)
     active = db.Column(db.Boolean, default=True)
     last_login = db.Column(db.DateTime, nullable=True)
-    partnership_id = db.Column(db.Integer)
     hash = db.Column(db.String, nullable=False)
+    partnership_id = db.Column(db.Integer)
+    client_id = db.Column(db.Integer, db.ForeignKey("clients.id"), nullable=False)
 
     @classmethod
     def _search_by_id(cls, id):

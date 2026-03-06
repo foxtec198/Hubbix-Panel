@@ -5,7 +5,6 @@ from datetime import datetime
 
 def create_token(dados:dict):
     dados["exp"] = datetime.now() + relativedelta(hours=8)
-    print(getenv("SECRET"))
     token = str(encode(dados, getenv("SECRET"), algorithm="HS256"))
     return token
 
