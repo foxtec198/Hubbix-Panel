@@ -1,5 +1,5 @@
-// var api = "https://panel.lp.hubbix.com.br"
 var api = "http://panel.localhost:5000"
+var api = "https://panel.lp.hubbix.com.br"
 
 // ================================================ DOM CREATE
 const img = "https://api.hubbix.com.br/img/newFav.png"
