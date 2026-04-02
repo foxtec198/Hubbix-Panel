@@ -5,11 +5,12 @@ from flask_cors import CORS
 from utils.blueprints import bps
 from dotenv import load_dotenv
 from os import getenv
-from utils.check_field import safe_route
 # IMPORTS SERVICES
 from services.clients_service import ClientService
 from services.nginx_server import NginxServer
 from services.analytics import get_analytics_code
+# MODELS
+from models.clients import Client
 
 """============================================================================
 ===============================================================================
@@ -49,11 +50,15 @@ def serve_lp(path) -> render_template:
     return render_template(f'clients/{client.template}/index.html', client=client) # Retorna o template correto do cliente
 
 @app.route("/home")
-@safe_route
-def redirect_home_panel(token_data):
+def redirect_home_panel():
     client = client_service.resolve_client() # Resolve o cliente com base no dominio(wildcard)
-    if not client == "panel": return render_template("404.html") # COnfirma se é o painel
+    if not client == "panel": return render_template("404.html") # Confirma se é o painel
     return render_template("panel/home.html") # Rota para oç painel (Home)
 
+@app.route("/<id>")
+def client_manager(id):
+    client = Client.query.get(id)
+    if client: return render_template("panel/client.html", client=client)
+    else: return render_template("404.html")
 
 if __name__ == "__main__": app.run(debug=True) # Roda em modo debug (Desennvolvimento8)
