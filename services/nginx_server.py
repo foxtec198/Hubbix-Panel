@@ -1,5 +1,5 @@
 from models.clients import Client
-from os import path, getcwd
+from os import path, getcwd, system
 from subprocess import call, run
 
 class NginxServer():
@@ -11,8 +11,7 @@ class NginxServer():
             with open(self.location, "r") as old_file: file = old_file.read() # Le os dados do arquivo antes de atualizar (Old)
             if not file.__contains__(client.custom_domain): # Confirma se o domnio ja existe no arquivo
                 # Gera o certificado do site
-                create_cert = run(f"/home/guibs/venv/bin/certbot certonly --dns-cloudflare --dns-cloudflare-credentials /home/guibs/.secrets/certbot/cloudflare.ini -d {client.custom_domain} -d www.{client.custom_domain}", capture_output=True)
-                print(create_cert)
+                system(f"/home/guibs/venv/bin/certbot certonly --dns-cloudflare --dns-cloudflare-credentials /home/guibs/.secrets/certbot/cloudflare.ini -d {client.custom_domain} -d www.{client.custom_domain}")
 
 
                 # Le os dados do MODELO do Nginx (Com HTTPS)
