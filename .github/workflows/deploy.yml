@@ -27,7 +27,7 @@ jobs: # Jobs will run
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd ${{ secrets.DEPLOY_PATH }}
-            pip install -r ~/panel/requirements.txt
+            cd /home/guibs/panel
+            /venv/bin/pip install -r requirements.txt
             git pull origin main
             sudo systemctl restart panel 
