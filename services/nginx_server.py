@@ -1,6 +1,6 @@
 from models.clients import Client
 from os import path, getcwd
-from subprocess import call, run
+from subprocess import run, CalledProcessError
 
 class NginxServer():
     model_filename = path.join(getcwd(), "models", "nginx_model.conf")
@@ -11,7 +11,19 @@ class NginxServer():
             with open(self.location, "r") as old_file: file = old_file.read() # Le os dados do arquivo antes de atualizar (Old)
             if not file.__contains__(client.custom_domain): # Confirma se o domnio ja existe no arquivo
                 # Gera o certificado do site
-                call(f"venv/bin/certbot certonly --dns-cloudflare --dns-cloudflare-credentials /root/.secrets/certbot/cloudflare.ini -d {client.custom_domain} -d www.{client.custom_domain}")
+                # call(f"venv/bin/certbot certonly --dns-cloudflare --dns-cloudflare-credentials /root/.secrets/certbot/cloudflare.ini -d {client.custom_domain} -d www.{client.custom_domain}")
+                cmd = [
+                    "/home/guibs/panel/venv/bin/certbot",
+                    "certonly", "--dns-cloudflare", "--dns-cloudflare-credentials", 
+                    "/home/guibs/.secrets/certbot/cloudflare.ini",
+                    "-d", client.custom_domain, "-d", f"www.{client.custom_domain}"
+                ]
+                
+                try:
+                    result = run(cmd, check=True, capture_output=True, text=True)
+                    print("Executado com sucesso", result.stdout)
+                except CalledProcessError as err: print("Erro ao executar o comando:", err.stderr)
+
 
                 # Le os dados do MODELO do Nginx (Com HTTPS)
                 with open(self.model_filename, "r", encoding="utf-8") as file: default = file.read()
