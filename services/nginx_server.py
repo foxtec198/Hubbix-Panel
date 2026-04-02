@@ -18,11 +18,7 @@ class NginxServer():
                     "/home/guibs/.secrets/certbot/cloudflare.ini",
                     "-d", client.custom_domain, "-d", f"www.{client.custom_domain}"
                 ]
-                
-                try:
-                    result = run(cmd, check=True, capture_output=True, text=True)
-                    print("Executado com sucesso", result.stdout)
-                except CalledProcessError as err: print("Erro ao executar o comando:", err.stderr)
+                result = run(cmd, check=True)
 
 
                 # Le os dados do MODELO do Nginx (Com HTTPS)
@@ -33,4 +29,4 @@ class NginxServer():
                 ).replace("[CUSTOM_DOMAIN]", client.custom_domain) # Altera o custom domain
 
                 with open(self.location, "a") as new_file: new_file.write("\n" + new_txt) # Escreve no arquivo atual
-                run("sudo systemctl restart nginx") # Reinicia o serviidor
+                run(["sudo", "systemctl", "restart", "nginx"]) # Reinicia o serviidor
