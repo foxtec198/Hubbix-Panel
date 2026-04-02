@@ -1,8 +1,10 @@
 from models.clients import Client, db
+from models.views import Events
 from flask import request as rq, jsonify
 from os import path, getcwd, mkdir
 from utils.check_field import safe_route
-from functools import cache
+from os import removedirs
+from datetime import datetime as dt
 
 class ClientService:
     def normalize_host(self, host: str) -> str:
@@ -30,9 +32,8 @@ class ClientService:
 
         return None # Retorna None caso não encontre nenhum cliente
 
-    @cache
     @safe_route
-    def create_client(self) -> tuple:
+    def create(self, token_data) -> tuple:
         """
         Cria um novo cliente no BD de forma simples.
 
@@ -47,6 +48,8 @@ class ClientService:
         template = data.get("template", subdomain) # Template (Com o subdominio como default)
         tel = data.get("tel") # Obtem o telefone do cliente
         self.template_dir = path.join(getcwd(), "templates", "clients", template)
+        partnership_id = token_data.get("partnership_id") # Obtem o partnership_id do token para agregar ao cliente criado
+        create_at = dt.now()
 
         if name and subdomain and template: # Confirma se foi passado os dados obrigatórios
             cont = 1 # Contador a somar caso a pasta ja exista
@@ -76,57 +79,80 @@ class ClientService:
             open(static + '/js/main.js', "w") # Cria o JS Base
             
             # Escreve a base de criação do index.html (Modo Desenvolvimento)
-            with open(self.template_dir + '/index.html', "w", encoding="utf-8") as file: file.write(f""" 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            with open(self.template_dir + '/index.html', "w", encoding="utf-8") as file: 
+                file.write(f""" 
+                    <!DOCTYPE html>
+                    <html lang="pt-br">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/{{{{client.template}}}}/css/base.css">
-    <!-- END CSS -->
+                        <!-- CSS -->
+                        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+                        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+                        <link rel="stylesheet" href="/static/{{{{client.template}}}}/css/base.css">
+                        <!-- END CSS -->
 
-    <!-- TAG CODE -->
-    {{% if analytics %}}{{{{ analytics|safe }}}}{{% else %}}<!-- NO ANALYTICS HERE-->{{% endif %}}
-    <!-- END TAG CODE -->
+                        <!-- TAG CODE -->
+                        {{% if analytics %}}{{{{ analytics|safe }}}}{{% else %}}<!-- NO ANALYTICS HERE-->{{% endif %}}
+                        <!-- END TAG CODE -->
 
-    <title>{{{{client.name}}}}</title>
-</head>
+                        <title>{{{{client.name}}}}</title>
+                    </head>
 
-<body
-    style="background-color: #222; display: flex; justify-content: center; align-items: center; color: #fff; text-align: center;">
-    <div>
-        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Esta Landingpage está em
-            desenvolvimento, favor entrar em contato com seu desenvolvedor!</h1>
-        <h2
-            style="font-style: italic; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-            This landingpage is under devlopment, please call by your developer.</h2>
-    </div>
+                    <body
+                        style="background-color: #222; display: flex; justify-content: center; align-items: center; color: #fff; text-align: center;">
+                        <div>
+                            <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Esta Landingpage está em
+                                desenvolvimento, favor entrar em contato com seu desenvolvedor!</h1>
+                            <h2
+                                style="font-style: italic; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                                This landingpage is under devlopment, please call by your developer.</h2>
+                        </div>
 
-    <!-- SCRIPTS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script> AOS.init({{ duration: 2000 }}) </script>
-    <script src="/static/{{{{client.template}}}}/js/main.js"></script>
-    <!-- END SCRIPTS -->
-</body>
-</html>""".strip())  
+                        <!-- SCRIPTS -->
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+                        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+                        <script> AOS.init({{ duration: 2000 }}) </script>
+                        <script src="/static/{{{{client.template}}}}/js/main.js"></script>
+                        <!-- END SCRIPTS -->
+                    </body>
+                    </html>""".strip())  
 
-            new_client = Client( name=name, subdomain=subdomain, template = template, tel = tel ) # Cria o novo cliente e agrega os dados
+            new_client = Client( 
+                name=name, subdomain=subdomain, template = template, 
+                tel = tel, partnership_id = partnership_id, created_at=create_at
+            ) # Cria o novo cliente e agrega os dados
             new_client.custom_domain = custom_domain if custom_domain else None # Confirma se tem o custom domain  e já agrega ao cliente criado
             db.session.add(new_client) # Adiciona a instancia a sessão
             db.session.commit() # Commita a sessão do BD
-            return jsonify("Cliente criado"), 201 # Retorna a mensaem de sucesso com o codigo de created (201)
+            return jsonify({
+                "msg": "Cliente criado",
+                "client": new_client.to_dict()
+            }), 201 # Retorna a mensaem de sucesso com o codigo de created (201)
             
         return jsonify("Dados obrigatórios faltando"), 400 # Retorna BAD rq (400)
 
-    @cache
     @safe_route
-    def update_client(self) -> tuple:
+    def read(self, token_data=None) -> tuple:
+        partnership_id = token_data.get("partnership_id")
+        clients = {
+            "results": {},
+            "infos": {}
+        }
+        if int(partnership_id) == 0: 
+            clients["results"] = Client._get_all_clients()
+            clients["infos"]["views"] = Events._get_count_all_views()
+            clients["infos"]["clicks"] = Events._get_count_all_clicks()
+        else: 
+            clients["results"] = Client._search_by_partnership(partnership_id)
+            clients["infos"]["views"] = Events._get_count_views_by_partnership(partnership_id)
+            clients["infos"]["clicks"] = Events._get_count_clicks_by_partnership(partnership_id)
+        return clients
+
+    @safe_route
+    def update(self) -> tuple:
         data = rq.get_json()
         id = data.get("id")
         if id:
@@ -143,9 +169,8 @@ class ClientService:
             return jsonify("Cliente não encontrado"), 404
         return jsonify("ID obrigatório"), 404
 
-    @cache
     @safe_route
-    def remove_client(self) -> tuple: # Remove um cliente por ID
+    def remove(self) -> tuple: # Remove um cliente por ID
         """
         Remove um cliente do banco de dados com base no ID fornecido como parâmetro na query string.
 
@@ -156,9 +181,15 @@ class ClientService:
         if id: # Confirma se foi passado o ID
             client = Client.query.get(id)
             if client: # Confirma se encontrou o cliente
+                path_client = path.join(getcwd(), "templates", "clients", client.template)
+                static_path_client = path.join(getcwd(), "static", client.template)
+
+                # Remove as pastas e arquivos do cliente
+                removedirs(path_client)
+                removedirs(static_path_client)
+
                 db.session.delete(client) # Deleta o cliente da sessão
                 db.session.commit() # Commita os dados
                 return jsonify("Cliente removido"), 200 # Retorna sucesso (200)
             return jsonify("Cliente não encontrado"), 404 # Retorna NOT FOUND (404)
         return jsonify("ID Obrigatório"), 400 # Retorna BAD REQUEST (400)
-

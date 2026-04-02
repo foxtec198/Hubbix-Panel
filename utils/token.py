@@ -8,10 +8,5 @@ def create_token(dados:dict):
     token = str(encode(dados, getenv("SECRET"), algorithm="HS256"))
     return token
 
-def decode_token(token:str):
-    try:
-        data = decode(token, getenv("SECRET"), algorithms=["HS256"])
-        return data
-    except Exception as e:
-        print(e)
-        return None
+def decode_token(token:str) -> str | None:
+    return decode(token, getenv("SECRET"), algorithms=["HS256"])

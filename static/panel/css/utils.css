@@ -54,6 +54,10 @@
     flex-basis: 700px;
 }
 
+.flex-basis-10d{
+    flex-basis: 100dvh;
+}
+
 /* BACKGROUNDS */
 .bg-dark {
     background: linear-gradient(#000, #2B3035) !important;

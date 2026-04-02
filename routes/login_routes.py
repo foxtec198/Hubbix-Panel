@@ -6,5 +6,6 @@ login_bp = Blueprint('Login', __name__)
 
 @login_bp.route("", methods=["GET", "POST", "DELETE", "PATCH"])
 def main():
+    print(request.method)
     match request.method:
         case "POST": return login_service.login()
