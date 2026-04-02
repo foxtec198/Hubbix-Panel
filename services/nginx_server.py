@@ -1,6 +1,6 @@
 from models.clients import Client
 from os import path, getcwd
-from subprocess import call
+from subprocess import call, run
 
 class NginxServer():
     model_filename = path.join(getcwd(), "models", "nginx_model.conf")
@@ -15,5 +15,5 @@ class NginxServer():
                 ).replace("[SERVER_NAME]", f"{client.custom_domain} www.{client.custom_domain}" # Altera o server name
                 ).replace("[CUSTOM_DOMAIN]", client.custom_domain) # Altera o custom domain
                 with open(self.location, "a") as new_file: new_file.write("\n" + new_txt) # Escreve no arquivo atual
-                call(f"~/venv/bin/certbot certonly --dns-cloudflare --dns-cloudflare-credentials ~/.secrets/certbot/cloudflare.ini -d {client.custom_domain} -d www.{client.custom_domain}", shell=True) # Gera o certificado do site
-                call("sudo systemctl restart nginx") # Reinicia o serviidor
+                run(f"~/venv/bin/certbot certonly --dns-cloudflare --dns-cloudflare-credentials ~/.secrets/certbot/cloudflare.ini -d {client.custom_domain} -d www.{client.custom_domain}") # Gera o certificado do site
+                run("sudo systemctl restart nginx") # Reinicia o serviidor
