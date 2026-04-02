@@ -1,6 +1,6 @@
 from models.clients import Client
 from os import path, getcwd
-from subprocess import run, CalledProcessError
+from subprocess import run, call
 
 class NginxServer():
     model_filename = path.join(getcwd(), "models", "nginx_model.conf")
@@ -34,4 +34,4 @@ class NginxServer():
                 ).replace("[CUSTOM_DOMAIN]", client.custom_domain) # Altera o custom domain
 
                 with open(self.location, "a") as new_file: new_file.write("\n" + new_txt) # Escreve no arquivo atual
-                run(["sudo", "systemctl", "restart", "nginx"]) # Reinicia o serviidor
+                call("sudo systemctl restart nginx") # Reinicia o serviidor
