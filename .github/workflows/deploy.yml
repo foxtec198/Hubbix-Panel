@@ -30,4 +30,5 @@ jobs: # Jobs will run
             cd /home/guibs/panel
             venv/bin/pip install -r requirements.txt
             git pull origin main
-            sudo systemctl restart panel 
+            sudo systemctl restart panel
+            echo "Deploy realizado com sucesso ✅"
