@@ -28,6 +28,6 @@ jobs: # Jobs will run
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd /home/guibs/panel
-            /venv/bin/pip install -r requirements.txt
+            venv/bin/pip install -r requirements.txt
             git pull origin main
             sudo systemctl restart panel 
