@@ -27,4 +27,4 @@ class NginxServer():
                 ).replace("[CUSTOM_DOMAIN]", client.custom_domain) # Altera o custom domain
 
                 with open(self.location, "a") as new_file: new_file.write("\n" + new_txt) # Escreve no arquivo atual
-                run([ "/bin/systemctl", "restart", "nginx"]) # Reinicia o serviidor
+                run(["sudo", "/usr/local/bin/restart_nginx.sh"]) # Reinicia o serviidor
