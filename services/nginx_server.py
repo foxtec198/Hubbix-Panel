@@ -11,7 +11,9 @@ class NginxServer():
             with open(self.location, "r") as old_file: file = old_file.read() # Le os dados do arquivo antes de atualizar (Old)
             if not file.__contains__(client.custom_domain): # Confirma se o domnio ja existe no arquivo
                 # Gera o certificado do site
-                run(f"/venv/bin/certbot certonly --dns-cloudflare --dns-cloudflare-credentials /home/guibs/.secrets/certbot/cloudflare.ini -d {client.custom_domain} -d www.{client.custom_domain}", cwd="/home/guibs/panel") 
+                create_cert = run(f"/home/guibs/venv/bin/certbot certonly --dns-cloudflare --dns-cloudflare-credentials /home/guibs/.secrets/certbot/cloudflare.ini -d {client.custom_domain} -d www.{client.custom_domain}", capture_output=True)
+                print(create_cert)
+
 
                 # Le os dados do MODELO do Nginx (Com HTTPS)
                 with open(self.model_filename, "r", encoding="utf-8") as file: default = file.read()
@@ -19,6 +21,6 @@ class NginxServer():
                 new_txt = default.replace("[CLIENT_ID]", client.name.upper() # Altera o nome de identificação
                 ).replace("[SERVER_NAME]", f"{client.custom_domain} www.{client.custom_domain}" # Altera o server name
                 ).replace("[CUSTOM_DOMAIN]", client.custom_domain) # Altera o custom domain
-                
+
                 with open(self.location, "a") as new_file: new_file.write("\n" + new_txt) # Escreve no arquivo atual
                 run("sudo systemctl restart nginx") # Reinicia o serviidor
