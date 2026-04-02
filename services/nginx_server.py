@@ -19,6 +19,11 @@ class NginxServer():
                     "-d", client.custom_domain, "-d", f"www.{client.custom_domain}"
                 ]
                 result = run(cmd, check=True)
+                print("="*30)
+                print("="*30)
+                print(result.stdout)
+                print("="*30)
+                print("="*30)
 
 
                 # Le os dados do MODELO do Nginx (Com HTTPS)
