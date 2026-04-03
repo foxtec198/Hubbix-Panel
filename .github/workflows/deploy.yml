@@ -28,7 +28,7 @@ jobs: # Jobs will run
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd /home/guibs/panel
-            venv/bin/pip install -r requirements.txt
             git pull origin main
+            venv/bin/pip install -r requirements.txt
             sudo systemctl restart panel
             echo "Deploy realizado com sucesso ✅"
