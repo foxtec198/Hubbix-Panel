@@ -14,7 +14,7 @@ class NginxServer():
                 cmd = [
                     "/home/guibs/panel/venv/bin/certbot",
                     "certonly", "--dns-cloudflare", "--dns-cloudflare-credentials", 
-                    "/home/guibs/.secrets/certbot/cloudflare.ini",
+                    "--keep-until-expiring", "--staging", "/home/guibs/.secrets/certbot/cloudflare.ini",
                     "-d", client.custom_domain, "-d", f"www.{client.custom_domain}"
                 ]
                 run(cmd)
