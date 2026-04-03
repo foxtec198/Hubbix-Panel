@@ -17,7 +17,7 @@ class LoginService:
                     if member.active: # Checka se o user esta ativo
                         if check_password_hash(pwd, member.hash): # Checka o HASH da Senha 
                             token = str(create_token({ "member_id": str(member.id), "partnership_id": str(member.partnership_id), "client_id": str(member.client_id) })) # Cria o access token
-                            return {
+                            return { # Testeeeee
                                 "access_token": token,
                                 "display_name": member.name,
                                 "email": member.email,
