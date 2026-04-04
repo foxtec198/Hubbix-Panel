@@ -31,4 +31,3 @@ jobs: # Jobs will run
             git pull origin main
             venv/bin/pip install -r requirements.txt
             sudo systemctl restart panel
-            echo "Deploy realizado com sucesso ✅"
