@@ -12,8 +12,7 @@ class NginxServer():
             if not file.__contains__(client.custom_domain): # Confirma se o domnio ja existe no arquivo
                 # Gera o certificado do site
                 cmd = [
-                    "/home/guibs/panel/venv/bin/certbot",
-                    "certonly", "--staging", "--keep-until-expiring", 
+                    "/home/guibs/panel/venv/bin/certbot", "certonly", "--keep-until-expiring", 
                     "--dns-cloudflare", "--dns-cloudflare-credentials", 
                     "/home/guibs/.secrets/certbot/cloudflare.ini",
                     "-d", client.custom_domain, "-d", f"www.{client.custom_domain}"
@@ -28,4 +27,4 @@ class NginxServer():
                 ).replace("[CUSTOM_DOMAIN]", client.custom_domain) # Altera o custom domain
 
                 with open(self.location, "a") as new_file: new_file.write("\n" + new_txt) # Escreve no arquivo atual
-                run(["/usr/sbin/nginx", "-s", "reload"]) # Reinicia o serviidor
+                run(["/usr/sbin/nginx", "-s", "reload"]) # Reinicia o servidor
