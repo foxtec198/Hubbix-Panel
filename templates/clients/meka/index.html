@@ -1,44 +1,175 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/{{client.template}}/css/base.css">
-    <link rel="shortcut icon" href="/static/{{client.template}}/img/fav.png" type="image/x-icon">
-    <!-- END CSS -->
-
-    <!-- TAG CODE -->
-    {% if analytics %}{{ analytics|safe }}{% else %}<!-- NO ANALYTICS HERE-->{% endif %}
-    <!-- END TAG CODE -->
-
-    <title>{{client.name}}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{client.name}}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="shortcut icon" href="/static/{{client.template}}/img/fav.png" type="image/x-icon">
+  <link rel="stylesheet" href="/static/{{client.template}}/css/base.css">
 </head>
 
-<body
-    style="background-color: #222; display: flex; justify-content: center; align-items: center; color: #fff; text-align: center;">
-    <div>
-        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Esta Landingpage está em
-            desenvolvimento, favor entrar em contato com seu desenvolvedor!</h1>
-        <h2
-            style="font-style: italic; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-            This landingpage is under devlopment, please call by your developer.</h2>
-    </div>
+<body>
 
-    <!-- SCRIPTS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script> AOS.init({ duration: 2000 }) </script>
-    <script src="/static/{{client.template}}/js/main.js"></script>
-    <!-- END SCRIPTS -->
+  <!-- HEADER -->
+  <header class="header border-none">
+    <div class="container nav">
+      <div class="logo"><img src="/static/meka/img/blue_brand.svg" width="125" alt=""></div>
+      <nav class="align-items-center">
+        <a href="#">Home</a>
+        <a href="#">Serviços</a>
+        <a href="#">Planos</a>
+        <a href="#">Cases</a>
+        <a href="#">Quem Somos</a>
+        <a class="nav-cta" href="#">Diagnóstico</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero-bg">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="text-dark fw-bold">Marketing Digital Estratégico</span>
+        <h1 class="fs-2 fw-bold">Transformamos presença digital em clientes reais.</h1>
+        <p class="text-dark">Estratégia, tráfego pago e branding para empresas que querem crescer.</p>
+
+        <div class="hero-actions">
+          <a href="#" class="btn-primary">Receber Diagnóstico</a>
+          <a href="#" class="btn-outline-primary">WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- <div class="hero-visual">
+        <div class="wire-box large"></div>
+      </div> -->
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="container">
+      <h2>Serviços</h2>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="icon"></div>
+          <h3>Gestão de Tráfego</h3>
+        </div>
+        <div class="card">
+          <div class="icon"></div>
+          <h3>Social Media</h3>
+        </div>
+        <div class="card">
+          <div class="icon"></div>
+          <h3>Rebranding</h3>
+        </div>
+        <div class="card">
+          <div class="icon"></div>
+          <h3>Consultoria</h3>
+        </div>
+        <div class="card">
+          <div class="icon"></div>
+          <h3>Vídeos</h3>
+        </div>
+        <div class="card">
+          <div class="icon"></div>
+          <h3>E-commerce</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section class="section gray">
+    <div class="container">
+      <h2>Planos</h2>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Básico</h3>
+          <div class="placeholder-lines"></div>
+          <a href="#" class="btn-secondary">Escolher</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <span class="badge">Mais escolhido</span>
+          <h3>Premium</h3>
+          <div class="placeholder-lines"></div>
+          <a href="#" class="btn-primary">Escolher</a>
+        </div>
+
+        <div class="pricing-card">
+          <h3>Intermediário</h3>
+          <div class="placeholder-lines"></div>
+          <a href="#" class="btn-secondary">Escolher</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section class="section">
+    <div class="container">
+      <h2>Cases</h2>
+
+      <div class="cases-grid">
+        <div class="case-box"></div>
+        <div class="case-box"></div>
+        <div class="case-box"></div>
+        <div class="case-box"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIAGNOSTIC -->
+  <section class="section highlight">
+    <div class="container form-layout">
+      <div class="form-text">
+        <h2 class="text-white fw-bold">Faça o Diagnóstico da Sua Empresa</h2>
+        <p class="text-warning">Descubra onde sua empresa pode crescer online.</p>
+      </div>
+
+      <form class="form-card">
+        <input type="text" placeholder="Nome completo">
+        <input type="email" placeholder="E-mail">
+        <input type="text" placeholder="WhatsApp">
+        <input type="text" placeholder="Empresa">
+        <button type="submit">Receber diagnóstico</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>Meka Digital — Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+    <script src="/static/{{client.template}}/js/three.js"></script>
+  <script src="/static/{{client.template}}/js/p5.min.js"></script>
+  <script src="/static/{{client.template}}/js/vanta.topology.min.js"></script>
+  <script>
+    VANTA.TOPOLOGY({
+      el: "#hero-bg",
+      mouseControls: false,
+      touchControls: false,
+      gyroControls: false,
+      minHeight: 100.00,
+      minWidth: 100.00,
+      scale: 20.00,
+      scaleMobile: 1.00,
+      color: 0x7c3aed,
+      backgroundColor: 0xFFFFFF
+    });
+  </script>
 </body>
 
 </html>
