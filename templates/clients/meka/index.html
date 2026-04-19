@@ -18,7 +18,7 @@
   <header class="header border-none">
     <div class="container nav">
       <div class="logo"><img src="/static/meka/img/blue_brand.svg" width="125" alt=""></div>
-      <nav class="align-items-center">
+      <nav class="align-items-center fw-bold">
         <a href="#">Home</a>
         <a href="#">Serviços</a>
         <a href="#">Planos</a>
@@ -56,28 +56,34 @@
 
       <div class="cards-grid">
         <div class="card">
-          <div class="icon"></div>
+          <div class="icon bi bi-clipboard-data text-center fs-2"></div>
           <h3>Gestão de Tráfego</h3>
+          <span>Planejamos e gerenciamos campanhas estratégicas para atrair o público certo e transformar investimento em resultados reais para sua empresa.</span>
         </div>
         <div class="card">
-          <div class="icon"></div>
+          <div class="icon bi bi-phone text-center fs-2"></div>
           <h3>Social Media</h3>
+          <span>Produzimos conteúdos estratégicos para fortalecer sua marca, gerar conexão com seu público e aumentar sua presença nas redes sociais.</span>
         </div>
         <div class="card">
-          <div class="icon"></div>
+          <div class="icon bi-palette text-center fs-2"></div>
           <h3>Rebranding</h3>
+          <span>Criamos marcas fortes e memoráveis que comunicam profissionalismo, autoridade e posicionamento no mercado digital.</span>
         </div>
         <div class="card">
-          <div class="icon"></div>
+          <div class="icon bi bi-geo text-center fs-2"></div>
           <h3>Consultoria</h3>
+          <span>Analisamos sua presença online e definimos estratégias para destacar sua empresa e aumentar sua relevância no ambiente digital</span>
         </div>
         <div class="card">
-          <div class="icon"></div>
+          <div class="icon bi-camera-reels text-center fs-2"></div>
           <h3>Vídeos</h3>
+          <span>Criamos fotos e vídeos estratégicos para anúncios e conteúdos que geram mais impacto e resultado para sua marca.</span>
         </div>
         <div class="card">
-          <div class="icon"></div>
+          <div class="icon bi bi-cart-plus text-center fs-2"></div>
           <h3>E-commerce</h3>
+          Criamos páginas modernas e otimizadas para vender mais, captar leads e oferecer uma experiência profissional ao cliente.
         </div>
       </div>
     </div>
@@ -159,15 +165,16 @@
   <script>
     VANTA.TOPOLOGY({
       el: "#hero-bg",
-      mouseControls: false,
-      touchControls: false,
-      gyroControls: false,
-      minHeight: 100.00,
-      minWidth: 100.00,
-      scale: 20.00,
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: true,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
       scaleMobile: 1.00,
       color: 0x7c3aed,
-      backgroundColor: 0xFFFFFF
+      backgroundColor: 0xFFFFFF,
+      opacity: 0.5,
     });
   </script>
 </body>
