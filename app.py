@@ -24,7 +24,10 @@ load_dotenv() # Carrega as variaveis de ambiente do .env
 client_service = ClientService() # Cria o service do Cliente - Utilizado no app pq é necessário para selecionar o cliente (Caso haja um)
 nginx_server = NginxServer() # Cria o service do NGINX, responsavel pela estruturação de custom domain dentro do arquivo do NGINX - /etc/nginx/sites-avaible/panel.conf
 CORS(app) # Flask CORS Config
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///dados.db" # Configuração do BANCO DE DADOS via SQLITE (Não achei necessário o uso do POSTGRES para o painel)
+
+# Configuração do BANCO DE DADOS (Postgres!)
+app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{getenv("USER")}:{getenv("PWD")}@{getenv("HOST")}:{getenv("PORT")}/panel" 
+
 app.config["SECRET_KEY"] = getenv("SECRET")
 db.init_app(app) # Inicializa a sessão do banco de dados (Utilizando o app)
 
