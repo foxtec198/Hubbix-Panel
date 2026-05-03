@@ -26,7 +26,7 @@ nginx_server = NginxServer() # Cria o service do NGINX, responsavel pela estrutu
 CORS(app) # Flask CORS Config
 
 # Configuração do BANCO DE DADOS (Postgres!)
-app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{getenv("USER")}:{getenv("PWD")}@{getenv("HOST")}:{getenv("PORT")}/panel" 
+app.config["SQLALCHEMY_DATABASE_URI"] = getenv("PANEL")
 
 app.config["SECRET_KEY"] = getenv("SECRET")
 db.init_app(app) # Inicializa a sessão do banco de dados (Utilizando o app)
