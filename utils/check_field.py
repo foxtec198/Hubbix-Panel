@@ -1,13 +1,13 @@
 from hashlib import sha256
 from functools import wraps
 from flask import request as rq, jsonify
-from jwt import decode
 from utils.token import decode_token
 from jwt import ExpiredSignatureError
 import inspect
 
-def check_password_hash(pwd: str, hash: str) -> bool: # Confirma o hash do password
-    if sha256(str(pwd).encode()).hexdigest() == hash: return True
+def check_password_hash(pwd: str, hash: bytes) -> bool: # Confirma o hash do password
+    hash_created = sha256(str(pwd).encode()).hexdigest()
+    if bytes(hash_created.encode()) == bytes(hash): return True
     return False
 
 def safe_route(func): # Rota responsavel pela verificação do Access Token
