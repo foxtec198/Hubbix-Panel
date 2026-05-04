@@ -11,7 +11,6 @@ div.innerHTML = options;
 parent.document.body.appendChild(div);
 const offcanvas = document.getElementById("offcanvasRight") ? new bootstrap.Offcanvas(document.getElementById("offcanvasRight")) : null;
 
-
 function create_line_client(client){ // Cria uma linha na lista de clientes
     const li = document.createElement("li"); // Cria um list item (MAIN)
     li.classList.add("list-group-item", "list-group-item-action"); // CSS do list item
