@@ -22,9 +22,6 @@ from models.clients import Client
 ===============================================================================
 ============================================================================"""
 
-call("cls", shell=True) if os_name == "nt" else call("clear", shell=True)
-call("python -m pip install --upgrade -r requirements.txt", shell=True)
-
 app = Flask(__name__) # Cria o app Flask
 load_dotenv() # Carrega as variaveis de ambiente do .env
 client_service = ClientService() # Cria o service do Cliente - Utilizado no app pq é necessário para selecionar o cliente (Caso haja um)
@@ -72,4 +69,8 @@ def client_manager(id):
     if client: return render_template("panel/client.html", client=client)
     else: return render_template("404.html")
 
-if __name__ == "__main__": ws.run(app, debug=True) # Roda em modo debug (Desennvolvimento8)
+if __name__ == "__main__": 
+    call("cls", shell=True) if os_name == "nt" else call("clear", shell=True)
+    call("python -m pip install --upgrade -r requirements.txt", shell=True)
+    call("cls", shell=True) if os_name == "nt" else call("clear", shell=True)
+    ws.run(app, debug=True) # Roda em modo debug (Desennvolvimento8)
