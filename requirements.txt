@@ -8,3 +8,4 @@ dotenv
 certbot
 certbot-dns-cloudflare
 psycopg2-binary
+flask_socketio

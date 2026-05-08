@@ -1,5 +1,5 @@
 var api = "http://panel.localhost:5000"
-var api = "https://lp.hubbix.com.br";
+// var api = "https://lp.hubbix.com.br";
 
 // ================================================ DOM CREATE
 const img = "https://api.hubbix.com.br/img/newFav.png"
@@ -10,68 +10,79 @@ div.classList.add("toast-container", "position-fixed", "bottom-0", "end-0", "p-3
 div.innerHTML = options;
 parent.document.body.appendChild(div);
 const offcanvas = document.getElementById("offcanvasRight") ? new bootstrap.Offcanvas(document.getElementById("offcanvasRight")) : null;
+const isHomePage = window.location.pathname == "/home"
 
 function create_line_client(client){ // Cria uma linha na lista de clientes
-    const li = document.createElement("li"); // Cria um list item (MAIN)
-    li.classList.add("list-group-item", "list-group-item-action"); // CSS do list item
-
-    const divLi = document.createElement("div"); // Div responsavel por dividir os dados dos botoes
-    divLi.classList.add("d-flex", "justify-content-between"); // CSS do divLi
-
-    const divInfo = document.createElement("div") // Div responsavel pelas dados/infos
-    divInfo.classList.add("d-flex", "align-items-center"); // CSS da DivInfo
-    divInfo.style.lineHeight = "20px"; // Espaçamento da linha
-
-    const divText = document.createElement("div"); // Divião dos textos 
-    divText.classList.add("d-flex", "flex-column", "ms-3"); // CSS do divText
-
-    const spanIcon = document.createElement("span"); // Icon que será trocado pela logo posteriormente
-    spanIcon.classList.add("bi") // CSS do Icone
-    client.active ? spanIcon.classList.add("bi-play-circle-fill", "text-primary") 
-    : spanIcon.classList.add("bi-pause-circle-fill", "text-danger")
-
-    const spanName = document.createElement("span"); // Texto referente ao nome do cliente
-    spanName.classList.add("fs-6", "fw-bold"); // CSS do spanname
-    spanName.textContent = client.name; // Seta o nome do cliente
-
-    const spanDomain = document.createElement("span"); // Span referente ao dominio (Custom/sub)
-    spanDomain.classList.add("fs-6", "text-truncate"); // CSS do
-    spanDomain.style.maxWidth = "200px"
-    const domain = client.custom_domain ? client.custom_domain : client.subdomain + ".lp.hubbix.com.br"; // Seta o dominio do dliente
-    spanDomain.textContent = domain 
+    if(client.id){
+        const li = document.createElement("li"); // Cria um list item (MAIN)
+        li.classList.add("list-group-item", "list-group-item-action"); // CSS do list item
     
-    const btn = document.createElement("button"); 
-    btn.classList.add("btn", "btn-sm", "btn-primary", "rounded");
-    btn.textContent = "Gerenciar";
-
-    btn.dataset.toggle = "offcanvas";
-    li.dataset.toggle = "offcanvas";
-
-    btn.dataset.bsTarget = "#offcanvasRight";
-    li.dataset.bsTarget = "#offcanvasRight";
-
-    // Divisao dos textos
-    divText.appendChild(spanName);
-    divText.appendChild(spanDomain);
-
-    // Div de informações
-    divInfo.appendChild(spanIcon)
-    divInfo.appendChild(divText);
-
-    // Divisão principal
-    divLi.appendChild(divInfo);
-    divLi.appendChild(btn); 
-
-    // Abre a pagina de cliente com os dados do mesmo
-    const els = [btn, li] // Mesma função para o botao e para o item da lista
-    els.forEach(el => { // Percore os elementos e adiciona o evento
-        el.addEventListener("click", async() =>{ // Cria o evento de click
-            window.location = `/${client.id}` // Leva pra pagina de cliente
-        });
-    }); 
+        const divLi = document.createElement("div"); // Div responsavel por dividir os dados dos botoes
+        divLi.classList.add("d-flex", "justify-content-between"); // CSS do divLi
     
-    li.appendChild(divLi); // Adiciona os dados ao item da lista
-    return li; // Retorna o item da lista
+        const divInfo = document.createElement("div") // Div responsavel pelas dados/infos
+        divInfo.classList.add("d-flex", "align-items-center"); // CSS da DivInfo
+        divInfo.style.lineHeight = "20px"; // Espaçamento da linha
+    
+        const divText = document.createElement("div"); // Divião dos textos 
+        divText.classList.add("d-flex", "flex-column", "ms-3"); // CSS do divText
+    
+        const spanIcon = document.createElement("span"); // Icon que será trocado pela logo posteriormente
+        spanIcon.classList.add("bi") // CSS do Icone
+        client.active ? spanIcon.classList.add("bi-play-circle-fill", "text-primary") 
+        : spanIcon.classList.add("bi-pause-circle-fill", "text-danger")
+    
+        const spanName = document.createElement("span"); // Texto referente ao nome do cliente
+        spanName.classList.add("fs-6", "fw-bold"); // CSS do spanname
+        spanName.textContent = client.name; // Seta o nome do cliente
+    
+        const spanDomain = document.createElement("span"); // Span referente ao dominio (Custom/sub)
+        spanDomain.classList.add("fs-6", "text-truncate"); // CSS do
+        spanDomain.style.maxWidth = "200px"
+        const isLocalHost = window.location.hostname.includes("localhost")
+    
+        // Seta o dominio do vliente
+        spanDomain.textContent = client.custom_domain 
+            ? client.custom_domain : 
+                isLocalHost 
+                    ? client.subdomain + ".localhost:5000"
+                    : client.subdomain + ".lp.hubbix.com.br"
+        
+        const btn = document.createElement("button"); 
+        btn.classList.add("btn", "btn-sm", "btn-primary", "rounded");
+        btn.textContent = "Gerenciar";
+    
+        btn.dataset.toggle = "offcanvas";
+        li.dataset.toggle = "offcanvas";
+    
+        btn.dataset.bsTarget = "#offcanvasRight";
+        li.dataset.bsTarget = "#offcanvasRight";
+    
+        // Divisao dos textos
+        divText.appendChild(spanName);
+        divText.appendChild(spanDomain);
+    
+        // Div de informações
+        divInfo.appendChild(spanIcon)
+        divInfo.appendChild(divText);
+    
+        // Divisão principal
+        divLi.appendChild(divInfo);
+        divLi.appendChild(btn); 
+    
+        // Abre a pagina de cliente com os dados do mesmo
+        const els = [btn, li] // Mesma função para o botao e para o item da lista
+        els.forEach(el => { // Percore os elementos e adiciona o evento
+            el.addEventListener("click", async() =>{ // Cria o evento de click
+                window.location = `/${client.id}` // Leva pra pagina de cliente
+            });
+        }); 
+        
+        li.appendChild(divLi); // Adiciona os dados ao item da lista
+    
+        // Retorna o item da lista
+        return li; 
+    };
 };
 
 // ====================================== FUNÇÕES 
@@ -182,20 +193,17 @@ form_login ? form_login.addEventListener("submit", async(e)=>{
 const form_new_client = document.getElementById("form_new_client"); // Eventos para criação de cliente
 form_new_client ? form_new_client.addEventListener("submit", async(e)=>{
     e.preventDefault(); // Evita reload 
+    is_loading(); // Loading
+    
     const name = form_new_client.name.value
     const domain = form_new_client.sub.value
     const template = form_new_client.template.value
 
-    is_loading();
     data = { name: name, subdomain: domain };
     template ? data["template"] = template : null;
     const res = await request("/clientes", "POST", data);
 
-    if (res) {
-        const li = create_line_client(res.client);
-        document.getElementById("list_of_clients").appendChild(li);
-        window.location = "/" + res.client.id
-    }
+    if (res) { show_toast(res); offcanvas.hide();}
 }) : null;
 
 document.querySelectorAll("[data-name").forEach(el => {
@@ -238,3 +246,14 @@ async function get_clients(){
         }
     })
 };
+let cont = 0;
+
+if(isHomePage){
+    const socket = io('http://localhost:5000');
+
+    socket.on('new_client', (data) => {
+        const li = create_line_client(data)
+        li ? document.getElementById("list_of_clients").appendChild(li):null;
+        return
+    });
+}

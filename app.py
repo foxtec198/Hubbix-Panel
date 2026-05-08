@@ -5,6 +5,8 @@ from flask_cors import CORS
 from utils.blueprints import bps
 from dotenv import load_dotenv
 from os import getenv
+from flask_socketio import SocketIO
+from utils.extensions import ws
 # IMPORTS SERVICES
 from services.clients_service import ClientService
 from services.nginx_server import NginxServer
@@ -36,6 +38,8 @@ with app.app_context(): db.metadata.create_all(bind=db.engine) # Cria os bancos 
 # Registra os blueprints necessários
 for bp in bps: app.register_blueprint(bps[bp], url_prefix=bp)
 
+ws.init_app(app)
+
 # Faz a conferencia de GTAG e PIXEL CODES
 @app.context_processor
 def inject_analytics():
@@ -64,4 +68,4 @@ def client_manager(id):
     if client: return render_template("panel/client.html", client=client)
     else: return render_template("404.html")
 
-if __name__ == "__main__": app.run(debug=True) # Roda em modo debug (Desennvolvimento8)
+if __name__ == "__main__": ws.run(app, debug=True) # Roda em modo debug (Desennvolvimento8)

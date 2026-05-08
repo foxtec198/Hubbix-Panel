@@ -4,7 +4,9 @@ from flask import request as rq, jsonify
 from os import path, getcwd, mkdir
 from utils.check_field import safe_route
 from os import removedirs
+from utils.extensions import ws
 from datetime import datetime as dt
+from utils.serializer import serialize
 
 class ClientService:
     def normalize_host(self, host: str) -> str:
@@ -32,8 +34,8 @@ class ClientService:
 
         return None # Retorna None caso não encontre nenhum cliente
 
-    @safe_route
-    def create(self, token_data) -> tuple:
+    # @safe_route
+    def create(self, token_data = {"partnership_id": 0}) -> tuple:
         """
         Cria um novo cliente no BD de forma simples.
 
@@ -122,16 +124,14 @@ class ClientService:
 
             new_client = Client( 
                 name=name, subdomain=subdomain, template = template, 
-                tel = tel, partnership_id = partnership_id, created_at=create_at
+                tel = tel, partnership_id = partnership_id, created_at=create_at, logo="blank.png"
             ) # Cria o novo cliente e agrega os dados
             new_client.custom_domain = custom_domain if custom_domain else None # Confirma se tem o custom domain  e já agrega ao cliente criado
             db.session.add(new_client) # Adiciona a instancia a sessão
             db.session.commit() # Commita a sessão do BD
-            return jsonify({
-                "msg": "Cliente criado",
-                "client": new_client.to_dict()
-            }), 201 # Retorna a mensaem de sucesso com o codigo de created (201)
-            
+            ws.emit("new_client", serialize(new_client.to_dict()))
+            ws.emit("new_client", True)
+            return jsonify("Cliente criado"), 201 # Retorna a mensaem de sucesso com o codigo de created (201)
         return jsonify("Dados obrigatórios faltando"), 400 # Retorna BAD rq (400)
 
     @safe_route
