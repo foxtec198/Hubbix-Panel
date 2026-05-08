@@ -249,7 +249,7 @@ async function get_clients(){
 let cont = 0;
 
 if(isHomePage){
-    const socket = io('http://localhost:5000');
+    const socket = io(api);
 
     socket.on('new_client', (data) => {
         const li = create_line_client(data)
