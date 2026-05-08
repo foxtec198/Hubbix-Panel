@@ -1,8 +1,6 @@
-var api = "http://panel.localhost:5000"
-var api = "https://lp.hubbix.com.br";
+import { api, img } from "./utils/env.js"
 
 // ================================================ DOM CREATE
-const img = "https://api.hubbix.com.br/img/newFav.png"
 const div = document.createElement("div")
 const divLdg = document.createElement("div")
 const options = `<div id="manager_toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true"> <div class="toast-header"> <img src="${img}" width="20vh" class="rounded me-2" alt="logo"> <strong class="me-auto" id="toast_title"></strong> <small>Agora.</small> <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button> </div> <div class="toast-body" id="toast_msg"></div> </div>`;
@@ -198,8 +196,8 @@ form_new_client ? form_new_client.addEventListener("submit", async(e)=>{
     const name = form_new_client.name.value
     const domain = form_new_client.sub.value
     const template = form_new_client.template.value
+    const data = { name: name, subdomain: domain };
 
-    data = { name: name, subdomain: domain };
     template ? data["template"] = template : null;
     const res = await request("/clientes", "POST", data);
 
@@ -209,7 +207,7 @@ form_new_client ? form_new_client.addEventListener("submit", async(e)=>{
 document.querySelectorAll("[data-name").forEach(el => {
     const name = el.getAttribute("data-name");
     if (name == "display_name") {
-        first_name = sessionStorage.getItem("display_name").split(" ")[0]
+        const first_name = sessionStorage.getItem("display_name").split(" ")[0]
         el.textContent += first_name + ".";
     };
     if (name == "time") {
@@ -226,7 +224,10 @@ document.querySelectorAll("[data-name").forEach(el => {
 // ====================================== REQUESTS
 async function get_clients(){
     const clients = await request("/clientes");
+    const list_of_clients = document.getElementById("list_of_clients")
     
+    list_of_clients.innerHTML = ""
+
     const infos = clients.infos // Obtem as infos (Calculadas no servidor )
     infos["ativos"] = 0 // Adiciona os ativos como 0
     infos["inativos"] = 0 // Adiciona os inativos como 0
@@ -236,7 +237,7 @@ async function get_clients(){
     clients.results.forEach(client => {
         client.active ? infos["ativos"] += 1 : infos["inativos"] += 1 //  Seta ativo ou inativo nas infos
         const li = create_line_client(client) // Cria o item da lista do cliente
-        document.getElementById("list_of_clients").appendChild(li) // Adiciona o item da lista ao container 
+        list_of_clients.appendChild(li) // Adiciona o item da lista ao container 
     });
 
     // Seta os dados dos INFOS e, seis respectivos cards
@@ -246,14 +247,14 @@ async function get_clients(){
         }
     })
 };
-let cont = 0;
 
 if(isHomePage){
+    get_clients();
     const socket = io(api);
-
     socket.on('new_client', (data) => {
-        const li = create_line_client(data)
-        li ? document.getElementById("list_of_clients").appendChild(li):null;
+        // const li = create_line_client(data)
+        // li ? document.getElementById("list_of_clients").appendChild(li):null;
+        get_clients();
         return
     });
 }

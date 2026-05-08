@@ -28,5 +28,5 @@ class Client(BaseModel):
 
     @classmethod 
     def _get_all_clients(cls):
-        clients = cls.query.all()
+        clients = cls.query.order_by(cls.created_at.desc()).all()
         return [c.to_dict() for c in clients]

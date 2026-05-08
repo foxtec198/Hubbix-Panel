@@ -4,14 +4,14 @@ from utils.db import db
 from flask_cors import CORS
 from utils.blueprints import bps
 from dotenv import load_dotenv
-from os import getenv, name as os_name
-from flask_socketio import SocketIO
+from os import getenv
 from utils.extensions import ws
-from subprocess import call
+
 # IMPORTS SERVICES
 from services.clients_service import ClientService
 from services.nginx_server import NginxServer
 from services.analytics import get_analytics_code
+
 # MODELS
 from models.clients import Client
 
@@ -22,11 +22,11 @@ from models.clients import Client
 ===============================================================================
 ============================================================================"""
 
-app = Flask(__name__) # Cria o app Flask
 load_dotenv() # Carrega as variaveis de ambiente do .env
+app = Flask(__name__) # Cria o app Flask
+CORS(app) # Flask CORS Config
 client_service = ClientService() # Cria o service do Cliente - Utilizado no app pq é necessário para selecionar o cliente (Caso haja um)
 nginx_server = NginxServer() # Cria o service do NGINX, responsavel pela estruturação de custom domain dentro do arquivo do NGINX - /etc/nginx/sites-avaible/panel.conf
-CORS(app) # Flask CORS Config
 
 # Configuração do BANCO DE DADOS (Postgres!)
 app.config["SQLALCHEMY_DATABASE_URI"] = getenv("PANEL")
@@ -69,8 +69,4 @@ def client_manager(id):
     if client: return render_template("panel/client.html", client=client)
     else: return render_template("404.html")
 
-if __name__ == "__main__": 
-    call("cls", shell=True) if os_name == "nt" else call("clear", shell=True)
-    call("python -m pip install --upgrade -r requirements.txt", shell=True)
-    call("cls", shell=True) if os_name == "nt" else call("clear", shell=True)
-    ws.run(app, debug=True) # Roda em modo debug (Desennvolvimento8)
+if __name__ == "__main__": ws.run(app, debug=True) # Roda em modo debug (Desennvolvimento8)
