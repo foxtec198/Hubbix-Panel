@@ -1,12 +1,13 @@
 # IMPORTS UTILS
-from flask import Flask, render_template, request as rq
+from flask import Flask, render_template
 from utils.db import db
 from flask_cors import CORS
 from utils.blueprints import bps
 from dotenv import load_dotenv
-from os import getenv
+from os import getenv, name as os_name
 from flask_socketio import SocketIO
 from utils.extensions import ws
+from subprocess import call
 # IMPORTS SERVICES
 from services.clients_service import ClientService
 from services.nginx_server import NginxServer
@@ -20,6 +21,9 @@ from models.clients import Client
 ==================== ₢ DESENVOLVIDO POR GUILHERME BREVE =======================
 ===============================================================================
 ============================================================================"""
+
+call("cls", shell=True) if os_name == "nt" else call("clear", shell=True)
+call("python -m pip install --upgrade -r requirements.txt", shell=True)
 
 app = Flask(__name__) # Cria o app Flask
 load_dotenv() # Carrega as variaveis de ambiente do .env
