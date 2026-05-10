@@ -3,14 +3,21 @@ from datetime import datetime as dt
 
 class Events(BaseModel):
     __tablename__ = "events"
+    __table_args__ = (
+        db.Index(
+            "idx_event_client_fp_type",
+            "client_id",
+            "fingerprint",
+            "type"
+        ),
+    )
 
     id = db.Column(db.Integer, primary_key=True)
     client_id = db.Column(db.Integer, nullable=False)
-    partnership_id = db.Column(db.Integer, nullable=False)
     ip = db.Column(db.String, nullable=False)
-    date = db.Column(db.DateTime, nullable=False, default=dt.utcnow)
-    user_agent = db.Column(db.String, nullable=False, default="Não Informado")
+    fingerprint = db.Column(db.String(64), index=True)
     type = db.Column(db.String, nullable=False)
+    date = db.Column(db.DateTime, nullable=False, default=dt.now)
 
     @classmethod
     def _get_all_views(cls):

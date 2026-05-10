@@ -16,16 +16,12 @@
     <!-- END CSS -->
 
     <!-- TAG AREA -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16666996678"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'AW-16666996678');
-        gtag('event', 'conversion', {'send_to': 'AW-16666996678/4zp0CLWNlswZEMbfuIs-'});
-    </script>
+    {% if analytics %}{{ analytics|safe }}{% endif %}
     <!-- END TAG AREA -->
+    
+    <div data-info-client="{{client.id}}"></div>
+    <div data-info-partnership="{{client.partnership_id}}"></div>
+    <script src="/static/panel/js/services/snipset.js"></script>
 </head>
 <body>
     <div class="modal" tabindex="-1" id="myModal">

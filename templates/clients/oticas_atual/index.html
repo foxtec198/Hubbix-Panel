@@ -18,6 +18,14 @@
 
     <!-- Css Local -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- TAG AREA -->
+    {% if analytics %}{{ analytics|safe }}{% endif %}
+    <!-- END TAG AREA -->
+
+    <div data-info-client="{{client.id}}"></div>
+    <div data-info-partnership="{{client.partnership_id}}"></div>
+    <script src="/static/panel/js/services/snipset.js"></script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar">
@@ -339,10 +347,6 @@
     <!-- Inicializa animações AOS -->
     <script>AOS.init();</script>
     <script async src="//www.instagram.com/embed.js"></script>
-
-    <script src="assets/js/gtag.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/analytics.js"></script>
 </body>
 
 </html>

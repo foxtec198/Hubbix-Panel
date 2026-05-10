@@ -14,38 +14,14 @@
     <link rel="shortcut icon" href="src/img/favicon.png" type="image/x-icon">
 
     <link rel="stylesheet" href="/src/css/style.css">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PT4PDB59" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17045170434"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'AW-17045170434');
-    </script>
-
-
-     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PT4PDB59');</script>
     
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PT4PDB59"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- TAG AREA -->
+    {% if analytics %}{{ analytics|safe }}{% endif %}
+    <!-- END TAG AREA -->
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17045170434"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'AW-17045170434');
-    </script>
+    <div data-info-client="{{client.id}}"></div>
+    <div data-info-partnership="{{client.partnership_id}}"></div>
+    <script src="/static/panel/js/services/snipset.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">

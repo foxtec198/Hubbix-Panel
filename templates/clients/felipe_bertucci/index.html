@@ -22,6 +22,10 @@
     <!-- TAG AREA -->
     {% if analytics %}{{ analytics|safe }}{% endif %}
     <!-- END TAG AREA -->
+
+    <div data-info-client="{{client.id}}"></div>
+    <div data-info-partnership="{{client.partnership_id}}"></div>
+    <script src="/static/panel/js/services/snipset.js"></script>
 </head>
 
 <body data-bs-theme="light">

@@ -13,9 +13,14 @@
   <link rel="stylesheet" href="{{url_for('static', filename='estrada_consultoria/css/style.css')}}">
   <link rel="stylesheet" href="{{url_for('static', filename='estrada_consultoria/css/utils.css')}}">
   <!-- END CSS -->
+
   <!-- TAG AREA -->
-  
+  {% if analytics %}{{ analytics|safe }}{% endif %}
   <!-- END TAG AREA -->
+
+  <div data-info-client="{{client.id}}"></div>
+  <div data-info-partnership="{{client.partnership_id}}"></div>
+  <script src="/static/panel/js/services/snipset.js"></script>
 </head>
 
 <body>
