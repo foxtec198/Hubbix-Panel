@@ -14,6 +14,7 @@ class Client(BaseModel):
     gtag = db.Column(db.String)
     pixel = db.Column(db.String)
     tel = db.Column(db.String)
+    whatsapp_msg = db.Column(db.String)
     logo = db.Column(db.String)
     created_at = db.Column(db.DateTime, default=dt.utcnow)
 

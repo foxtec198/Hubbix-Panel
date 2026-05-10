@@ -32,7 +32,6 @@
     <a href="/home" class="btn px-5 py-2"><i class="bi bi-caret-left-fill"></i></a>
     <!-- MAIN CONTENT -->
     <div class="container d-flex flex-column py-5">
-        <div class="d-flex mb-4"> </div>
         <div class="d-flex gap-4 align-items-center mb-5">
             {% if client.logo == "blank.png" %}
                 <img class="logo-client p-2" src="https://api.hubbix.com.br/img/blank.png" alt="Logo do Cliente">
@@ -56,8 +55,8 @@
                     <!-- END SUB DOMAIN OR CUSTOM DOMAIN -->
     
                     <!-- ON/OFF -->
-                    {% if client.active %} <span class="badge p-2 rounded-3 bg-primary">Ativo</span>
-                    {% else %} <span class="badge p-2 rounded-pill bg-red">Inativo</span> {% endif %}
+                    {% if client.active %} <span class="badge p-2 rounded-3 bg-primary" id="badge_status">Ativo</span>
+                    {% else %} <span class="badge p-2 rounded-pill bg-red" id="badge_status">Inativo</span> {% endif %}
                     <!-- END ON/OFF -->
                 </div>
             </div>
@@ -72,12 +71,33 @@
                         cliente.</span>
                 </div>
                 <label class="switch">
-                    <input type="checkbox" {% if client.active %}checked{% endif %}>
+                    <input type="checkbox" data-set="client_status" {% if client.active %}checked{% endif %}>
                     <span class="slider"></span>
                 </label>
             </div>
             <hr class="mb-5">
             <!-- END ATIVAR/DESATIVAR CLIENTE -->
+
+            <!-- CLIENT PHONE  -->
+            <div class="d-flex justify-content-between">
+                <div class="d-flex flex-column">
+                    <span class="fs-4 fw-bold">Telefone.</span>
+                    <span class="fs-4">Aqui você define o telefone(Whatsapp) e a mensagem padrão para esse clente especifico</span>
+                </div>
+                <form class="d-flex flex-column" data-set="client_phone">
+                    <div class="form-floating">
+                        <input id="tel" type="tel" placeholder="Telefone" class="form-control tel-mask" autocomplete="tel" value="{%if client.tel%}{{client.tel}}{%endif%}">
+                        <label for="tel">Telefone</label>
+                    </div>
+                    <div class="form-floating">
+                        <input id="msg" type="text" placeholder="Mensagem" class="form-control" autocomplete="off" value="{%if client.whatsapp_msg%}{{client.whatsapp_msg}}{%endif%}">
+                        <label for="msg">Mensagem</label>
+                    </div>
+                    <button type="submit" class="btn btn-outline-secondary"><i class="bi bi-floppy"></i> Salvar</button>
+                </form>
+            </div>
+            <hr class="mb-5">
+            <!-- END CLIENT PHONE  -->
 
             <!-- CUSTOM DOMAIN -->
             <div class="d-flex justify-content-between align-items-center gap-2">
@@ -86,13 +106,13 @@
                     <span class="fs-4">Trocar o subdominio para um dominio personalizado, exige uma configuração interna e pode haver custos adicionais.</span>
                 </div>
                 <div class="d-flex flex-grow-1 flex-basis-700">
-                    <div class="input-group w-100">
+                    <form class="input-group w-100" data-set="client_custom_domain">
                         <div class="form-floating">
                             <input id="domain" type="text" class="form-control" placeholder="Dominio" value="{%if client.custom_domain%}{{client.custom_domain}}{%endif%}">
                             <label for="domain">Dominio</label>
                         </div>
-                        <button class="btn btn-outline-secondary"><i class="bi bi-floppy"></i> Salvar</button>
-                    </div>
+                        <button type="submit" class="btn btn-outline-secondary"><i class="bi bi-floppy"></i> Salvar</button>
+                    </form>
                 </div>
             </div>
             <hr class="mb-5">
@@ -114,13 +134,13 @@
                     <code>// Configuração básica do GA4 </code>
                     <code>gtag('config', '<span class="bg-secondary badge rounded fs-6 fw-bold">AW-999999999</span>');</code>
                 </div>
-                <div class="input-group w-100 mb-5">
+                <form class="input-group w-100 mb-5" data-set="gtag">
                     <div class="form-floating">
                         <input class="form-control" id="gtag" type="text" placeholder="GTAG Code" autocomplete="off" value="{%if client.gtag%}{{client.gtag}}{%endif%}">
                         <label for="gtag">GTAG Code</label>
                     </div>
-                    <button class="btn btn-outline-secondary"><i class="bi bi-floppy"></i> Salvar</button>
-                </div>
+                    <button type="submit" class="btn btn-outline-secondary"><i class="bi bi-floppy"></i> Salvar</button>
+                </form>
                 <!-- END GOOGLE TAG MANAGER -->
 
                 <!-- META PIXEL CODE -->
@@ -138,17 +158,29 @@
                     <code>'https://connect.facebook.net/en_US/fbevents.js');</code>
                     <code>fbq('init', '<span class="bg-secondary badge rounded fs-6 fw-bold">PIXEL_ID</span>');</code>
                 </div>
-                <div class="input-group w-100">
+                <form class="input-group w-100" data-set="pixel">
                     <div class="form-floating">
-                        <input class="form-control" id="pixel" type="text" placeholder="Pixel Code" autocomplete="off">
+                        <input class="form-control" id="pixel" type="text" placeholder="Pixel Code" autocomplete="off" value="{%if client.pixel%}{{client.pixel}}{%endif%}">
                         <label for="pixel">Pixel Code</label>
                     </div>
-                    <button class="btn btn-outline-secondary"><i class="bi bi-floppy"></i> Salvar</button>
-                </div>
+                    <button type="submit" class="btn btn-outline-secondary"><i class="bi bi-floppy"></i> Salvar</button>
+                </form>
                 <!-- END META PIXEL CODE -->
             </div>
             <hr class="mb-5">
             <!-- END TAG MANAGER -->
+
+            <!-- DELETE CLIENT -->
+            <div class="d-flex justify-content-between gap-2">
+                <div class="d-flex flex-grow-1 flex-column flex-basis-700">
+                    <span class="fs-4 fw-bold">Exclusão de cliente.</span>
+                    <span class="fs-4">Está função será irreversível, tenha certeza de que está excluindo este cliente de nosso banco de dados!</span>
+                </div>
+                <div class="d-flex justify-content-end align-items-center flex-basis-700">
+                    <button data-set="remove_client" class="btn btn-lg btn-red">Excluir Permanentemente.</button>
+                </div>
+            </div>
+            <!-- END DELETE CLIENT -->
         </div>
 
     </div>
@@ -160,6 +192,9 @@
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script> AOS.init({ duration: 2000 }) </script>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.9/dist/jquery.inputmask.min.js"></script>
     <script type="module" src="/static/panel/js/main.js"></script>
     <script></script>
     <!-- END SCRIPTS -->

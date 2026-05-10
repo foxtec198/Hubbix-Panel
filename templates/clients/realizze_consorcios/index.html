@@ -361,7 +361,7 @@
             <a href="https://www.instagram.com/mekadigital_/"
                 class="text-decoration-none text-light d-flex align-items-center gap-2" target="_blank">
                 Em parceria com
-                <img src="{{url_for('static', filename='meka/img/meka.png')}}" width="150vh">
+                <img src="{{url_for('static', filename='meka/img/white_brand.png')}}" width="150vh">
             </a>
         </div>
         <p class="text-center">&copy; 2023 Consórcio Realizze. Todos os direitos reservados.</p>
@@ -370,16 +370,35 @@
 
     <!-- Float Button Whatsapp - Get whatsapp number of database -->
     <a class="btn-whatsapp"
-        href="https://wa.me?phone={{client.tel}}&&text=Olá, gostaria de saber mais informações sobre o consórcio!"
-        target="_blank"><img src="/static/{{client.template}}/img/whatsapp.svg" width="75" alt=""></a>
+        href="https://wa.me?phone={{client.tel}}&&text={{client.whatsapp_msg}}"
+        target="_blank" data-set="whatsapp-hubbix"><img src="/static/{{client.template}}/img/whatsapp.svg" width="75" alt=""></a>
     <!-- End Float Button Whatsapp - Get whatsapp number of database -->
-
+    
+    <div data-info-client="{{client.id}}"></div>
+    <div data-info-partnership="{{client.partnership_id}}"></div>
 
     <!-- Scripst -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script> AOS.init({ duration: 1500 }) </script>
     <script src="{{url_for('static', filename='realizze_consorcios/js/main.js')}}"></script>
+    <script>
+        // EVENT SNIPSET TO WHATSAPP - HUBBIX PANEL
+        const client_id = document.querySelector("[data-info-client]").dataset.infoClient;
+        const partnership_id = document.querySelector("[data-info-partnership]").dataset.infoPartnership;
+        const data = {client: { "id": parseInt(client_id), "partnership_id": parseInt(partnership_id)}, type: "CLICK" };
+        async function _setWhatsappClick(){
+            const req = await fetch("http://panel.localhost:5000/eventos", {
+                method: "POST",
+                headers: {"Content-Type":"application/json"}, 
+                body: JSON.stringify(data),}
+            );
+        };
+        document.querySelectorAll("[data-set]").forEach(btn => {
+            btn.dataset.set == "whatsapp-hubbix" 
+            ? btn.addEventListener("click", _setWhatsappClick): null;
+        });
+    </script>
 </body>
 
 </html>

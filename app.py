@@ -11,6 +11,7 @@ from utils.extensions import ws
 from services.clients_service import ClientService
 from services.nginx_server import NginxServer
 from services.analytics import get_analytics_code
+from services.events_service import EventService
 
 # MODELS
 from models.clients import Client
@@ -54,6 +55,7 @@ def serve_lp(path) -> render_template:
     client = client_service.resolve_client() # Resolve o cliente com base no dominio(wildcard)
     if client == "panel": return render_template("panel/index.html") # COnfirma se é o painel
     if not client or not client.active: return render_template("404.html") # Confere se o cliente existe ese está ativo (Caso contrario retorna 404)
+    EventService().create(client.to_dict(), "VIEW")
     nginx_server.config(client) # Cria os arquivos do NGINX 
     return render_template(f'clients/{client.template}/index.html', client=client) # Retorna o template correto do cliente
 
@@ -63,9 +65,9 @@ def redirect_home_panel():
     if not client == "panel": return render_template("404.html") # Confirma se é o painel
     return render_template("panel/home.html") # Rota para oç painel (Home)
 
-@app.route("/<id>")
+@app.route("/client/<id>")
 def client_manager(id):
-    client = Client.query.get(id)
+    client = Client._search_by_id(id)
     if client: return render_template("panel/client.html", client=client)
     else: return render_template("404.html")
 
