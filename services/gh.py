@@ -3,7 +3,6 @@ from requests import get
 from functools import cache
 from datetime import datetime as dt
 from models.clients import Client
-from collections import defaultdict
 from dotenv import load_dotenv
 
 class GitHub:
@@ -21,17 +20,15 @@ class GitHub:
             template_name = client.template
 
             # Customers Templates
-            templates = defaultdict()
             path = f"{self.URL}?path=templates/clients/{template_name}&per_page={pagination}"
             templates = get(path, headers={ "Authorization": f"Bearer {self.TOKEN}", "Accept": "application/vnd.github+json" })
-            template_date = templates.json()[0]["commit"]["author"]["date"]
+            template_date = templates.json()["commit"]["author"]["date"]
             template_date = dt.strptime(template_date, "%Y-%m-%dT%H:%M:%SZ")
 
             # Customers Static
-            static_date = defaultdict()
             path = f"{self.URL}?path=static/{template_name}&per_page={pagination}"
             static = get(path, headers={ "Authorization": f"Bearer {self.TOKEN}", "Accept": "application/vnd.github+json" })
-            static_date = static.json()[0]["commit"]["author"]["date"]
+            static_date = static.json()["commit"]["author"]["date"]
             static_date = dt.strptime(static_date, "%Y-%m-%dT%H:%M:%SZ")
 
             if template_date > static_date: return templates.json()
