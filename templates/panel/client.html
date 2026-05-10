@@ -32,32 +32,45 @@
     <a href="/home" class="btn px-5 py-2"><i class="bi bi-caret-left-fill"></i></a>
     <!-- MAIN CONTENT -->
     <div class="container d-flex flex-column py-5">
-        <div class="d-flex gap-4 align-items-center mb-5">
-            {% if client.logo == "blank.png" %}
-                <img class="logo-client p-2" src="https://api.hubbix.com.br/img/blank.png" alt="Logo do Cliente">
-            {% else %}
-                <img class="logo-client p-2" src="/static/{{client.template}}/img/{{client.logo}}" alt="Logo do Cliente">
-            {% endif %}
-            <div class="d-flex flex-column">
-                <span class="fs-2 fw-bold">{{client.name}}</span>
-                <span>Data de Criação: {%if client.created_at%}{{client.created_at.strftime("%d/%m/%y %H:%M")}}{%else%}Nâo especificada.{%endif%}</span>
-                <div class="d-flex gap-2 ">
-                    <!-- SUB DOMAIN OR CUSTOM DOMAIN -->
-                    {% if client.custom_domain %}
-                    <a target="_blank" class="fs-5 text-secondary" href="https://{{client.custom_domain}}">{{client.custom_domain}}</a>
-                    {% else %}
-                        {% if request.host.find('localhost') %}
-                            <a href="http://{{client.subdomain}}{{request.host.strip('panel')}}" target="_blank" class="fs-5 text-secondary">{{client.subdomain}}{{request.host.strip('panel')}}</a>
+        <div class="d-flex gap-4 align-items-center justify-content-between mb-5">
+            <!-- DEFAULT INFOS -->
+            <div class="d-flex gap-4 align-items-center">
+                {% if client.logo == "blank.png" %}
+                    <img class="logo-client p-2" src="https://api.hubbix.com.br/img/blank.png" alt="Logo do Cliente">
+                {% else %}
+                    <img class="logo-client p-2" src="/static/{{client.template}}/img/{{client.logo}}" alt="Logo do Cliente">
+                {% endif %}
+                <div class="d-flex flex-column">
+                    <span class="fs-2 fw-bold">{{client.name}}</span>
+                    <span>Data de Criação: {%if client.created_at%}{{client.created_at.strftime("%d/%m/%Y %H:%M")}}{%else%}Nâo especificada.{%endif%}</span>
+                    <div class="d-flex gap-2 ">
+                        <!-- SUB DOMAIN OR CUSTOM DOMAIN -->
+                        {% if client.custom_domain %}
+                        <a target="_blank" class="fs-5 text-secondary" href="https://{{client.custom_domain}}">{{client.custom_domain}}</a>
                         {% else %}
-                            <a href="https://{{client.subdomain}}.lp.hubbix.com" target="_blank" class="fs-5 text-secondary">{{client.subdomain}}.lp.hubbix.com</a>
+                            {% if request.host.find('localhost') %}
+                                <a href="http://{{client.subdomain}}{{request.host.strip('panel')}}" target="_blank" class="fs-5 text-secondary">{{client.subdomain}}{{request.host.strip('panel')}}</a>
+                            {% else %}
+                                <a href="https://{{client.subdomain}}.lp.hubbix.com" target="_blank" class="fs-5 text-secondary">{{client.subdomain}}.lp.hubbix.com</a>
+                            {% endif %}
                         {% endif %}
-                    {% endif %}
-                    <!-- END SUB DOMAIN OR CUSTOM DOMAIN -->
-    
-                    <!-- ON/OFF -->
-                    {% if client.active %} <span class="badge p-2 rounded-3 bg-primary" id="badge_status">Ativo</span>
-                    {% else %} <span class="badge p-2 rounded-pill bg-red" id="badge_status">Inativo</span> {% endif %}
-                    <!-- END ON/OFF -->
+                        <!-- END SUB DOMAIN OR CUSTOM DOMAIN -->
+        
+                        <!-- ON/OFF -->
+                        {% if client.active %} <span class="badge p-2 rounded-3 bg-primary" id="badge_status">Ativo</span>
+                        {% else %} <span class="badge p-2 rounded-pill bg-red" id="badge_status">Inativo</span> {% endif %}
+                        <!-- END ON/OFF -->
+                    </div>
+                </div>
+            </div>
+            <!-- END DEFAULT INFOS -->
+
+            <div class="d-flex flex-column align-items-end justify-content-end">
+                <span class="fs-5 fw-bold">Última Atualizção</span>
+                <span class="fs-6" data-set="commit-comment">[COMMENT]</span>
+                <div class="d-flex gap-2">
+                    <span data-set="commit-author">[AUTHOR]</span>
+                    <span data-set="commit-date">[DATE]</span>
                 </div>
             </div>
         </div>
@@ -196,6 +209,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.9/dist/jquery.inputmask.min.js"></script>
     <script type="module" src="/static/panel/js/main.js"></script>
+    <script type="module" src="/static/panel/js/services/gh_service.js"></script>
     <script></script>
     <!-- END SCRIPTS -->
 </body>
