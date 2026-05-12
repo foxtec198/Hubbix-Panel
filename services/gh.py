@@ -1,13 +1,14 @@
-from os import getenv
+from os import environ
 from requests import get
 from functools import cache
 from datetime import datetime as dt
 from models.clients import Client, db
+from dotenv import load_dotenv
 
 class GitHub:
-    TOKEN = getenv("GH_TOKEN")
-    OWNER = getenv("OWNER")
-    REPO = getenv("REPO")
+    TOKEN = environ.get("GH_TOKEN")
+    OWNER = environ.get("OWNER")
+    REPO = environ.get("REPO")
     URL = f"https://api.github.com/repos/{OWNER}/{REPO}/commits"
 
     def _get_last_commit(self, path: str, per_page: int = 1):
@@ -28,6 +29,7 @@ class GitHub:
 
     @cache
     def get_commits(self, client: Client):
+        load_dotenv()
         if not client: return None # Caso nao encontre o cliente
         template_commit = self._get_last_commit(f"templates/clients/{client.template}") # Commits do template (HTML)
         static_commit = self._get_last_commit(f"static/{client.template}") # Commits do Static (CSS/JS/JSON/IMGS)
