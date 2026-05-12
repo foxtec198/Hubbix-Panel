@@ -11,6 +11,7 @@ from utils.extensions import ws
 from services.clients_service import ClientService
 from services.nginx_server import NginxServer
 from services.analytics import get_analytics_code
+from services.gh import GitHub
 
 # MODELS
 from models.clients import Client
@@ -66,7 +67,8 @@ def redirect_home_panel():
 @app.route("/client/<id>")
 def client_manager(id):
     client = Client._search_by_id(id)
-    if client: return render_template("panel/client.html", client=client)
-    else: return render_template("404.html")
+    if not client: return render_template("404.html")
+    GitHub().get_commits(client)
+    return render_template("panel/client.html", client=client)
 
 if __name__ == "__main__": ws.run(app, debug=True) # Roda em modo debug (Desennvolvimento8)
