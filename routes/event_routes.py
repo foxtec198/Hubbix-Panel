@@ -13,7 +13,3 @@ def main():
             data = request.get_json()
             return event_client.create(data.get("client"), data.get("type"))
     return render_template("404.html")
-
-@events_bp.route("/gh/<template_name>")
-def gh(template_name):
-    return GitHub().get_commits(template_name)
