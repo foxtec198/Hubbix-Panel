@@ -17,6 +17,10 @@ class Client(BaseModel):
     whatsapp_msg = db.Column(db.String)
     logo = db.Column(db.String)
     created_at = db.Column(db.DateTime, default=dt.utcnow)
+    gh_sha = db.Column(db.String)
+    gh_commit = db.Column(db.String)
+    gh_author = db.Column(db.String)
+    gh_date = db.Column(db.DateTime)
 
     @classmethod
     def _search_by_id(cls, id):
