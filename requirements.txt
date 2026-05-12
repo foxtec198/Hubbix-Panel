@@ -1,3 +1,4 @@
+pip
 gunicorn
 flask
 flask_sqlalchemy
@@ -11,3 +12,4 @@ psycopg2-binary
 flask_socketio
 gevent
 gevent-websocket
+pytest
