@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 class GitHub:
     TOKEN = environ.get("GH_TOKEN")
-    OWNER = environ.get("OWNER")
+    OWNER = environ["OWNER"]
     REPO = environ.get("REPO")
     URL = f"https://api.github.com/repos/{OWNER}/{REPO}/commits"
 
@@ -29,6 +29,7 @@ class GitHub:
 
     @cache
     def get_commits(self, client: Client):
+        print(self.OWNER, self.REPO)
         load_dotenv()
         if not client: return None # Caso nao encontre o cliente
         template_commit = self._get_last_commit(f"templates/clients/{client.template}") # Commits do template (HTML)
