@@ -1,18 +1,12 @@
-body,
-html {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-}
-
 .logo {
   position: fixed;
   top: 10px;
   left: 10px;
+}
+
+.client-card:hover {
+    transform: translateY(-4px);
+    animation: normal ease-in-out 2s;
 }
 
 /* Loader CSS - Squares and animations */

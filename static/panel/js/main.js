@@ -54,7 +54,8 @@ async function init() {
             }
         });
 
-        isHomePage ? get_clients() : null;
+        if(isHomePage){get_clients()};
+
         socket.on("update", (data) => {
             switch (data) {
                 case "new_client": return isHomePage ? get_clients() : null

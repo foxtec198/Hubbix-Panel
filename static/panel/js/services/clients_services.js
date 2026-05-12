@@ -2,78 +2,129 @@ import { offcanvas, show_toast, clear_number } from "../utils/ui.js"
 import { Client } from "../models/clients_models.js"
 import { ApiRequest } from "../utils/request.js";
 
-function create_line_client(client){ // Cria uma linha na lista de clientes
-    if(client.id){
-        const li = document.createElement("li"); // Cria um list item (MAIN)
-        li.classList.add("list-group-item", "list-group-item-action"); // CSS do list item
-    
-        const divLi = document.createElement("div"); // Div responsavel por dividir os dados dos botoes
-        divLi.classList.add("d-flex", "justify-content-between"); // CSS do divLi
-    
-        const divInfo = document.createElement("div") // Div responsavel pelas dados/infos
-        divInfo.classList.add("d-flex", "align-items-center"); // CSS da DivInfo
-        divInfo.style.lineHeight = "20px"; // Espaçamento da linha
-    
-        const divText = document.createElement("div"); // Divião dos textos 
-        divText.classList.add("d-flex", "flex-column", "ms-3"); // CSS do divText
-    
-        const spanIcon = document.createElement("span"); // Icon que será trocado pela logo posteriormente
-        spanIcon.classList.add("bi") // CSS do Icone
-        client.active ? spanIcon.classList.add("bi-play-circle-fill", "text-primary") 
-        : spanIcon.classList.add("bi-pause-circle-fill", "text-danger")
-    
-        const spanName = document.createElement("span"); // Texto referente ao nome do cliente
-        spanName.classList.add("fs-6", "fw-bold"); // CSS do spanname
-        spanName.textContent = client.name; // Seta o nome do cliente
-    
-        const spanDomain = document.createElement("span"); // Span referente ao dominio (Custom/sub)
-        spanDomain.classList.add("fs-6", "text-truncate"); // CSS do
-        spanDomain.style.maxWidth = "200px"
-        const isLocalHost = window.location.hostname.includes("localhost")
-    
-        // Seta o dominio do vliente
-        spanDomain.textContent = client.custom_domain 
-            ? client.custom_domain : 
-                isLocalHost 
-                    ? client.subdomain + ".localhost:5000"
-                    : client.subdomain + ".lp.hubbix.com.br"
-        
-        const btn = document.createElement("button"); 
-        btn.classList.add("btn", "btn-sm", "btn-primary", "rounded");
-        btn.textContent = "Gerenciar";
-    
-        btn.dataset.toggle = "offcanvas";
-        li.dataset.toggle = "offcanvas";
-    
-        btn.dataset.bsTarget = "#offcanvasRight";
-        li.dataset.bsTarget = "#offcanvasRight";
-    
-        // Divisao dos textos
-        divText.appendChild(spanName);
-        divText.appendChild(spanDomain);
-    
-        // Div de informações
-        divInfo.appendChild(spanIcon)
-        divInfo.appendChild(divText);
-    
-        // Divisão principal
-        divLi.appendChild(divInfo);
-        divLi.appendChild(btn); 
-    
-        // Abre a pagina de cliente com os dados do mesmo
-        const els = [btn, li] // Mesma função para o botao e para o item da lista
-        els.forEach(el => { // Percore os elementos e adiciona o evento
-            el.addEventListener("click", async() =>{ // Cria o evento de click
-                window.location = `/client/${client.id}` // Leva pra pagina de cliente
-            });
-        }); 
-        
-        li.appendChild(divLi); // Adiciona os dados ao item da lista
-    
-        // Retorna o item da lista
-        return li; 
-    };
-};
+function createClientCard(data) {
+    const card = document.createElement("div");
+    card.className = "d-flex flex-column gap-2 border glass p-4 rounded-4";
+
+    // HEADER
+    const header = document.createElement("div");
+    header.className = "d-flex gap-3 align-items-center";
+
+    // LOGO WRAPPER
+    const logoWrapper = document.createElement("div");
+    logoWrapper.className = "d-flex neon-border justify-content-center bg-gray rounded-4 align-items-center p-2";
+
+    const logo = document.createElement("img");
+    logo.src = data.logo;
+    logo.alt = "client_brand";
+    logo.width = 60;
+    logo.height = 60;
+    logo.className = "img-fluid bg-gray object-fit-contain";
+    logo.style.width = "5vw";
+    logo.style.height = "5vh";
+
+    logoWrapper.appendChild(logo);
+
+    // INFO
+    const info = document.createElement("div");
+    info.className = "d-flex flex-grow-1 flex-column";
+
+    const title = document.createElement("span");
+    title.className = "fw-bold text-primary";
+    title.textContent = data.name;
+
+    const domain = document.createElement("span");
+    domain.className = "tiny-text text-secondary";
+    domain.textContent = data.domain;
+
+    info.appendChild(title);
+    info.appendChild(domain);
+
+    // STATUS
+    const statusWrapper = document.createElement("div");
+    statusWrapper.className = "d-flex";
+
+    const status = document.createElement("span");
+    status.className = `badge fs-6 rounded-pill glass ${data.statusClass}`;
+    status.textContent = data.status;
+
+    statusWrapper.appendChild(status);
+
+    // HEADER APPEND
+    header.appendChild(logoWrapper);
+    header.appendChild(info);
+    header.appendChild(statusWrapper);
+
+    // HR
+    const hr = document.createElement("hr");
+
+    // FOOTER
+    const footer = document.createElement("div");
+    footer.className = "d-flex justify-content-between";
+
+    // ACTIONS
+    const actions = document.createElement("div");
+    actions.className = "d-flex gap-2";
+
+    const buttons = [
+        {
+            icon: "bi-eye",
+            class: "btn-outline-success",
+            onClick: data.onView
+        },
+        {
+            icon: "bi-github",
+            class: "btn-outline-success",
+            onClick: data.onGithub
+        },
+        {
+            icon: "bi-bar-chart-line",
+            class: "btn-outline-success",
+            onClick: data.onAnalytics
+        }
+    ];
+
+    buttons.forEach(btnData => {
+        const button = document.createElement("button");
+        button.className = `btn ${btnData.class}`;
+
+        const icon = document.createElement("i");
+        icon.className = `bi ${btnData.icon}`;
+
+        button.appendChild(icon);
+
+        if (btnData.onClick) {
+            button.addEventListener("click", btnData.onClick);
+        }
+
+        actions.appendChild(button);
+    });
+
+    // MANAGE BUTTON
+    const manageWrapper = document.createElement("div");
+    manageWrapper.className = "d-flex";
+
+    const manageButton = document.createElement("button");
+    manageButton.className = "btn btn-outline-success";
+    manageButton.textContent = "Gerenciar >";
+
+    if (data.onManage) {
+        manageButton.addEventListener("click", data.onManage);
+    }
+
+    manageWrapper.appendChild(manageButton);
+
+    // FOOTER APPEND
+    footer.appendChild(actions);
+    footer.appendChild(manageWrapper);
+
+    // CARD APPEND
+    card.appendChild(header);
+    card.appendChild(hr);
+    card.appendChild(footer);
+
+    return card;
+}
 
 const form_new_client = document.getElementById("form_new_client"); // Eventos para criação de cliente
 form_new_client ? form_new_client.addEventListener("submit", async(e)=>{
@@ -93,10 +144,10 @@ form_new_client ? form_new_client.addEventListener("submit", async(e)=>{
 export async function get_clients(){
     const req = await new Client().get();
     const clients = await req.json()
-    const list_of_clients = document.getElementById("list_of_clients")
+    const list_of_clients = document.querySelector("[data-set='list_clients']")
     const infos = clients.infos // Obtem as infos (Calculadas no servidor )
+    const isLocalHost = window.location.hostname.includes("localhost")
     
-    list_of_clients.innerHTML = ""
     infos["ativos"] = 0 // Adiciona os ativos como 0
     infos["inativos"] = 0 // Adiciona os inativos como 0
     infos["total"] = clients.results.length // Adiciona o total de clientes as infos
@@ -104,8 +155,42 @@ export async function get_clients(){
     // Loop para cada cliente
     clients.results.forEach(client => {
         client.active ? infos["ativos"] += 1 : infos["inativos"] += 1 //  Seta ativo ou inativo nas infos
-        const li = create_line_client(client) // Cria o item da lista do cliente
-        list_of_clients.appendChild(li) // Adiciona o item da lista ao container 
+        const logo = client.logo == "blank.png" 
+            ? "https://api.hubbix.com.br/img/blank.png"
+            : `/static/${client.template}/img/${client.logo}`
+
+        const domain = client.custom_domain 
+            ? client.custom_domain : 
+                isLocalHost 
+                    ? client.subdomain + ".localhost:5000"
+                    : client.subdomain + ".lp.hubbix.com.br"
+        
+        const link = domain.includes("localhost") ? "http://" + domain : "https://" + domain
+        
+        const card = createClientCard({
+            logo: logo,
+            name: client.name,
+            domain: domain,
+            status: client.active ? "Ativo" : "Offline",
+            statusClass: client.active ? "bg-outline-primary" : "bg-outline-red",
+
+            onView: () => {
+                window.open(link, "_blank")
+            },
+
+            onGithub: () => {
+                window.open(`https://github.com/foxtec198/Hubbix-Panel/tree/main/templates/clients/${client.template}`, "_blank")
+            },
+
+            onAnalytics: () => {
+                console.log("ANALYTICS");
+            },
+
+            onManage: () => {
+                location = `/client/${client.id}`
+            }
+        });
+        list_of_clients.appendChild(card) // Adiciona o item da lista ao container 
     });
 
     // Seta os dados dos INFOS e, seis respectivos cards
