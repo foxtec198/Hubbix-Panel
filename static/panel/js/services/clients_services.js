@@ -15,6 +15,8 @@ function createClientCard(data) {
     // LOGO WRAPPER
     const logoWrapper = document.createElement("div");
     logoWrapper.className = "d-flex neon-border justify-content-center bg-gray rounded-4 align-items-center p-2";
+    logoWrapper.style.maxWidth = "80px"
+    logoWrapper.style.minWidth = "80px"
 
     const logo = document.createElement("img");
     logo.src = data.logo;
@@ -36,7 +38,7 @@ function createClientCard(data) {
     title.textContent = data.name;
 
     const domain = document.createElement("span");
-    domain.className = "tiny-text text-secondary";
+    domain.className = "tiny-text text-secondary text-break";
     domain.textContent = data.domain;
 
     info.appendChild(title);
