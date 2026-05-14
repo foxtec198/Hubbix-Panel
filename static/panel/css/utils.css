@@ -1,6 +1,6 @@
 :root {
     /* Pallete */
-    --primary: rgb(94, 139, 96);
+    --primary: #5e8b60;
     --secondary: rgb(58, 90, 64);
     --tertiary: rgb(43, 48, 53);
     --primary-foreground: rgb(255, 255, 255);
@@ -69,7 +69,9 @@
 }
 
 .bg-dark-neutral{
-    background: #131316 !important;
+    /* background: #131316 !important; */
+    background: url("/static/panel/img/banner.jpg") center no-repeat !important;
+    background-size: cover !important;
     color: #f1f1f1;
 }
 
@@ -168,6 +170,24 @@
 .btn-outline-red:hover {
     background-color: var(--red2) !important;
     color: #fff !important;
+}
+
+button.active{
+    background: var(--primary) !important;
+    border: none !important;
+    box-shadow: #27ae60 2px 2px !important;
+}
+
+aside button:hover{
+    border: 2px solid var(--primary) !important;
+    background-color: rgba(40, 175, 96, 0.555) !important;
+    transform: translateY(-2px) !important;
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) ease-in-out !important;
+}
+
+aside button.leave:hover{
+    background-color: rgba(182, 35, 35, 0.555) !important;
+    border: 2px solid var(--red) !important;
 }
 
 /* TAMANHOS */
@@ -292,7 +312,7 @@
         border-color .2s ease;
 }
 
-.glass:hover {
+div.glass:hover {
     border-color: rgba(255,255,255,0.18);
 
     box-shadow:

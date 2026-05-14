@@ -63,6 +63,10 @@ async function init() {
                 case "remove_client": return isClientPage ? location = "/home" : null;
             }
         });
+
+        document.querySelectorAll(".leave").forEach(el =>{
+            el.addEventListener("click", logout)
+        });
     };
 }
 

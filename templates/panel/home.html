@@ -63,7 +63,7 @@
     
     <div class="d-flex h-100">
         <!-- DOCKER/MENU -->
-        <aside class="d-flex flex-column flex-grow-1 flex-basis-200 justify-content-between h-100 gap-2 p-1 bg-gray-neutral">
+        <aside class="d-flex flex-column flex-grow-1 flex-basis-200 min-widht-300 justify-content-between h-100 gap-2 p-1 bg-gray-neutral">
             <div class="d-flex flex-column p-2">
                 <div class="d-flex align-items-center gap-2 mb-4">
                     <img src="https://api.hubbix.com.br/img/newFav.png" class="img-fluid img-thumbnail object-fit-contain" height="50" width="50" alt="favicon">
@@ -72,8 +72,12 @@
                         <span class="fs-6 text-secondary">Gerenciamento de websites.</span>
                     </div>
                 </div>
-                <button class="btn text-start active"><i class="bi bi-folder"></i> Clientes</button>
-                <button class="btn text-start"><i class="bi bi-graph-up-arrow"></i> Analytics</button>
+                <div class="d-flex flex-column gap-2">
+                    <button class="btn text-start active"><i class="bi bi-folder"></i> Clientes</button>
+                    <button class="btn disabled text-start"><i class="bi bi-graph-up-arrow"></i> Analytics</button>
+                    <button class="btn disabled text-start"><i class="bi bi-gear"></i> Configurações</button>
+                    <button class="btn leave text-start"><i class="bi bi-escape"></i> Sair</button>
+                </div>
             </div>
             <div class="d-flex flex-column p-2">
                 <hr class="mt-5">
@@ -98,7 +102,7 @@
             <!-- END INIT -->
 
             <!-- LIST OF CLIENTS -->
-            <div class="d-flex flex-column flex-grow-1 gap-4 p-2 flex-basis-700 overflow-y-auto" data-set="list_clients"></div>
+            <div class="d-flex flex-row flex-grow-1 flex-wrap gap-4 p-2 flex-basis-700 overflow-y-auto" data-set="list_clients"></div>
             <!-- END LIST OF CLIENTS -->
 
             <!-- STATS -->

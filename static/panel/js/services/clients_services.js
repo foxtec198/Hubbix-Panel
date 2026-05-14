@@ -4,7 +4,9 @@ import { ApiRequest } from "../utils/request.js";
 
 function createClientCard(data) {
     const card = document.createElement("div");
-    card.className = "d-flex flex-column gap-2 border glass p-4 rounded-4";
+    card.className = "d-flex flex-grow-1 flex-column gap-2 border glass p-4 rounded-4";
+    card.style.maxWidth = "450px"
+    card.style.minWidth = "450px"
 
     // HEADER
     const header = document.createElement("div");
