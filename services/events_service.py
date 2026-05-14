@@ -18,6 +18,7 @@ class EventService:
 
     def create(self, client, type):
         client_id = client["id"]
+        partnership_id = client["partnership_id"]
         user_agent = rq.headers.get("User-Agent", "")
         ip = rq.headers.get("CF-Connecting-IP", rq.headers.get("X-Forwarded-For", rq.remote_addr))
         fingerprint = sha256(f"{ip}:{user_agent}".encode()).hexdigest()
@@ -33,12 +34,12 @@ class EventService:
             ).first()
 
             if not event_exists:
-                new_event = Events(client_id=client_id, ip=ip, date=dt.now(), fingerprint=fingerprint, type=type)
+                new_event = Events(client_id=client_id, partnership_id=partnership_id, ip=ip, date=dt.now(), fingerprint=fingerprint, type=type)
                 db.session.add(new_event)
                 db.session.commit()
                 return jsonify(new_event.to_dict())
         else:
-            new_event = Events(client_id=client_id, ip=ip, date=dt.now(), fingerprint=fingerprint, type=type)
+            new_event = Events(client_id=client_id, partnership_id=partnership_id, ip=ip, date=dt.now(), fingerprint=fingerprint, type=type)
             db.session.add(new_event)
             db.session.commit()
             return jsonify(new_event.to_dict())

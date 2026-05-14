@@ -7,7 +7,6 @@ from hashlib import sha256
 class LoginService:
     def login(self): # Realiza o login devolvendo um token
         data = rq.form # Obtem o JSON 
-        print(rq.form)
         email = data.get("email", False) # Obtem o email default FALSe
         pwd = data.get("pwd", False) # Obtem a senha, default FALSE
         if email: # Confirma se foi passado o emial

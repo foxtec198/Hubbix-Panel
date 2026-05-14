@@ -13,6 +13,7 @@ class Events(BaseModel):
     )
 
     id = db.Column(db.Integer, primary_key=True)
+    partnership_id = db.Column(db.Integer)
     client_id = db.Column(db.Integer, nullable=False)
     ip = db.Column(db.String, nullable=False)
     fingerprint = db.Column(db.String(64), index=True)
